@@ -1,0 +1,11 @@
+# vim temp files
+*~
+*.swp
+*.swo
+*.vim
+# visual strudio ignored files
+res/KiwiEd.aps
+# ignored folders
+.cache
+/build/
+/temp/
