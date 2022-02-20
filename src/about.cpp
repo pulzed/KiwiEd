@@ -20,34 +20,26 @@
 #include "wx/gdicmn.h"
 #include "wx/sizer.h"
 #include "wx/textwrapper.h"
-#include "wx/toplevel.h"
-#include "wx/wxprec.h"
 #include <string>
-#ifndef WX_PRECOMP
-	#include "wx/wx.h"
-#endif
 
 #include "about.h"
 
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
 
-AboutDialog::AboutDialog(wxWindow *parent)
+KiwiAboutDialog::KiwiAboutDialog(wxWindow *parent)
 : wxDialog(parent, wxID_ANY, "About", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE)
 {
-	this->CentreOnParent();
-
 	wxBoxSizer* outerVSizer = new wxBoxSizer(wxVERTICAL);
-
 	wxBoxSizer* innerHSizer = new wxBoxSizer(wxHORIZONTAL);
+
+	const wxSize iconSize = FromDIP(wxSize(64, 64));
+	const int borderSize = FromDIP(wxSize(10, 10)).x;
 
 	wxImage icon(KiwiEd_xpm);
 
-	const wxSize iconSize = FromDIP(wxSize(64, 64));
-
 	wxStaticBitmap *bmpLogo = new wxStaticBitmap(this, wxID_ANY, wxBitmap(icon.Scale(iconSize.x, iconSize.y)));
 
-	const int borderSize = FromDIP(wxSize(10, 10)).x;
 
 	innerHSizer->Add(bmpLogo, 0, wxALL, borderSize);
 

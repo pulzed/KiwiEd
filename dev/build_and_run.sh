@@ -1,4 +1,5 @@
 #!/bin/bash
+# (run from project root: ./dev/build_and_run.sh)
 if [ "$1" = "debug" ]
 then
 	BUILD_TYPE="debug"

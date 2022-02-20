@@ -13,37 +13,50 @@
 
 #pragma once
 
-#ifndef KIWI_APP_H_
-#define KIWI_APP_H_
+#ifndef KIWI_KIWI_H
+#define KIWI_KIWI_H
 
 #include "wx/wxprec.h"
 #ifndef WX_PRECOMP
 	#include "wx/wx.h"
 #endif
 
-#include "config.h"
-
-class KiwiEdApp : public wxApp
+class KiwiWindow : public wxFrame
 {
 private:
-	KiwiConfig conf;
 
-public:
-	virtual bool OnInit();
-};
+	// top level menubar
+	wxMenuBar* menuBar;
 
-/*
-class KiwiEdFrame : public wxFrame
-{
-private:
+	// top level menubar menus
+	wxMenu* menuFile;
+	wxMenu* menuEdit;
+	wxMenu* menuView;
+	wxMenu* menuMap;
+	wxMenu* menuLayer;
+	wxMenu* menuTools;
+	wxMenu* menuHelp;
+
+	// file menu menu items
+	wxMenuItem* menuFileNew;
+	wxMenuItem* menuFileOpen;
+	wxMenuItem* menuFileSave;
+	wxMenuItem* menuFileSaveAs;
+	wxMenuItem* menuFileSaveTemplate;
+	wxMenuItem* menuExport;
+	wxMenuItem* menuExportAs;
+	wxMenuItem* menuClose;
+	wxMenuItem* menuCloseAll;
+	wxMenuItem* menuExit;
+
+	// 
+
 	// menu events
 	void OnMenuExit(wxCommandEvent& e);
 	void OnMenuAbout(wxCommandEvent& e);
 
 public:
-	KiwiEdFrame();
+	KiwiWindow();
 };
-*/
 
-#endif // KIWI_APP_H
-
+#endif // KIWI_KIWI_H

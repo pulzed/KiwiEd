@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //   _____             _____    __ 
 //  |  |  |__ _ _ _ __|   __|__|  |  2D map editor
-//  |    -,  | | | |  |   __|  _  |  version 0.0.1 dev
+//  |    -,  | | | |  |   __|  _  |  version 0.0.1
 //  |__|__|__|_____|__|_____|_____|  https://github.com/pulzed/KiwiEd
 //
 //  Licensed under GPL3 ( https://www.gnu.org/licenses/gpl-3.0.en.html )
@@ -22,22 +22,26 @@
 #endif
 
 #include "app.h"
-#include "about.h"
+#include "kiwi.h"
 
+/*
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
+*/
 
 wxIMPLEMENT_APP(KiwiEdApp); // implement wx application
 
 bool KiwiEdApp::OnInit()
 {
-	KiwiEdFrame* frame = new KiwiEdFrame();
+	// display main frame
+	KiwiWindow* frame = new KiwiWindow();
 	frame->SetSize(frame->FromDIP(wxSize(640, 480)));
-	frame->CentreOnScreen();
+	frame->CenterOnScreen();
 	frame->Show(true);
 	return true;
 }
 
+/*
 void KiwiEdFrame::OnMenuExit(wxCommandEvent& e)
 {
 	Close(true);
@@ -45,7 +49,8 @@ void KiwiEdFrame::OnMenuExit(wxCommandEvent& e)
 
 void KiwiEdFrame::OnMenuAbout(wxCommandEvent& e)
 {
-	AboutDialog* aboutDialog = new AboutDialog(this);
+	KiwiAboutDialog* aboutDialog = new KiwiAboutDialog(this);
+	aboutDialog->CenterOnParent();
 	aboutDialog->ShowModal();
 }
 
@@ -61,6 +66,9 @@ KiwiEdFrame::KiwiEdFrame()
 	menuOpenRecent->Append(300, "{recent3}");
 	menuOpenRecent->Append(400, "{recent4}");
 	menuOpenRecent->Append(500, "{recent5}");
+
+	wxMenuItem* menuTest = new wxMenuItem(menuOpenRecent, wxID_ANY, "Hello world", "Blah");
+	menuOpenRecent->Append(menuTest);
 
 	// file menu
 	wxMenu* menuFile = new wxMenu();
@@ -143,4 +151,4 @@ KiwiEdFrame::KiwiEdFrame()
 	Bind(wxEVT_MENU, &KiwiEdFrame::OnMenuExit, this, wxID_EXIT);
 	Bind(wxEVT_MENU, &KiwiEdFrame::OnMenuAbout, this, wxID_ABOUT);
 }
-
+*/

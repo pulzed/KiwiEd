@@ -21,10 +21,10 @@
 	#include "wx/wx.h"
 #endif
 
-class AboutDialog : public wxDialog
+class KiwiAboutDialog : public wxDialog
 {
 public:
-	AboutDialog(wxWindow *parent);
+	KiwiAboutDialog(wxWindow *parent);
 };
 
 #endif // KIWI_ABOUT_H_
