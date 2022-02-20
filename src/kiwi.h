@@ -40,16 +40,20 @@ private:
 	// file menu menu items
 	wxMenuItem* menuFileNew;
 	wxMenuItem* menuFileOpen;
+	wxMenu* menuFileOpenRecent;
 	wxMenuItem* menuFileSave;
 	wxMenuItem* menuFileSaveAs;
 	wxMenuItem* menuFileSaveTemplate;
-	wxMenuItem* menuExport;
-	wxMenuItem* menuExportAs;
-	wxMenuItem* menuClose;
-	wxMenuItem* menuCloseAll;
-	wxMenuItem* menuExit;
+	wxMenuItem* menuFileExport;
+	wxMenuItem* menuFileExportAs;
+	wxMenuItem* menuFileClose;
+	wxMenuItem* menuFileCloseAll;
+	wxMenuItem* menuFileExit;
 
-	// 
+	// help menu items
+	wxMenuItem* menuHelpContents;
+	wxMenuItem* menuHelpCheckForUpdates;
+	wxMenuItem* menuHelpAbout;
 
 	// menu events
 	void OnMenuExit(wxCommandEvent& e);
