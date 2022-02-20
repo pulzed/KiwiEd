@@ -35,6 +35,7 @@
 AboutDialog::AboutDialog(wxWindow *parent)
 : wxDialog(parent, wxID_ANY, "About", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE)
 {
+	this->CentreOnParent();
 
 	wxBoxSizer* outerVSizer = new wxBoxSizer(wxVERTICAL);
 
