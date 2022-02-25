@@ -13,24 +13,18 @@
 
 #pragma once
 
-#ifndef KIWI_APP_H_
-#define KIWI_APP_H_
+#ifndef KIWI_DLG_SETTINGS_H_
+#define KIWI_DLG_SETTINGS_H_
 
 #include "wx/wxprec.h"
 #ifndef WX_PRECOMP
 	#include "wx/wx.h"
 #endif
 
-#include "config.h"
-
-class KiwiApp : public wxApp
+class DlgSettings : public wxDialog
 {
-private:
-	KiwiConfig conf;
-
 public:
-	virtual bool OnInit();
+	DlgSettings(wxWindow *parent);
 };
 
-#endif // KIWI_APP_H_
-
+#endif // KIWI_DLG_SETTINGS_H_

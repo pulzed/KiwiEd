@@ -13,18 +13,18 @@
 
 #pragma once
 
-#ifndef KIWI_ABOUT_H_
-#define KIWI_ABOUT_H_
+#ifndef KIWI_DLG_ABOUT_H_
+#define KIWI_DLG_ABOUT_H_
 
 #include "wx/wxprec.h"
 #ifndef WX_PRECOMP
 	#include "wx/wx.h"
 #endif
 
-class KiwiAboutDialog : public wxDialog
+class DlgAbout : public wxDialog
 {
 public:
-	KiwiAboutDialog(wxWindow *parent);
+	DlgAbout(wxWindow *parent);
 };
 
-#endif // KIWI_ABOUT_H_
+#endif // KIWI_DLG_ABOUT_H_

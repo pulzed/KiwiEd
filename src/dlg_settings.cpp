@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
-//   _____             _____    __ 
+//   _____             _____    __
 //  |  |  |__ _ _ _ __|   __|__|  |  2D map editor
-//  |    -,  | | | |  |   __|  _  |  version 0.0.1
+//  |    -,  | | | |  |   __|  _  |  version 0.0.1 dev
 //  |__|__|__|_____|__|_____|_____|  https://github.com/pulzed/KiwiEd
 //
 //  Licensed under GPL3 ( https://www.gnu.org/licenses/gpl-3.0.en.html )
@@ -11,24 +11,19 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  app.cpp
-//  Main application window and program entry point.
+//  dlg_settings.cpp
+//  The settings dialog.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "app.h"
-#include "win_kiwi.h"
+#include "wx/wxprec.h"
+#ifndef WX_PRECOMP
+	#include "wx/wx.h"
+#endif
 
-wxIMPLEMENT_APP(KiwiApp); // implement wx application
+#include "dlg_settings.h"
 
-bool KiwiApp::OnInit()
+DlgSettings::DlgSettings(wxWindow *parent)
+: wxDialog(parent, wxID_ANY, "About", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE)
 {
-	// <TODO> fetch config
-
-	// display main window
-	WinKiwi* window = new WinKiwi();
-	window->SetSize(window->FromDIP(wxSize(640, 480)));
-	window->CenterOnScreen();
-	window->Show(true);
-	return true;
 }

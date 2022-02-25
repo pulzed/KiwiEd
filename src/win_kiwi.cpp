@@ -11,31 +11,43 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  kiwi.cpp
+//  win_kiwi.cpp
 //  Main application window.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "kiwi.h"
-#include "about.h"
-#include "wx/gtk/menu.h"
+#include "wx/wxprec.h"
+#ifndef WX_PRECOMP
+	#include "wx/wx.h"
+#endif
+
+#include "win_kiwi.h"
+#include "dlg_settings.h"
+#include "dlg_about.h"
 
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
 
-void KiwiWindow::OnMenuExit(wxCommandEvent& e)
+void WinKiwi::OnMenuExit(wxCommandEvent& e)
 {
 	Close(true);
 }
 
-void KiwiWindow::OnMenuAbout(wxCommandEvent& e)
+void WinKiwi::OnMenuAbout(wxCommandEvent& e)
 {
-	KiwiAboutDialog* aboutDialog = new KiwiAboutDialog(this);
+	DlgAbout* aboutDialog = new DlgAbout(this);
 	aboutDialog->CenterOnParent();
 	aboutDialog->ShowModal();
 }
 
-KiwiWindow::KiwiWindow()
+void WinKiwi::OnMenuSettings(wxCommandEvent& e)
+{
+	DlgSettings* settingsDialog = new DlgSettings(this);
+	settingsDialog->CenterOnParent();
+	settingsDialog->ShowModal();
+}
+
+WinKiwi::WinKiwi()
 : wxFrame(NULL, wxID_ANY, "KiwiEd")
 {
 	// set window icon
@@ -83,15 +95,15 @@ KiwiWindow::KiwiWindow()
 	menuBar->Append(menuLayer, "&Layer");
 
 	// tools menu
-	menuTools = new wxMenu();
-	menuBar->Append(menuTools, "&Tools");
-	
+	menuBar->Append((menuTools = new wxMenu()), "&Tools");
+	menuTools->Append(menuToolsSettings = new wxMenuItem(menuTools, wxID_ANY, "&Settings\tF8", "Show settings dialog"));
+	Bind(wxEVT_MENU, &WinKiwi::OnMenuSettings, this, menuToolsSettings->GetId());
+
 	// help menu
 	menuBar->Append((menuHelp = new wxMenu()), "&Help");
 	menuHelp->Append(menuHelpContents = new wxMenuItem(menuHelp, wxID_ANY, "&Contents\tF1", "Show help contents"));
 	menuHelp->Append(menuHelpCheckForUpdates = new wxMenuItem(menuHelp, wxID_ANY, "Check for &Updates", "Check online repository for updates"));
 	menuHelp->AppendSeparator();
 	menuHelp->Append(menuHelpAbout = new wxMenuItem(menuHelp, wxID_ANY, "&About", "Show about dialog"));
-	//menuHelp->Bind(wxEVT_MENU, &KiwiWindow::OnMenuAbout);
-	Bind(wxEVT_MENU, &KiwiWindow::OnMenuAbout, this, menuHelpAbout->GetId());
+	Bind(wxEVT_MENU, &WinKiwi::OnMenuAbout, this, menuHelpAbout->GetId());
 }

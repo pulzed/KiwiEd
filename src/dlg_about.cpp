@@ -11,23 +11,23 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  about.cpp
+//  dlg_about.cpp
 //  The about dialog.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "wx/dialog.h"
-#include "wx/gdicmn.h"
-#include "wx/sizer.h"
-#include "wx/textwrapper.h"
+#include "wx/wxprec.h"
+#ifndef WX_PRECOMP
+	#include "wx/wx.h"
+#endif
 #include <string>
 
-#include "about.h"
+#include "dlg_about.h"
 
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
 
-KiwiAboutDialog::KiwiAboutDialog(wxWindow *parent)
+DlgAbout::DlgAbout(wxWindow *parent)
 : wxDialog(parent, wxID_ANY, "About", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE)
 {
 	wxBoxSizer* outerVSizer = new wxBoxSizer(wxVERTICAL);

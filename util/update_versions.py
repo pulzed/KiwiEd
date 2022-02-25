@@ -9,12 +9,16 @@ if len(sys.argv) < 2:
 substituteVerString = sys.argv[1]
 
 sources = [
-	'../src/about.cpp',
-	'../src/about.h',
 	'../src/app.cpp',
 	'../src/app.h',
 	'../src/config.cpp',
-	'../src/config.h'
+	'../src/config.h',
+	'../src/dlg_about.cpp',
+	'../src/dlg_about.h',
+	'../src/dlg_settings.cpp',
+	'../src/dlg_settings.h',
+	'../src/win_kiwi.cpp',
+	'../src/win_kiwi.h'
 ]
 
 if __name__ == '__main__':

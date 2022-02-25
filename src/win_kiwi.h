@@ -13,18 +13,17 @@
 
 #pragma once
 
-#ifndef KIWI_KIWI_H
-#define KIWI_KIWI_H
+#ifndef KIWI_WIN_KIWI_H_
+#define KIWI_WIN_KIWI_H_
 
 #include "wx/wxprec.h"
 #ifndef WX_PRECOMP
 	#include "wx/wx.h"
 #endif
 
-class KiwiWindow : public wxFrame
+class WinKiwi : public wxFrame
 {
 private:
-
 	// top level menubar
 	wxMenuBar* menuBar;
 
@@ -37,7 +36,7 @@ private:
 	wxMenu* menuTools;
 	wxMenu* menuHelp;
 
-	// file menu menu items
+	// file menu items
 	wxMenuItem* menuFileNew;
 	wxMenuItem* menuFileOpen;
 	wxMenu* menuFileOpenRecent;
@@ -50,6 +49,9 @@ private:
 	wxMenuItem* menuFileCloseAll;
 	wxMenuItem* menuFileExit;
 
+	// tools menu items
+	wxMenuItem* menuToolsSettings;
+
 	// help menu items
 	wxMenuItem* menuHelpContents;
 	wxMenuItem* menuHelpCheckForUpdates;
@@ -59,8 +61,10 @@ private:
 	void OnMenuExit(wxCommandEvent& e);
 	void OnMenuAbout(wxCommandEvent& e);
 
+	void OnMenuSettings(wxCommandEvent& e);
+
 public:
-	KiwiWindow();
+	WinKiwi();
 };
 
-#endif // KIWI_KIWI_H
+#endif // KIWI_WIN_KIWI_H_
