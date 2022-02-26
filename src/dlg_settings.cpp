@@ -21,9 +21,55 @@
 	#include "wx/wx.h"
 #endif
 
+#include "wx/treectrl.h"
+
 #include "dlg_settings.h"
 
 DlgSettings::DlgSettings(wxWindow *parent)
-: wxDialog(parent, wxID_ANY, "About", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE)
+: wxDialog(parent, wxID_ANY, "Settings", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE)
 {
+	wxBoxSizer* outerVSizer = new wxBoxSizer(wxVERTICAL);
+	wxBoxSizer* innerHSizer = new wxBoxSizer(wxHORIZONTAL);
+
+	const int borderSize = FromDIP(10);
+
+	////innerHSizer->Add(CreateTextSizer("Test"), 0, wxALL, borderSize);
+
+
+
+    // Create a top-level panel to hold all the contents of the frame
+    wxPanel* panel = new wxPanel(this, wxID_ANY);
+
+    // Create a wxTreeCtrl control and add a few nodes to it
+    wxTreeCtrl* treeCtrl = new wxTreeCtrl(panel, wxID_ANY, wxDefaultPosition, wxSize(250, 400));
+
+    wxTreeItemId rootId = treeCtrl->AddRoot("Root");
+    treeCtrl->AppendItem(rootId, "Node 1");
+    wxTreeItemId child2Id = treeCtrl->AppendItem(rootId, "Node 2");
+    treeCtrl->AppendItem(child2Id, "Child of node 2");
+    treeCtrl->AppendItem(rootId, "Node 3");
+
+    // Expand all the nodes
+    treeCtrl->ExpandAll();
+
+
+	innerHSizer->Add(panel, 0, wxALL, borderSize);
+
+
+	wxPanel* panel2 = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(350, 400));
+
+
+	innerHSizer->Add(panel2, 0, wxALL, borderSize);
+
+
+
+	outerVSizer->Add(innerHSizer);
+
+	wxSizer* sizerBtns = CreateButtonSizer(wxOK | wxCANCEL);
+	outerVSizer->Add(sizerBtns, wxSizerFlags().Expand().Border(wxBOTTOM | wxLEFT, borderSize));
+
+	//outerVSizer->Add(new wxButton(this, wxID_OK, "Ok", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxTOP | wxRIGHT | wxBOTTOM | wxALIGN_RIGHT, borderSize);
+	//outerVSizer->Add(new wxButton(this, wxID_CANCEL, "Cancel", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxTOP | wxRIGHT | wxBOTTOM | wxALIGN_RIGHT, borderSize);
+
+	SetSizerAndFit(outerVSizer);
 }

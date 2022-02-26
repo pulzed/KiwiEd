@@ -34,7 +34,7 @@ DlgAbout::DlgAbout(wxWindow *parent)
 	wxBoxSizer* innerHSizer = new wxBoxSizer(wxHORIZONTAL);
 
 	const wxSize iconSize = FromDIP(wxSize(64, 64));
-	const int borderSize = FromDIP(wxSize(10, 10)).x;
+	const int borderSize = FromDIP(10);
 
 	wxImage icon(KiwiEd_xpm);
 
