@@ -47,8 +47,8 @@ DlgAbout::DlgAbout(wxWindow *parent)
 	innerHSizer->Add(
 		CreateTextSizer(
 			"KiwiEd\n"
-			"v0.0.1\n\n"
 			"2D map editor\n\n"
+			"v0.0.1\n\n"
 			"Copyright (c) 2022 Danijel Durakovic\n"
 			"Licensed under the terms of GPLv3"
 		),

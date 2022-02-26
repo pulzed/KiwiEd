@@ -26,11 +26,11 @@
 #include "dlg_settings.h"
 
 DlgSettings::DlgSettings(wxWindow *parent)
-: wxDialog(parent, wxID_ANY, "Settings", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE)
+: wxDialog(parent, wxID_ANY, "Settings", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER)
 {
 	const int borderSize = FromDIP(10);
 
-	wxBoxSizer* elmSizerOuterPadding = new wxBoxSizer(wxVERTICAL);
+	//wxBoxSizer* elmSizerOuterPadding = new wxBoxSizer(wxVERTICAL);
 
 	wxBoxSizer* outerVSizer = new wxBoxSizer(wxVERTICAL);
 	wxBoxSizer* innerHSizer = new wxBoxSizer(wxHORIZONTAL);
@@ -43,7 +43,7 @@ DlgSettings::DlgSettings(wxWindow *parent)
     wxPanel* panel = new wxPanel(this, wxID_ANY);
 
     // Create a wxTreeCtrl control and add a few nodes to it
-    wxTreeCtrl* treeCtrl = new wxTreeCtrl(panel, wxID_ANY, wxDefaultPosition, wxSize(250, 400));
+    wxTreeCtrl* treeCtrl = new wxTreeCtrl(panel, wxID_ANY, wxDefaultPosition, wxSize(250, 350));
 
     wxTreeItemId rootId = treeCtrl->AddRoot("Root");
     treeCtrl->AppendItem(rootId, "Node 1");
@@ -55,27 +55,26 @@ DlgSettings::DlgSettings(wxWindow *parent)
     treeCtrl->ExpandAll();
 
 
-	innerHSizer->Add(panel, 0);
+	innerHSizer->Add(panel, 0, wxALL, borderSize);
 
 
-	wxPanel* panel2 = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(350, 400));
+	wxPanel* panel2 = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(380, 350));
 
 
-	innerHSizer->Add(panel2, 0);
+	innerHSizer->Add(panel2, 0, wxALL, borderSize);
 
 
 
 	outerVSizer->Add(innerHSizer);
 
-	//wxBoxSizer* sizerButtons = new wxBoxSizer(wxHORIZONTAL);
+	wxBoxSizer* sizerButtons = new wxBoxSizer(wxHORIZONTAL);
 
-	wxSizer* sizerButtons = CreateButtonSizer(wxOK | wxCANCEL);
+	//wxSizer* sizerButtons = CreateButtonSizer(wxOK | wxCANCEL);
 
-	//sizerButtons->Add(new wxButton(this, wxID_OK, "Ok", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxLEFT, borderSize);
-	//sizerButtons->Add(new wxButton(this, wxID_CANCEL, "Cancel", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxLEFT, borderSize);
-	
+	sizerButtons->Add(new wxButton(this, wxID_OK, "Ok", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxLEFT, borderSize);
+	sizerButtons->Add(new wxButton(this, wxID_CANCEL, "Cancel", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxLEFT, borderSize);
 
-	outerVSizer->Add(sizerButtons, 0, wxTOP | wxALIGN_RIGHT, borderSize);
+	outerVSizer->Add(sizerButtons, 0, wxBOTTOM | wxRIGHT | wxALIGN_RIGHT, borderSize);
 
 	//outerVSizer->Add(sizerBtns, wxSizerFlags().Expand().Border(wxLEFT, borderSize));
 	//outerVSizer->Add(sizerBtns, 0);
@@ -83,9 +82,9 @@ DlgSettings::DlgSettings(wxWindow *parent)
 	//outerVSizer->Add(new wxButton(this, wxID_OK, "Ok", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxTOP | wxRIGHT | wxBOTTOM | wxALIGN_RIGHT, borderSize);
 	//outerVSizer->Add(new wxButton(this, wxID_CANCEL, "Cancel", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxTOP | wxRIGHT | wxBOTTOM | wxALIGN_RIGHT, borderSize);
 
-	//SetSizerAndFit(outerVSizer);
+	SetSizerAndFit(outerVSizer);
 
-	elmSizerOuterPadding->Add(outerVSizer, 0, wxALL, borderSize);
+	//elmSizerOuterPadding->Add(outerVSizer, 0, wxALL, borderSize);
 
-	SetSizerAndFit(elmSizerOuterPadding);
+	//SetSizerAndFit(elmSizerOuterPadding);
 }

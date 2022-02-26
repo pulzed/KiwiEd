@@ -71,10 +71,10 @@ WinKiwi::WinKiwi()
 	menuFile->Append(menuFileSaveAs = new wxMenuItem(menuFile, wxID_ANY, "Save &As...\tCtrl+Shift+S", "Save current map as"));
 	menuFile->AppendSeparator();
 	menuFile->Append(menuFileExport = new wxMenuItem(menuFile, wxID_ANY, "&Export\tCtrl+E", "Export current map"));
-	menuFile->Append(menuFileExportAs = new wxMenuItem(menuFile, wxID_ANY, "Ex&port As...\tCtrl+E", "Export current map as"));
+	menuFile->Append(menuFileExportAs = new wxMenuItem(menuFile, wxID_ANY, "Ex&port As...\tCtrl+Shift+E", "Export current map as"));
 	menuFile->AppendSeparator();
 	menuFile->Append(menuFileClose = new wxMenuItem(menuFile, wxID_ANY, "&Close\tCtrl+F4", "Close current map"));
-	menuFile->Append(menuFileCloseAll = new wxMenuItem(menuFile, wxID_ANY, "&Close All\tShift+Ctrl+F4", "Close all open"));
+	menuFile->Append(menuFileCloseAll = new wxMenuItem(menuFile, wxID_ANY, "&Close All\Ctrl+Shift+F4", "Close all open"));
 	menuFile->AppendSeparator();
 	menuFile->Append(menuFileExit = new wxMenuItem(menuFile, wxID_ANY, "E&xit\tAlt+F4", "Exit program"));
 	
