@@ -28,10 +28,12 @@
 DlgSettings::DlgSettings(wxWindow *parent)
 : wxDialog(parent, wxID_ANY, "Settings", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE)
 {
+	const int borderSize = FromDIP(10);
+
+	wxBoxSizer* elmSizerOuterPadding = new wxBoxSizer(wxVERTICAL);
+
 	wxBoxSizer* outerVSizer = new wxBoxSizer(wxVERTICAL);
 	wxBoxSizer* innerHSizer = new wxBoxSizer(wxHORIZONTAL);
-
-	const int borderSize = FromDIP(10);
 
 	////innerHSizer->Add(CreateTextSizer("Test"), 0, wxALL, borderSize);
 
@@ -53,23 +55,37 @@ DlgSettings::DlgSettings(wxWindow *parent)
     treeCtrl->ExpandAll();
 
 
-	innerHSizer->Add(panel, 0, wxALL, borderSize);
+	innerHSizer->Add(panel, 0);
 
 
 	wxPanel* panel2 = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(350, 400));
 
 
-	innerHSizer->Add(panel2, 0, wxALL, borderSize);
+	innerHSizer->Add(panel2, 0);
 
 
 
 	outerVSizer->Add(innerHSizer);
 
-	wxSizer* sizerBtns = CreateButtonSizer(wxOK | wxCANCEL);
-	outerVSizer->Add(sizerBtns, wxSizerFlags().Expand().Border(wxBOTTOM | wxLEFT, borderSize));
+	//wxBoxSizer* sizerButtons = new wxBoxSizer(wxHORIZONTAL);
+
+	wxSizer* sizerButtons = CreateButtonSizer(wxOK | wxCANCEL);
+
+	//sizerButtons->Add(new wxButton(this, wxID_OK, "Ok", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxLEFT, borderSize);
+	//sizerButtons->Add(new wxButton(this, wxID_CANCEL, "Cancel", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxLEFT, borderSize);
+	
+
+	outerVSizer->Add(sizerButtons, 0, wxTOP | wxALIGN_RIGHT, borderSize);
+
+	//outerVSizer->Add(sizerBtns, wxSizerFlags().Expand().Border(wxLEFT, borderSize));
+	//outerVSizer->Add(sizerBtns, 0);
 
 	//outerVSizer->Add(new wxButton(this, wxID_OK, "Ok", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxTOP | wxRIGHT | wxBOTTOM | wxALIGN_RIGHT, borderSize);
 	//outerVSizer->Add(new wxButton(this, wxID_CANCEL, "Cancel", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxTOP | wxRIGHT | wxBOTTOM | wxALIGN_RIGHT, borderSize);
 
-	SetSizerAndFit(outerVSizer);
+	//SetSizerAndFit(outerVSizer);
+
+	elmSizerOuterPadding->Add(outerVSizer, 0, wxALL, borderSize);
+
+	SetSizerAndFit(elmSizerOuterPadding);
 }
