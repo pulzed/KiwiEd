@@ -16,8 +16,6 @@
 #ifndef KIWI_CONFIG_H_
 #define KIWI_CONFIG_H_
 
-#include "kiwied.h"
-
 class KiwiConfig
 {
 public:

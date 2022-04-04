@@ -19,6 +19,8 @@ sources = [
 	'../src/app.h',
 	'../src/config.cpp',
 	'../src/config.h',
+	'../src/default_config.cpp',
+	'../src/default_config.h',
 	'../src/dlg_about.cpp',
 	'../src/dlg_about.h',
 	'../src/dlg_settings.cpp',
