@@ -35,6 +35,9 @@ private:
 	wxMenu* menuLayer;
 	wxMenu* menuTools;
 	wxMenu* menuHelp;
+#ifdef DEBUG
+	wxMenu* menuDebug;
+#endif
 
 	// file menu items
 	wxMenuItem* menuFileNew;
@@ -56,6 +59,11 @@ private:
 	wxMenuItem* menuHelpContents;
 	wxMenuItem* menuHelpCheckForUpdates;
 	wxMenuItem* menuHelpAbout;
+
+#ifdef DEBUG
+	// debug menu items
+	wxMenuItem* menuDebugShowLog;
+#endif
 
 	// menu events
 	void OnMenuOpen(wxCommandEvent& e);
