@@ -11,7 +11,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  win_kiwi.cpp
+//  kiwied.h
 //  Master header. Include this everywhere.
 //
 ////////////////////////////////////////////////////////////////////////////////
@@ -28,7 +28,6 @@
 
 // if debug features are required in this build, simply uncomment the following line
 //#define KIWI_DEBUG_FEATURES
-//
 
 // wxWidgets includes
 #include "wx/wxprec.h"
@@ -45,7 +44,7 @@
 #include "mini/ini.h"
 
 // classes  and implementations
-#include "default_config.h"
+#include "const.h"
 #include "config.h"
 
 // dialog and windows

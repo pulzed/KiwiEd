@@ -11,12 +11,11 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  default_config.cpp
-//  Default configuration INI file data. This file is updated automatically
-//  using inject_config util.
+//  const.cpp
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "default_config.h"
+#include "kiwied.h"
 
-const std::string DEFAULT_CONFIG_INI = "";
+const std::string KIWI_VERSION = "0.0.2";
+const std::string KIWI_DEFAULTCFG_INIDATA = "";

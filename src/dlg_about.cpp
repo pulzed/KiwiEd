@@ -12,7 +12,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 //  dlg_about.cpp
-//  The about dialog.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -42,7 +41,7 @@ DlgAbout::DlgAbout(wxWindow *parent)
 		CreateTextSizer(
 			"KiwiEd\n"
 			"2D map editor\n\n"
-			"v0.0.2\n\n"
+			"v" + KIWI_VERSION + "\n\n"
 			"Copyright (c) 2022 Danijel Durakovic\n"
 			"Licensed under the terms of GPLv3"
 		),

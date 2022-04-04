@@ -10,14 +10,20 @@
 //  Based on the wxWidgets library ( https://www.wxwidgets.org/ )
 //
 ////////////////////////////////////////////////////////////////////////////////
+//
+//  const.h
+//  KiwiEd specific constants.
+//
+////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
 
-#ifndef KIWI_DEFAULT_CONFIG_H_
-#define KIWI_DEFAULT_CONFIG_H_
+#ifndef KIWI_CONST_H_
+#define KIWI_CONST_H_
 
 #include <string>
 
-extern const std::string DEFAULT_CONFIG_INI;
+extern const std::string KIWI_VERSION;
+extern const std::string KIWI_DEFAULTCFG_INIDATA;
 
-#endif // KIWI_DEFAULT_CONFIG_H_
+#endif // KIWI_CONST_H_
