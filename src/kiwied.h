@@ -47,10 +47,12 @@
 #include "const.h"
 #include "config.h"
 
-// dialog and windows
+// dialogs and windows
 #include "dlg_about.h"
 #include "dlg_settings.h"
-#include "win_kiwi.h"
+
+// main frame components and window
+#include "frm_kiwi.h"
 
 // application entry point
 #include "app.h"

@@ -22,7 +22,7 @@
 
 #include "kiwied.h"
 
-class WinKiwi : public wxFrame
+class FrmKiwi : public wxFrame
 {
 private:
 	// top level menubar
@@ -81,7 +81,7 @@ private:
 	void OnMenuAbout(wxCommandEvent& e);
 
 public:
-	WinKiwi();
+	FrmKiwi();
 };
 
 #endif // KIWI_WIN_KIWI_H_

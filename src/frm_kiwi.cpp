@@ -21,7 +21,7 @@
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
 
-void WinKiwi::OnMenuOpen(wxCommandEvent& e)
+void FrmKiwi::OnMenuOpen(wxCommandEvent& e)
 {
 	wxFileDialog* dlgOpenFile = new wxFileDialog(
 		this,
@@ -43,11 +43,11 @@ void WinKiwi::OnMenuOpen(wxCommandEvent& e)
 	dlgOpenFile->Destroy();
 }
 
-void WinKiwi::OnMenuSave(wxCommandEvent& e)
+void FrmKiwi::OnMenuSave(wxCommandEvent& e)
 {
 }
 
-void WinKiwi::OnMenuSaveAs(wxCommandEvent& e)
+void FrmKiwi::OnMenuSaveAs(wxCommandEvent& e)
 {
 	wxFileDialog *dlgSaveFile = new wxFileDialog(
 		this,
@@ -70,27 +70,27 @@ void WinKiwi::OnMenuSaveAs(wxCommandEvent& e)
 	dlgSaveFile->Destroy();
 }
 
-void WinKiwi::OnMenuExit(wxCommandEvent& e)
+void FrmKiwi::OnMenuExit(wxCommandEvent& e)
 {
 	// close window and exit application
 	Close(true);
 }
 
-void WinKiwi::OnMenuSettings(wxCommandEvent& e)
+void FrmKiwi::OnMenuSettings(wxCommandEvent& e)
 {
 	DlgSettings* settingsDialog = new DlgSettings(this);
 	settingsDialog->CenterOnParent();
 	settingsDialog->ShowModal();
 }
 
-void WinKiwi::OnMenuAbout(wxCommandEvent& e)
+void FrmKiwi::OnMenuAbout(wxCommandEvent& e)
 {
 	DlgAbout* aboutDialog = new DlgAbout(this);
 	aboutDialog->CenterOnParent();
 	aboutDialog->ShowModal();
 }
 
-WinKiwi::WinKiwi()
+FrmKiwi::FrmKiwi()
 : wxFrame(NULL, wxID_ANY, "KiwiEd")
 {
 	// set window icon
@@ -112,17 +112,17 @@ WinKiwi::WinKiwi()
 	menuFile->AppendSeparator();
 
 	menuFile->Append(menuFileOpen = new wxMenuItem(menuFile, wxID_ANY, "&Open...\tCtrl+O", "Open map from a file"));
-	Bind(wxEVT_MENU, &WinKiwi::OnMenuOpen, this, menuFileOpen->GetId());
+	Bind(wxEVT_MENU, &FrmKiwi::OnMenuOpen, this, menuFileOpen->GetId());
 	
 	menuFile->AppendSubMenu((menuFileOpenRecent = new wxMenu()), "Open &Recent");
 
 	menuFile->AppendSeparator();
 
 	menuFile->Append(menuFileSave = new wxMenuItem(menuFile, wxID_ANY, "&Save\tCtrl+S", "Save current map"));
-	Bind(wxEVT_MENU, &WinKiwi::OnMenuSave, this, menuFileSave->GetId());
+	Bind(wxEVT_MENU, &FrmKiwi::OnMenuSave, this, menuFileSave->GetId());
 
 	menuFile->Append(menuFileSaveAs = new wxMenuItem(menuFile, wxID_ANY, "Save &As...\tCtrl+Shift+S", "Save current map as"));
-	Bind(wxEVT_MENU, &WinKiwi::OnMenuSaveAs, this, menuFileSaveAs->GetId());
+	Bind(wxEVT_MENU, &FrmKiwi::OnMenuSaveAs, this, menuFileSaveAs->GetId());
 
 	menuFile->AppendSeparator();
 
@@ -141,7 +141,7 @@ WinKiwi::WinKiwi()
 	menuFile->AppendSeparator();
 	
 	menuFile->Append(menuFileExit = new wxMenuItem(menuFile, wxID_ANY, "E&xit\tAlt+F4", "Exit program"));
-	Bind(wxEVT_MENU, &WinKiwi::OnMenuExit, this, menuFileExit->GetId());
+	Bind(wxEVT_MENU, &FrmKiwi::OnMenuExit, this, menuFileExit->GetId());
 	
 	// (submenu) open recent file submenu
 	menuFileOpenRecent->Append(menuFileOpenRecentNoRecentItems = new wxMenuItem(menuFile, wxID_ANY, "(no recent items)"));
@@ -195,7 +195,7 @@ WinKiwi::WinKiwi()
 	// tools menu
 	menuBar->Append((menuTools = new wxMenu()), "&Tools");
 	menuTools->Append(menuToolsSettings = new wxMenuItem(menuTools, wxID_ANY, "&Settings\tF8", "Show settings dialog"));
-	Bind(wxEVT_MENU, &WinKiwi::OnMenuSettings, this, menuToolsSettings->GetId());
+	Bind(wxEVT_MENU, &FrmKiwi::OnMenuSettings, this, menuToolsSettings->GetId());
 
 	// help menu
 	menuBar->Append((menuHelp = new wxMenu()), "&Help");
@@ -205,7 +205,7 @@ WinKiwi::WinKiwi()
 	menuHelp->AppendSeparator();
 
 	menuHelp->Append(menuHelpAbout = new wxMenuItem(menuHelp, wxID_ANY, "&About", "Show about dialog"));
-	Bind(wxEVT_MENU, &WinKiwi::OnMenuAbout, this, menuHelpAbout->GetId());
+	Bind(wxEVT_MENU, &FrmKiwi::OnMenuAbout, this, menuHelpAbout->GetId());
 
 #ifdef KIWI_DEBUG_FEATURES
 	// debug menu

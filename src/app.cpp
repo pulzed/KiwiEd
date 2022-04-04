@@ -24,7 +24,7 @@ bool KiwiApp::OnInit()
 	// <TODO> fetch config
 
 	// display main window
-	WinKiwi* window = new WinKiwi();
+	FrmKiwi* window = new FrmKiwi();
 	window->SetSize(window->FromDIP(wxSize(640, 480)));
 	window->CenterOnScreen();
 	window->Show(true);
