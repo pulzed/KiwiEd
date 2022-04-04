@@ -21,8 +21,8 @@
 #ifndef KIWI_KIWIED_H_
 #define KIWI_KIWIED_H_
 
-#ifdef DEBUG
-	// implement debug features for debug builds
+#if defined(DEBUG) || defined(_DEBUG)
+	// implement debug features when building debug
 	#define KIWI_DEBUG_FEATURES
 #endif
 
