@@ -81,7 +81,7 @@ BEGIN
             VALUE "FileVersion", "1.0.0.0"
             VALUE "InternalName", "KiwiEd"
             VALUE "LegalCopyright", "(c) 2022 Danijel Durakovic"
-            VALUE "OriginalFilename", "KiwiEd"
+            VALUE "OriginalFilename", "KiwiEd.exe"
             VALUE "ProductName", "KiwiEd"
             VALUE "ProductVersion", "0.0.2.0"
         END
