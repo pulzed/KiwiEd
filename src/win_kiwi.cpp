@@ -113,11 +113,7 @@ WinKiwi::WinKiwi()
 	SetMenuBar(menuBar);
 
 	// file menu
-#ifdef NDEBUG
-	menuBar->Append((menuFile = new wxMenu()), "&File DEBUG");
-#else
 	menuBar->Append((menuFile = new wxMenu()), "&File");
-#endif
 	menuFile->Append(menuFileNew = new wxMenuItem(menuFile, wxID_ANY, "&New...\tCtrl+N", "Create new map"));
 
 	menuFile->AppendSeparator();

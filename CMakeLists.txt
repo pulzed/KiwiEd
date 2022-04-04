@@ -7,6 +7,11 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # link time optimization
 set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE TRUE CACHE INTERNAL "")	# only enable on release
 
+# debug build
+if (CMAKE_BUILD_TYPE STREQUAL Debug)
+	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -DDEBUG")
+endif()
+
 file(GLOB source "src/*.cpp" "src/*.hpp" "src/*.h")
 add_executable("${PROJECT_NAME}" WIN32 ${source} "res/KiwiEd.rc")
 
