@@ -16,10 +16,7 @@
 #ifndef KIWI_WIN_KIWI_H_
 #define KIWI_WIN_KIWI_H_
 
-#include "wx/wxprec.h"
-#ifndef WX_PRECOMP
-	#include "wx/wx.h"
-#endif
+#include "kiwied.h"
 
 class WinKiwi : public wxFrame
 {
@@ -35,7 +32,7 @@ private:
 	wxMenu* menuLayer;
 	wxMenu* menuTools;
 	wxMenu* menuHelp;
-#ifdef DEBUG
+#ifdef KIWI_DEBUG_FEATURES
 	wxMenu* menuDebug;
 #endif
 
@@ -60,7 +57,7 @@ private:
 	wxMenuItem* menuHelpCheckForUpdates;
 	wxMenuItem* menuHelpAbout;
 
-#ifdef DEBUG
+#ifdef KIWI_DEBUG_FEATURES
 	// debug menu items
 	wxMenuItem* menuDebugShowLog;
 #endif

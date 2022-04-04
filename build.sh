@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e # exit on first error
+
 if [ "$1" = "debug" ]
 then
 	BUILD_TYPE="Debug"
@@ -27,6 +30,7 @@ else
 		esac
 	done
 fi
+
 echo "== Building $BUILD_TYPE =="
 EXP_CC=false
 if [ "$2" = "-c" ]

@@ -16,12 +16,7 @@
 #ifndef KIWI_APP_H_
 #define KIWI_APP_H_
 
-#include "wx/wxprec.h"
-#ifndef WX_PRECOMP
-	#include "wx/wx.h"
-#endif
-
-#include "config.h"
+#include "kiwied.h"
 
 class KiwiApp : public wxApp
 {

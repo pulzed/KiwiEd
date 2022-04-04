@@ -16,14 +16,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "wx/wxprec.h"
-#ifndef WX_PRECOMP
-	#include "wx/wx.h"
-#endif
-
-#include "win_kiwi.h"
-#include "dlg_settings.h"
-#include "dlg_about.h"
+#include "kiwied.h"
 
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
@@ -177,7 +170,7 @@ WinKiwi::WinKiwi()
 	menuHelp->Append(menuHelpAbout = new wxMenuItem(menuHelp, wxID_ANY, "&About", "Show about dialog"));
 	Bind(wxEVT_MENU, &WinKiwi::OnMenuAbout, this, menuHelpAbout->GetId());
 
-#ifdef DEBUG
+#ifdef KIWI_DEBUG_FEATURES
 	// debug menu
 	menuBar->Append((menuDebug = new wxMenu()), "&DEBUG");
 	menuDebug->Append(menuDebugShowLog = new wxMenuItem(menuDebug, wxID_ANY, "Show &Log", "Show the log window"));

@@ -1,4 +1,4 @@
-# This util injects data from dev/config.ini into default_config.cpp source file.
+# This util injects data from dev/config.ini into src/default_config.cpp.
 #
 # WARNING Always run on a clean working tree, then diff and make sure everything is
 # in order before commiting to branch!

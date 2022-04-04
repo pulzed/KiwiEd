@@ -16,13 +16,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "wx/wxprec.h"
-#ifndef WX_PRECOMP
-	#include "wx/wx.h"
-#endif
-#include <string>
-
-#include "dlg_about.h"
+#include "kiwied.h"
 
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"

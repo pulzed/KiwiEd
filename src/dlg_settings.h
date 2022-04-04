@@ -16,10 +16,7 @@
 #ifndef KIWI_DLG_SETTINGS_H_
 #define KIWI_DLG_SETTINGS_H_
 
-#include "wx/wxprec.h"
-#ifndef WX_PRECOMP
-	#include "wx/wx.h"
-#endif
+#include "kiwied.h"
 
 class DlgSettings : public wxDialog
 {

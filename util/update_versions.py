@@ -1,4 +1,4 @@
-# This util globally update version numbers across source headers and other places.
+# This util globally updates version numbers across source headers and other places.
 #
 # WARNING Always run on a clean working tree, then diff and make sure everything is
 # in order before commiting to branch!

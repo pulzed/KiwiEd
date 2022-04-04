@@ -16,15 +16,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "wx/gdicmn.h"
-#include "wx/wxprec.h"
-#ifndef WX_PRECOMP
-	#include "wx/wx.h"
-#endif
-
-#include "wx/treectrl.h"
-
-#include "dlg_settings.h"
+#include "kiwied.h"
 
 DlgSettings::DlgSettings(wxWindow *parent)
 : wxDialog(parent, wxID_ANY, "Settings", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER)

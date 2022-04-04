@@ -16,9 +16,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "config.h"
-#include "default_config.h"
-#include "mini/ini.h"
+#include "kiwied.h"
 
 KiwiConfig::KiwiConfig()
 {

@@ -16,10 +16,7 @@
 #ifndef KIWI_DLG_ABOUT_H_
 #define KIWI_DLG_ABOUT_H_
 
-#include "wx/wxprec.h"
-#ifndef WX_PRECOMP
-	#include "wx/wx.h"
-#endif
+#include "kiwied.h"
 
 class DlgAbout : public wxDialog
 {

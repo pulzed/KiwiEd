@@ -11,23 +11,45 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  app.cpp
-//  Main application window and program entry point.
+//  win_kiwi.cpp
+//  Master header. Include this everywhere.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#pragma once
+
+#ifndef KIWI_KIWIED_H_
+#define KIWI_KIWIED_H_
+
+#ifdef DEBUG
+	// implement debug features for debug builds
+	#define KIWI_DEBUG_FEATURES
+#endif
+
+// wxWidgets includes
+#include "wx/wxprec.h"
+#ifndef WX_PRECOMP
+	#include "wx/wx.h"
+#endif
+#include "wx/treectrl.h"
+#include "wx/gdicmn.h"
+
+// STL includes
+#include <string>
+
+// thirdparty includes
+#include "mini/ini.h"
+
+// classes  and implementations
+#include "default_config.h"
+#include "config.h"
+
+// dialog and windows
+#include "dlg_about.h"
+#include "dlg_settings.h"
+#include "win_kiwi.h"
+
+// application entry point
 #include "app.h"
 
-wxIMPLEMENT_APP(KiwiApp); // implement wx application
-
-bool KiwiApp::OnInit()
-{
-	// <TODO> fetch config
-
-	// display main window
-	WinKiwi* window = new WinKiwi();
-	window->SetSize(window->FromDIP(wxSize(640, 480)));
-	window->CenterOnScreen();
-	window->Show(true);
-	return true;
-}
+#endif // KIWI_KIWIED_H_
