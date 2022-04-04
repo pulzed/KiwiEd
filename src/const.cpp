@@ -17,5 +17,17 @@
 
 #include "kiwied.h"
 
-const std::string KIWI_VERSION = "0.0.2";
-const std::string KIWI_DEFAULTCFG_INIDATA = "";
+// current KiwiEd version
+// this MUST exist on line 22 because it auto-updates with the "update_versions" util
+const std::string KIWIED_VERSION = "0.0.2";
+
+// hardcoded configuration file
+// this MUST exist on line 26 because it auto-updates with the "inject_config" util
+const std::string KIWIED_CFG_INIDATA = "";
+
+// KiwiEd configuration file
+#ifdef __linux__
+const std::string KIWIED_CFG_FILENAME = "~/.kiwied";
+#else
+const std::string KIWIED_CFG_FILENAME = "KiwiEd.ini";
+#endif

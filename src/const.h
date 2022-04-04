@@ -23,7 +23,8 @@
 
 #include <string>
 
-extern const std::string KIWI_VERSION;
-extern const std::string KIWI_DEFAULTCFG_INIDATA;
+extern const std::string KIWIED_VERSION;
+extern const std::string KIWIED_CFG_INIDATA;
+extern const std::string KIWIED_CFG_FILENAME;
 
 #endif // KIWI_CONST_H_
