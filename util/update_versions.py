@@ -23,6 +23,7 @@ sources = [
 	'../src/dlg_about.h',
 	'../src/dlg_settings.cpp',
 	'../src/dlg_settings.h',
+	'../src/kiwied.h',
 	'../src/win_kiwi.cpp',
 	'../src/win_kiwi.h'
 ]
