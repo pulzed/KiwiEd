@@ -126,6 +126,10 @@ WinKiwi::WinKiwi()
 
 	menuFile->AppendSeparator();
 
+	menuFile->Append(new wxMenuItem(menuFile, wxID_ANY, "Save &Template...", "Save current map as a template"));
+
+	menuFile->AppendSeparator();
+
 	menuFile->Append(menuFileExport = new wxMenuItem(menuFile, wxID_ANY, "&Export\tCtrl+E", "Export current map"));
 	menuFile->Append(menuFileExportAs = new wxMenuItem(menuFile, wxID_ANY, "Ex&port As...\tCtrl+Shift+E", "Export current map as"));
 
@@ -143,6 +147,21 @@ WinKiwi::WinKiwi()
 	menuEdit = new wxMenu();
 	menuBar->Append(menuEdit, "&Edit");
 
+	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "&Undo\tCtrl+Z", "Undo last action"));
+	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "&Redo\tCtrl+Y", "Redo last action"));
+
+	menuEdit->AppendSeparator();
+
+	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "Cu&t\tCtrl+X", "Cut selection"));
+	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "&Copy\tCtrl+C", "Copy selection"));
+	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "&Paste\tCtrl+V", "Paste from clipboard"));
+	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "&Delete\tDel", "Delete selection"));
+
+	menuEdit->AppendSeparator();
+
+	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "Select &All\tCtrl+A", "Select everything in view"));
+	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "Select &None\tEsc", "Cancel selection"));
+
 	// view menu
 	menuView = new wxMenu();
 	menuBar->Append(menuView, "&View");
@@ -154,6 +173,20 @@ WinKiwi::WinKiwi()
 	// layer menu
 	menuLayer = new wxMenu();
 	menuBar->Append(menuLayer, "&Layer");
+
+	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Create New...\tCtrl+Shift+N", "Create a new layer"));
+	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Duplicate\tCtrl+Shift+D", "Duplicate current layer"));
+	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Merge...\tCtrl+Shift+M", "Merge this layer with another"));
+	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "Dele&te", "Delete current layer"));
+
+	menuLayer->AppendSeparator();
+
+	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Raise\tCtrl+PgUp", "Raises layer to one level above current"));
+	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Lower\tCtrl+PgDn", "Lowers layer to one level below current"));
+
+	menuLayer->AppendSeparator();
+
+	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Properties...\tF7", "Display layer properties"));
 
 	// tools menu
 	menuBar->Append((menuTools = new wxMenu()), "&Tools");
@@ -173,6 +206,6 @@ WinKiwi::WinKiwi()
 #ifdef KIWI_DEBUG_FEATURES
 	// debug menu
 	menuBar->Append((menuDebug = new wxMenu()), "&DEBUG");
-	menuDebug->Append(menuDebugShowLog = new wxMenuItem(menuDebug, wxID_ANY, "Show &Log", "Show the log window"));
+	menuDebug->Append(menuDebugShowLog = new wxMenuItem(menuDebug, wxID_ANY, "Show &Log Window...", "Show the log window"));
 #endif
 }

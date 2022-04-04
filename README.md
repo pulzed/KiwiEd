@@ -4,9 +4,11 @@
 
 2D level editor.
 
+Version 0.0.2
+
 ## Info
 
-Work in progress.
+Work in progress, come back later.
 
 ## Credits
 

@@ -42,7 +42,7 @@ DlgAbout::DlgAbout(wxWindow *parent)
 		CreateTextSizer(
 			"KiwiEd\n"
 			"2D map editor\n\n"
-			"v0.0.1\n\n"
+			"v0.0.2\n\n"
 			"Copyright (c) 2022 Danijel Durakovic\n"
 			"Licensed under the terms of GPLv3"
 		),

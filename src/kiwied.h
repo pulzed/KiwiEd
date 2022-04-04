@@ -26,6 +26,10 @@
 	#define KIWI_DEBUG_FEATURES
 #endif
 
+// if debug features are required in this build, simply uncomment the following line
+//#define KIWI_DEBUG_FEATURES
+//
+
 // wxWidgets includes
 #include "wx/wxprec.h"
 #ifndef WX_PRECOMP
