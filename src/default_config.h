@@ -13,18 +13,11 @@
 
 #pragma once
 
-#ifndef KIWI_DLG_SETTINGS_H_
-#define KIWI_DLG_SETTINGS_H_
+#ifndef KIWI_DEFAULT_CONFIG_H_
+#define KIWI_DEFAULT_CONFIG_H_
 
-#include "wx/wxprec.h"
-#ifndef WX_PRECOMP
-	#include "wx/wx.h"
-#endif
+#include <string>
 
-class DlgSettings : public wxDialog
-{
-public:
-	DlgSettings(wxWindow *parent);
-};
+extern const std::string DEFAULT_CONFIG_INI;
 
-#endif // KIWI_DLG_SETTINGS_H_
+#endif // KIWI_DEFAULT_CONFIG_H_

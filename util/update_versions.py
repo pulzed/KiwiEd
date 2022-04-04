@@ -1,8 +1,9 @@
+# This util globally update version numbers across source headers and other places.
 #
-# This util globally update version numbers across source headers and other places
-# WARNING Always run on a clean working tree and diff before commiting to branch!
+# WARNING Always run on a clean working tree, then diff and make sure everything is
+# in order before commiting to branch!
+#
 # DEFINITELY don't run if you have no idea what you're doing.
-#
 
 import fileinput
 import sys

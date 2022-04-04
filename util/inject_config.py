@@ -1,8 +1,9 @@
+# This util injects data from dev/config.ini into default_config.cpp source file.
 #
-# This util updates config.cpp and injects the contents of dev/config.ini into it.
-# WARNING Always run on a clean working tree and diff before commiting to branch!
+# WARNING Always run on a clean working tree, then diff and make sure everything is
+# in order before commiting to branch!
+#
 # DEFINITELY don't run if you have no idea what you're doing.
-#
 
 import fileinput
 import sys

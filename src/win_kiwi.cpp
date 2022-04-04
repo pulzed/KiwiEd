@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 //   _____             _____    __ 
 //  |  |  |__ _ _ _ __|   __|__|  |  2D map editor
-//  |    -,  | | | |  |   __|  _  |  version 0.0.1
+//  |    -,  | | | |  |   __|  _  |  version 0.0.2
 //  |__|__|__|_____|__|_____|_____|  https://github.com/pulzed/KiwiEd
 //
 //  Licensed under GPL3 ( https://www.gnu.org/licenses/gpl-3.0.en.html )
@@ -113,7 +113,11 @@ WinKiwi::WinKiwi()
 	SetMenuBar(menuBar);
 
 	// file menu
+#ifdef NDEBUG
+	menuBar->Append((menuFile = new wxMenu()), "&File DEBUG");
+#else
 	menuBar->Append((menuFile = new wxMenu()), "&File");
+#endif
 	menuFile->Append(menuFileNew = new wxMenuItem(menuFile, wxID_ANY, "&New...\tCtrl+N", "Create new map"));
 
 	menuFile->AppendSeparator();

@@ -10,21 +10,13 @@
 //  Based on the wxWidgets library ( https://www.wxwidgets.org/ )
 //
 ////////////////////////////////////////////////////////////////////////////////
+//
+//  default_config.cpp
+//  Default configuration INI file data. This file is updated automatically
+//  using inject_config util.
+//
+////////////////////////////////////////////////////////////////////////////////
 
-#pragma once
+#include "default_config.h"
 
-#ifndef KIWI_DLG_SETTINGS_H_
-#define KIWI_DLG_SETTINGS_H_
-
-#include "wx/wxprec.h"
-#ifndef WX_PRECOMP
-	#include "wx/wx.h"
-#endif
-
-class DlgSettings : public wxDialog
-{
-public:
-	DlgSettings(wxWindow *parent);
-};
-
-#endif // KIWI_DLG_SETTINGS_H_
+const std::string DEFAULT_CONFIG_INI = "";
