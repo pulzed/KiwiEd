@@ -16,6 +16,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#include "wx/gdicmn.h"
 #include "wx/wxprec.h"
 #ifndef WX_PRECOMP
 	#include "wx/wx.h"
@@ -69,22 +70,10 @@ DlgSettings::DlgSettings(wxWindow *parent)
 
 	wxBoxSizer* sizerButtons = new wxBoxSizer(wxHORIZONTAL);
 
-	//wxSizer* sizerButtons = CreateButtonSizer(wxOK | wxCANCEL);
-
-	sizerButtons->Add(new wxButton(this, wxID_OK, "Ok", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxLEFT, borderSize);
-	sizerButtons->Add(new wxButton(this, wxID_CANCEL, "Cancel", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxLEFT, borderSize);
+	sizerButtons->Add(new wxButton(this, wxID_ANY, "Ok", wxDefaultPosition, FromDIP(wxSize(105,28))), 0, wxLEFT, borderSize);
+	sizerButtons->Add(new wxButton(this, wxID_ANY, "Cancel", wxDefaultPosition, FromDIP(wxSize(105,28))), 0, wxLEFT, borderSize);
 
 	outerVSizer->Add(sizerButtons, 0, wxBOTTOM | wxRIGHT | wxALIGN_RIGHT, borderSize);
 
-	//outerVSizer->Add(sizerBtns, wxSizerFlags().Expand().Border(wxLEFT, borderSize));
-	//outerVSizer->Add(sizerBtns, 0);
-
-	//outerVSizer->Add(new wxButton(this, wxID_OK, "Ok", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxTOP | wxRIGHT | wxBOTTOM | wxALIGN_RIGHT, borderSize);
-	//outerVSizer->Add(new wxButton(this, wxID_CANCEL, "Cancel", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxTOP | wxRIGHT | wxBOTTOM | wxALIGN_RIGHT, borderSize);
-
 	SetSizerAndFit(outerVSizer);
-
-	//elmSizerOuterPadding->Add(outerVSizer, 0, wxALL, borderSize);
-
-	//SetSizerAndFit(elmSizerOuterPadding);
 }

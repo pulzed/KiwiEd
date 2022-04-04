@@ -54,7 +54,9 @@ WinKiwi::WinKiwi()
 	SetIcon(wxIcon(KiwiEd_xpm));
 
 	////////////////////////////////////////////////////////////////////////////
+	//
 	// create the menubar
+	//
 	////////////////////////////////////////////////////////////////////////////
 
 	menuBar = new wxMenuBar();	
@@ -74,7 +76,7 @@ WinKiwi::WinKiwi()
 	menuFile->Append(menuFileExportAs = new wxMenuItem(menuFile, wxID_ANY, "Ex&port As...\tCtrl+Shift+E", "Export current map as"));
 	menuFile->AppendSeparator();
 	menuFile->Append(menuFileClose = new wxMenuItem(menuFile, wxID_ANY, "&Close\tCtrl+F4", "Close current map"));
-	menuFile->Append(menuFileCloseAll = new wxMenuItem(menuFile, wxID_ANY, "&Close All\Ctrl+Shift+F4", "Close all open"));
+	menuFile->Append(menuFileCloseAll = new wxMenuItem(menuFile, wxID_ANY, "&Close All\tCtrl+Shift+F4", "Close all open"));
 	menuFile->AppendSeparator();
 	menuFile->Append(menuFileExit = new wxMenuItem(menuFile, wxID_ANY, "E&xit\tAlt+F4", "Exit program"));
 	
