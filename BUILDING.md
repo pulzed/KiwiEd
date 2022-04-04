@@ -10,4 +10,4 @@ To generate compile_commands.json for clangd (you need this for autocompletion) 
 `./build.sh debug -c` or `./build.sh release -c`
 
 ### Windows:
-Run `build.bat`. VS should start automatically, then select type of build and build the project.
+Run `build.bat`. Visual Studio project should start automatically, then select type of build and build the project.

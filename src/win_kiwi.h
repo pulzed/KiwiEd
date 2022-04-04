@@ -53,6 +53,9 @@ private:
 	wxMenuItem* menuFileCloseAll;
 	wxMenuItem* menuFileExit;
 
+	// (submenu) open recent menu items
+	wxMenuItem* menuFileOpenRecentNoRecentItems;
+
 	// tools menu items
 	wxMenuItem* menuToolsSettings;
 
@@ -63,7 +66,7 @@ private:
 
 #ifdef KIWI_DEBUG_FEATURES
 	// debug menu items
-	wxMenuItem* menuDebugShowLog;
+	wxMenuItem* menuDebugShowLogWindow;
 #endif
 
 	// menu events

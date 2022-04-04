@@ -143,6 +143,10 @@ WinKiwi::WinKiwi()
 	menuFile->Append(menuFileExit = new wxMenuItem(menuFile, wxID_ANY, "E&xit\tAlt+F4", "Exit program"));
 	Bind(wxEVT_MENU, &WinKiwi::OnMenuExit, this, menuFileExit->GetId());
 	
+	// (submenu) open recent file submenu
+	menuFileOpenRecent->Append(menuFileOpenRecentNoRecentItems = new wxMenuItem(menuFile, wxID_ANY, "(no recent items)"));
+	menuFileOpenRecentNoRecentItems->Enable(false);
+
 	// edit menu
 	menuEdit = new wxMenu();
 	menuBar->Append(menuEdit, "&Edit");
@@ -206,6 +210,6 @@ WinKiwi::WinKiwi()
 #ifdef KIWI_DEBUG_FEATURES
 	// debug menu
 	menuBar->Append((menuDebug = new wxMenu()), "&DEBUG");
-	menuDebug->Append(menuDebugShowLog = new wxMenuItem(menuDebug, wxID_ANY, "Show &Log Window...", "Show the log window"));
+	menuDebug->Append(menuDebugShowLogWindow = new wxMenuItem(menuDebug, wxID_ANY, "Show &Log Window...", "Show the log window"));
 #endif
 }
