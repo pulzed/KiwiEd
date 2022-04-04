@@ -58,10 +58,15 @@ private:
 	wxMenuItem* menuHelpAbout;
 
 	// menu events
+	void OnMenuOpen(wxCommandEvent& e);
+	void OnMenuSave(wxCommandEvent& e);
+	void OnMenuSaveAs(wxCommandEvent& e);
+
 	void OnMenuExit(wxCommandEvent& e);
-	void OnMenuAbout(wxCommandEvent& e);
 
 	void OnMenuSettings(wxCommandEvent& e);
+
+	void OnMenuAbout(wxCommandEvent& e);
 
 public:
 	WinKiwi();

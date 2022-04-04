@@ -1,7 +1,8 @@
 = next =
 
-[ ] Load config, setup default config (add Python script to util to update current config.ini and inject it into config.cpp)
+[ ] Load config at init and setup default config handling
+[ ] Add Python script to util to update current dev/config.ini and inject the data into config.cpp
 
 = 1 : 4/4/22 =
 
-[ ] Add some dialogs
+[x] Add some dialogs
