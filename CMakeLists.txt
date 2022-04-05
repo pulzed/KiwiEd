@@ -17,7 +17,7 @@ add_executable("${PROJECT_NAME}" WIN32 ${source} "res/KiwiEd.rc")
 
 # wxWidgets
 set(wxBUILD_SHARED OFF CACHE INTERNAL "")
-add_subdirectory("thirdparty/wxWidgets-3.1.5" EXCLUDE_FROM_ALL)
+add_subdirectory("thirdparty/wxWidgets-3.1.6" EXCLUDE_FROM_ALL)
 
 target_link_libraries("${PROJECT_NAME}"
 	PUBLIC 
