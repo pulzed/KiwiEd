@@ -5,9 +5,12 @@
 [ ] Start adding dialogs and windows
 [ ] Create the UI for the Settings dialog
 [ ] Load config at init and setup default config handling
-[ ] Add Python script to util to update current dev/config.ini and inject the data into config.cpp
 [ ] Figure out how to manage application config
 [ ] Make update_versions.py util update versions in other files (about label, .rc resource file, README.md)
+
+= 2 : 4/6/22 =
+
+[ ] Add Python script to util to update current dev/config.ini and inject the data into config.cpp
 
 = 1 : 4/4/22 =
 

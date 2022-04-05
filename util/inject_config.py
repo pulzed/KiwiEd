@@ -8,4 +8,31 @@
 import fileinput
 import sys
 
-# todo
+# target sourcefile filename
+targetFilename = '../src/const.cpp'
+
+# ini data source filename
+iniFilename = '../dev/config.ini'
+
+# target line number
+lineToUpdate = 22
+
+# target string format
+lineFormat = 'const std::string KIWIED_CFG_INIDATA = "{inidata}";';
+
+def substituteConstLine(iniData):
+	for i, line in enumerate(fileinput.input(targetFilename, inplace=True)):
+		if i == lineToUpdate:
+			print(lineFormat.format(inidata = iniData))
+		else:
+			print(line, end='')
+
+def readIniData():
+	iniData = ''
+	with open(iniFilename, 'r') as file:
+		iniData = file.read().replace('\n', '\\n')
+	return iniData
+
+if __name__ == '__main__':
+	substituteConstLine(readIniData())
+	sys.stdout.write('Updated ' + targetFilename + '\n')
