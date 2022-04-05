@@ -15,14 +15,14 @@ targetFilename = '../src/const.cpp'
 iniFilename = '../dev/config.ini'
 
 # target line number
-lineToUpdate = 22
+lineToUpdate = 26
 
 # target string format
 lineFormat = 'const std::string KIWIED_CFG_INIDATA = "{inidata}";';
 
 def substituteConstLine(iniData):
 	for i, line in enumerate(fileinput.input(targetFilename, inplace=True)):
-		if i == lineToUpdate:
+		if i + 1 == lineToUpdate:
 			print(lineFormat.format(inidata = iniData))
 		else:
 			print(line, end='')
@@ -30,7 +30,7 @@ def substituteConstLine(iniData):
 def readIniData():
 	iniData = ''
 	with open(iniFilename, 'r') as file:
-		iniData = file.read().replace('\n', '\\n')
+		iniData = file.read().replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n')
 	return iniData
 
 if __name__ == '__main__':
