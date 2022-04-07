@@ -35,7 +35,7 @@ DlgSettings::DlgSettings(wxWindow *parent)
     wxPanel* panel = new wxPanel(this, wxID_ANY);
 
     // Create a wxTreeCtrl control and add a few nodes to it
-    wxTreeCtrl* treeCtrl = new wxTreeCtrl(panel, wxID_ANY, wxDefaultPosition, wxSize(250, 350));
+    wxTreeCtrl* treeCtrl = new wxTreeCtrl(panel, wxID_ANY, wxDefaultPosition, FromDIP(wxSize(250, 350)));
 
     wxTreeItemId rootId = treeCtrl->AddRoot("Root");
     treeCtrl->AppendItem(rootId, "Node 1");
@@ -50,7 +50,7 @@ DlgSettings::DlgSettings(wxWindow *parent)
 	innerHSizer->Add(panel, 0, wxALL, borderSize);
 
 
-	wxPanel* panel2 = new wxPanel(this, wxID_ANY, wxDefaultPosition, wxSize(380, 350));
+	wxPanel* panel2 = new wxPanel(this, wxID_ANY, wxDefaultPosition, FromDIP(wxSize(380, 350)));
 
 
 	innerHSizer->Add(panel2, 0, wxALL, borderSize);

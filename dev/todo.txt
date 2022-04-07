@@ -10,7 +10,7 @@
 
 = 2 : 4/6/22 =
 
-[ ] Add Python script to util to update current dev/config.ini and inject the data into config.cpp
+[x] Add Python script to util to update current dev/config.ini and inject the data into config.cpp
 
 = 1 : 4/4/22 =
 

@@ -26,12 +26,12 @@ DlgAbout::DlgAbout(wxWindow *parent)
 	wxBoxSizer* outerVSizer = new wxBoxSizer(wxVERTICAL);
 	wxBoxSizer* innerHSizer = new wxBoxSizer(wxHORIZONTAL);
 
-	const wxSize iconSize = FromDIP(wxSize(64, 64));
+	const wxSize iconSize = FromDIP(wxSize(48, 48));
 	const int borderSize = FromDIP(10);
 
 	wxImage icon(KiwiEd_xpm);
 
-	wxStaticBitmap *bmpLogo = new wxStaticBitmap(this, wxID_ANY, wxBitmap(icon.Scale(iconSize.x, iconSize.y)));
+	wxStaticBitmap *bmpLogo = new wxStaticBitmap(this, wxID_ANY, wxBitmap(icon.Scale(iconSize.GetWidth(), iconSize.GetHeight(), wxIMAGE_QUALITY_BILINEAR)));
 
 
 	innerHSizer->Add(bmpLogo, 0, wxALL, borderSize);
