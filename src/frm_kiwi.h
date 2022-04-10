@@ -70,6 +70,9 @@ private:
 	wxMenuItem* menuDebugShowLogWindow;
 #endif
 
+	// main window components
+	
+
 	// menu events
 	void OnMenuOpen(wxCommandEvent& e);
 	void OnMenuSave(wxCommandEvent& e);
