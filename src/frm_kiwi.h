@@ -84,6 +84,10 @@ private:
 
 	void OnMenuAbout(wxCommandEvent& e);
 
+	// component initialization functions (called at construction)
+	void InitializeGlobalMenu();
+	void InitializeStatusBar();
+
 public:
 	FrmKiwi();
 };

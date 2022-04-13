@@ -23,11 +23,12 @@
 
 class KiwiConfig
 {
-public:
-	KiwiConfig();
-
+private:
 	// Load default configuration.
 	void LoadDefault();
+
+public:
+	KiwiConfig();
 
 	// Load configuration. Load default if file not found.
 	void Load();

@@ -16,18 +16,21 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include "kiwied.h"
+#include "config.h"
+
+void KiwiConfig::LoadDefault()
+{
+}
 
 KiwiConfig::KiwiConfig()
 {
 	
 }
 
-void KiwiConfig::LoadDefault()
-{
-}
-
 void KiwiConfig::Load()
 {
+	
+	
 }
 
 bool KiwiConfig::Write()

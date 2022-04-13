@@ -16,6 +16,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include "kiwied.h"
+#include "frm_kiwi.h"
 
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
@@ -89,22 +90,15 @@ void FrmKiwi::OnMenuAbout(wxCommandEvent& e)
 	aboutDialog->ShowModal();
 }
 
-FrmKiwi::FrmKiwi()
-: wxFrame(NULL, wxID_ANY, "KiwiEd")
+inline void FrmKiwi :: InitializeGlobalMenu()
 {
-	// set minimum frame size
-	SetMinSize(FromDIP(wxSize(300, 200)));
-
-	// set window icon
-	SetIcon(wxIcon(KiwiEd_xpm));
-
 	////////////////////////////////////////////////////////////////////////////
 	//
-	//  Create the menubar
+	//  Initialize the menubar
 	//
 	////////////////////////////////////////////////////////////////////////////
 
-	menuBar = new wxMenuBar();	
+	menuBar = new wxMenuBar();
 	SetMenuBar(menuBar);
 
 	// file menu
@@ -130,7 +124,7 @@ FrmKiwi::FrmKiwi()
 
 	menuFile->Append(menuFileOpen = new wxMenuItem(menuFile, wxID_ANY, "&Open...\tCtrl+O", "Open map from a file"));
 	Bind(wxEVT_MENU, &FrmKiwi::OnMenuOpen, this, menuFileOpen->GetId());
-	
+
 	menuFile->AppendSubMenu((menuFileOpenRecent = new wxMenu()), "Open &Recent");
 
 	menuFile->AppendSeparator();
@@ -156,10 +150,10 @@ FrmKiwi::FrmKiwi()
 	menuFile->Append(menuFileCloseAll = new wxMenuItem(menuFile, wxID_ANY, "&Close All\tCtrl+Shift+F4", "Close all open"));
 
 	menuFile->AppendSeparator();
-	
+
 	menuFile->Append(menuFileExit = new wxMenuItem(menuFile, wxID_ANY, "E&xit\tAlt+F4", "Exit program"));
 	Bind(wxEVT_MENU, &FrmKiwi::OnMenuExit, this, menuFileExit->GetId());
-	
+
 	// (submenu) open recent file submenu
 	menuFileOpenRecent->Append(menuFileOpenRecentNoRecentItems = new wxMenuItem(menuFile, wxID_ANY, "(no recent items)"));
 	menuFileOpenRecentNoRecentItems->Enable(false);
@@ -229,13 +223,29 @@ FrmKiwi::FrmKiwi()
 	menuBar->Append((menuDebug = new wxMenu()), "&DEBUG");
 	menuDebug->Append(menuDebugShowLogWindow = new wxMenuItem(menuDebug, wxID_ANY, "Show &Log Window...", "Show the log window"));
 #endif
+}
 
+inline void FrmKiwi::InitializeStatusBar()
+{
 	////////////////////////////////////////////////////////////////////////////
 	//
-	//  Create the statusbar
+	//  Initialize the statusbar
 	//
 	////////////////////////////////////////////////////////////////////////////	
 
 	// (TODO custom status bar with embedded controls)
 	this->CreateStatusBar(2);
+}
+
+FrmKiwi::FrmKiwi()
+: wxFrame(NULL, wxID_ANY, "KiwiEd")
+{
+	// frame setup
+	SetMinSize(FromDIP(wxSize(300, 200))); // set minimum frame size
+	SetIcon(wxIcon(KiwiEd_xpm)); // set window icon
+	SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_APPWORKSPACE));
+
+	// initialize components
+	InitializeGlobalMenu();
+	InitializeStatusBar();
 }

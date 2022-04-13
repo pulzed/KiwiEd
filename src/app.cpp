@@ -15,13 +15,15 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#include "kiwied.h"
 #include "app.h"
 
 wxIMPLEMENT_APP(KiwiApp); // implement wx application
 
 bool KiwiApp::OnInit()
 {
-	// <TODO> fetch config
+	// load configuration
+	config.Load();
 
 	// display main window
 	FrmKiwi* window = new FrmKiwi();

@@ -45,6 +45,7 @@
 
 // classes  and implementations
 #include "const.h"
+#include "util.h"
 #include "config.h"
 
 // dialogs and windows

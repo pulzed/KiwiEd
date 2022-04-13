@@ -11,24 +11,18 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  app.h
-//  Program implementation and entry point.
+//  kiwied.h
+//  Master header. Include this everywhere.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#pragma once
+#include <fstream>
 
-#ifndef KIWI_APP_H_
-#define KIWI_APP_H_
+#include "kiwied.h"
+#include "util.h"
 
-class KiwiApp : public wxApp
+bool FileExists(std::string filename)
 {
-private:
-	KiwiConfig config;
-
-public:
-	virtual bool OnInit();
-};
-
-#endif // KIWI_APP_H_
-
+    std::ifstream infile(filename);
+    return infile.good();
+}
