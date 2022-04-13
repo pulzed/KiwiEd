@@ -92,6 +92,9 @@ void FrmKiwi::OnMenuAbout(wxCommandEvent& e)
 FrmKiwi::FrmKiwi()
 : wxFrame(NULL, wxID_ANY, "KiwiEd")
 {
+	// set minimum frame size
+	SetMinSize(FromDIP(wxSize(300, 200)));
+
 	// set window icon
 	SetIcon(wxIcon(KiwiEd_xpm));
 
@@ -106,7 +109,22 @@ FrmKiwi::FrmKiwi()
 
 	// file menu
 	menuBar->Append((menuFile = new wxMenu()), "&File");
-	menuFile->Append(menuFileNew = new wxMenuItem(menuFile, wxID_ANY, "&New...\tCtrl+N", "Create new map"));
+	//menuFile->Append(menuFileNew = new wxMenuItem(menuFile, wxID_ANY, "&New...\tCtrl+N", "Create new map"));
+
+
+
+	//test/////////
+	const wxSize iconSize = FromDIP(wxSize(16, 16));
+	wxImage icon(KiwiEd_xpm);
+
+	wxBitmap bmptTestIcon(icon.Scale(iconSize.GetWidth(), iconSize.GetHeight(), wxIMAGE_QUALITY_HIGH));
+
+
+	menuFileNew = new wxMenuItem(menuFile, wxID_ANY, "&New...\tCtrl+N", "Create new map");
+	menuFileNew->SetBitmap(bmptTestIcon);
+	menuFile->Append(menuFileNew);
+
+	//test/////////
 
 	menuFile->AppendSeparator();
 
@@ -125,7 +143,7 @@ FrmKiwi::FrmKiwi()
 
 	menuFile->AppendSeparator();
 
-	menuFile->Append(new wxMenuItem(menuFile, wxID_ANY, "Save &Template...", "Save current map as a template"));
+	menuFile->Append(menuFileSaveTemplate = new wxMenuItem(menuFile, wxID_ANY, "Save &Template...", "Save current map as a template"));
 
 	menuFile->AppendSeparator();
 

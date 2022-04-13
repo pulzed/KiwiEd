@@ -25,7 +25,7 @@ bool KiwiApp::OnInit()
 
 	// display main window
 	FrmKiwi* window = new FrmKiwi();
-	window->SetSize(window->FromDIP(wxSize(640, 480)));
+	window->SetSize(window->FromDIP(wxSize(800, 600)));
 	window->CenterOnScreen();
 	window->Show(true);
 	return true;
