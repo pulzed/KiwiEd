@@ -110,7 +110,8 @@ inline void FrmKiwi :: InitializeGlobalMenu()
 
 
 	//test/////////
-	const wxSize iconSize = FromDIP(wxSize(16, 16));
+	//const wxSize iconSize = FromDIP(wxSize(16, 16)); // fromDIP not needed for menu icons?
+	const wxSize iconSize = wxSize(16, 16);
 	wxImage iconNew(new_xpm);
 
 	wxBitmap bmptTestIcon(iconNew.Scale(iconSize.GetWidth(), iconSize.GetHeight(), wxIMAGE_QUALITY_HIGH));
