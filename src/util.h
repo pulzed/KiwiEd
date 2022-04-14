@@ -27,7 +27,7 @@ namespace KiwiUtil
 {
 
 	bool FileExists(const std::string& filename);
-	void WriteDefaultConfigFile();
+	void WriteDefaultConfigFile(const std::string& filename);
 
 }
 

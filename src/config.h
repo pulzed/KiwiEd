@@ -27,6 +27,8 @@ private:
 	// configuration INI structurs
 	mINI::INIStructure iniCfg;
 
+	std::string GetConfigurationFilename();
+
 public:
 	KiwiConfig();
 

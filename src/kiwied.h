@@ -39,6 +39,15 @@
 
 // STL includes
 #include <string>
+#include <fstream>
+#include <vector>
+
+#ifdef __linux__
+// linux-specific includes
+#include <unistd.h>
+#include <sys/types.h>
+#include <pwd.h>
+#endif
 
 // thirdparty includes
 #include "mini/ini.h"

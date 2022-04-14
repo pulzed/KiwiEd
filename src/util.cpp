@@ -17,7 +17,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 #include <string>
-#include <fstream>
 
 #include "kiwied.h"
 #include "util.h"
@@ -31,9 +30,9 @@ namespace KiwiUtil
         return in.good();
     }
 
-    void WriteDefaultConfigFile()
+    void WriteDefaultConfigFile(const std::string& filename)
     {
-        std::ofstream out(KIWIED_CFG_FILENAME);
+        std::ofstream out(filename);
         out << KIWIED_CFG_INIDATA;
         out.close();
     }

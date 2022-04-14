@@ -18,18 +18,32 @@
 #include "kiwied.h"
 #include "config.h"
 
+std::string KiwiConfig::GetConfigurationFilename()
+{
+#ifdef __linux__
+	const char* home;
+	if ((home = getenv("HOME")) == NULL) {
+		home = getpwuid(getuid())->pw_dir;
+	}
+	return std::string(home) + "/.kiwied";
+#else
+	return "KiwiEd.ini";
+#endif
+}
+
 KiwiConfig::KiwiConfig()
 {
 }
 
 void KiwiConfig::Load()
 {
+	std::string configFilename = GetConfigurationFilename();
 	// if there is no config file, create one
-	if (!KiwiUtil::FileExists(KIWIED_CFG_FILENAME)) {
-		KiwiUtil::WriteDefaultConfigFile();
+	if (!KiwiUtil::FileExists(configFilename)) {
+		KiwiUtil::WriteDefaultConfigFile(configFilename);
 	}
 	// read INI file into structure
-	mINI::INIFile iniFile(KIWIED_CFG_FILENAME);
+	mINI::INIFile iniFile(configFilename);
 	iniFile.read(iniCfg);
 }
 

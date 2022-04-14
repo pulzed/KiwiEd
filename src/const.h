@@ -25,6 +25,5 @@
 
 extern const std::string KIWIED_VERSION;
 extern const std::string KIWIED_CFG_INIDATA;
-extern const std::string KIWIED_CFG_FILENAME;
 
 #endif // KIWI_CONST_H_
