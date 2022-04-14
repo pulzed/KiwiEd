@@ -20,6 +20,8 @@
 
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
+#include "../res/icons/actions/new.xpm"
+#include "../res/icons/actions/open.xpm"
 
 void FrmKiwi::OnMenuOpen(wxCommandEvent& e)
 {
@@ -109,9 +111,9 @@ inline void FrmKiwi :: InitializeGlobalMenu()
 
 	//test/////////
 	const wxSize iconSize = FromDIP(wxSize(16, 16));
-	wxImage icon(KiwiEd_xpm);
+	wxImage iconNew(new_xpm);
 
-	wxBitmap bmptTestIcon(icon.Scale(iconSize.GetWidth(), iconSize.GetHeight(), wxIMAGE_QUALITY_HIGH));
+	wxBitmap bmptTestIcon(iconNew.Scale(iconSize.GetWidth(), iconSize.GetHeight(), wxIMAGE_QUALITY_HIGH));
 
 
 	menuFileNew = new wxMenuItem(menuFile, wxID_ANY, "&New...\tCtrl+N", "Create new map");
@@ -122,8 +124,21 @@ inline void FrmKiwi :: InitializeGlobalMenu()
 
 	menuFile->AppendSeparator();
 
-	menuFile->Append(menuFileOpen = new wxMenuItem(menuFile, wxID_ANY, "&Open...\tCtrl+O", "Open map from a file"));
-	Bind(wxEVT_MENU, &FrmKiwi::OnMenuOpen, this, menuFileOpen->GetId());
+	/////menuFile->Append(menuFileOpen = new wxMenuItem(menuFile, wxID_ANY, "&Open...\tCtrl+O", "Open map from a file"));
+	/////Bind(wxEVT_MENU, &FrmKiwi::OnMenuOpen, this, menuFileOpen->GetId());
+
+	//test/////////
+
+	wxImage iconOpen(open_xpm);
+
+	wxBitmap bmptTestIcon2(iconOpen.Scale(iconSize.GetWidth(), iconSize.GetHeight(), wxIMAGE_QUALITY_HIGH));
+
+
+	menuFileOpen = new wxMenuItem(menuFile, wxID_ANY, "&Open...\tCtrl+O", "Open map from a file");
+	menuFileOpen->SetBitmap(bmptTestIcon2);
+	menuFile->Append(menuFileOpen);
+
+	//test/////////
 
 	menuFile->AppendSubMenu((menuFileOpenRecent = new wxMenu()), "Open &Recent");
 
