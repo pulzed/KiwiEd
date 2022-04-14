@@ -25,9 +25,11 @@ sources = [
 	'../src/dlg_about.h',
 	'../src/dlg_settings.cpp',
 	'../src/dlg_settings.h',
+    '../src/frm_kiwi.cpp',
+	'../src/frm_kiwi.h',
 	'../src/kiwied.h',
-	'../src/win_kiwi.cpp',
-	'../src/win_kiwi.h'
+    '../src/util.cpp',
+	'../src/util.h'
 ]
 
 if __name__ == '__main__':
