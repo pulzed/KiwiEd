@@ -18,19 +18,19 @@
 #include "kiwied.h"
 #include "config.h"
 
-void KiwiConfig::LoadDefault()
-{
-}
-
 KiwiConfig::KiwiConfig()
 {
-	
 }
 
 void KiwiConfig::Load()
 {
-	
-	
+	// if there is no config file, create one
+	if (!KiwiUtil::FileExists(KIWIED_CFG_FILENAME)) {
+		KiwiUtil::WriteDefaultConfigFile();
+	}
+	// read INI file into structure
+	mINI::INIFile iniFile(KIWIED_CFG_FILENAME);
+	iniFile.read(iniCfg);
 }
 
 bool KiwiConfig::Write()

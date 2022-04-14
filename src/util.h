@@ -23,7 +23,13 @@
 
 #include <string>
 
-bool FileExists(std::string filename);
+namespace KiwiUtil
+{
+
+	bool FileExists(const std::string& filename);
+	void WriteDefaultConfigFile();
+
+}
 
 #endif // KIWIED_UTIL_H_
 

@@ -16,13 +16,26 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#include <string>
 #include <fstream>
 
 #include "kiwied.h"
 #include "util.h"
 
-bool FileExists(std::string filename)
+namespace KiwiUtil
 {
-    std::ifstream infile(filename);
-    return infile.good();
+
+    bool FileExists(const std::string& filename)
+    {
+        std::ifstream in(filename);
+        return in.good();
+    }
+
+    void WriteDefaultConfigFile()
+    {
+        std::ofstream out(KIWIED_CFG_FILENAME);
+        out << KIWIED_CFG_INIDATA;
+        out.close();
+    }
+
 }

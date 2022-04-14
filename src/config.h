@@ -24,8 +24,8 @@
 class KiwiConfig
 {
 private:
-	// Load default configuration.
-	void LoadDefault();
+	// configuration INI structurs
+	mINI::INIStructure iniCfg;
 
 public:
 	KiwiConfig();
