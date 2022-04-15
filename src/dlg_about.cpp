@@ -32,7 +32,14 @@ DlgAbout::DlgAbout(wxWindow *parent)
 
 	wxImage icon(KiwiEd_xpm);
 
-	wxStaticBitmap* bmpLogo = new wxStaticBitmap(this, wxID_ANY, wxBitmap(icon.Scale(iconSize.GetWidth(), iconSize.GetHeight(), wxIMAGE_QUALITY_HIGH)));
+	wxVector<wxBitmap> bmpsAboutIcon;
+	bmpsAboutIcon.push_back(wxBitmap(icon.Scale(64, 64, wxIMAGE_QUALITY_HIGH))); // 100%
+	bmpsAboutIcon.push_back(wxBitmap(icon.Scale(80, 80, wxIMAGE_QUALITY_HIGH))); // 125%
+	bmpsAboutIcon.push_back(wxBitmap(icon.Scale(96, 96, wxIMAGE_QUALITY_HIGH))); // 150%
+	bmpsAboutIcon.push_back(wxBitmap(icon.Scale(112, 112, wxIMAGE_QUALITY_HIGH))); // 175%
+	bmpsAboutIcon.push_back(wxBitmap(icon.Scale(128, 128, wxIMAGE_QUALITY_HIGH))); // 200%
+
+	wxStaticBitmap* bmpLogo = new wxStaticBitmap(this, wxID_ANY, wxBitmapBundle::FromBitmaps(bmpsAboutIcon));
 
 
 	innerHSizer->Add(bmpLogo, 0, wxALL, borderSize);
