@@ -105,58 +105,16 @@ inline void FrmKiwi :: InitializeGlobalMenu()
 
 	// file menu
 	menuBar->Append((menuFile = new wxMenu()), "&File");
-	//menuFile->Append(menuFileNew = new wxMenuItem(menuFile, wxID_ANY, "&New...\tCtrl+N", "Create new map"));
-
-
-
-	//test/////////
-	//const wxSize iconSize = FromDIP(wxSize(16, 16)); // fromDIP not needed for menu icons?
-	//const wxSize iconSize = wxSize(16, 16);
-	wxImage iconNew(new_xpm);
-
-	//wxBitmap bmptTestIcon(iconNew.Scale(16, 16, wxIMAGE_QUALITY_HIGH));
-	wxVector<wxBitmap> bmpsTest1;
-	bmpsTest1.push_back(wxBitmap(iconNew.Scale(16, 16, wxIMAGE_QUALITY_HIGH)));
-	bmpsTest1.push_back(wxBitmap(iconNew.Scale(20, 20, wxIMAGE_QUALITY_HIGH)));
-	bmpsTest1.push_back(wxBitmap(iconNew.Scale(24, 24, wxIMAGE_QUALITY_HIGH)));
-	bmpsTest1.push_back(wxBitmap(iconNew.Scale(28, 28, wxIMAGE_QUALITY_HIGH)));
-	bmpsTest1.push_back(wxBitmap(iconNew.Scale(32, 32, wxIMAGE_QUALITY_HIGH)));
-	//bmpsTest1.push_back(wxBitmap(iconNew.Scale(48, 48, wxIMAGE_QUALITY_HIGH)));
-	//bmpsTest1.push_back(wxBitmap(iconNew.Scale(64, 64, wxIMAGE_QUALITY_HIGH)));
-
 
 	menuFileNew = new wxMenuItem(menuFile, wxID_ANY, "&New...\tCtrl+N", "Create new map");
-	//menuFileNew->SetBitmap(bmptTestIcon);
-	menuFileNew->SetBitmap(wxBitmapBundle::FromBitmaps(bmpsTest1));
+	menuFileNew->SetBitmap(KiwiHighDPI::xpmToBitmapBundle(new_xpm, 16, 16));
 	menuFile->Append(menuFileNew);
-
-	//test/////////
 
 	menuFile->AppendSeparator();
 
-	/////menuFile->Append(menuFileOpen = new wxMenuItem(menuFile, wxID_ANY, "&Open...\tCtrl+O", "Open map from a file"));
-	/////Bind(wxEVT_MENU, &FrmKiwi::OnMenuOpen, this, menuFileOpen->GetId());
-
-	//test/////////
-
-	wxImage iconOpen(open_xpm);
-
-	//wxBitmap bmptTestIcon2(iconOpen.Scale(16, 16, wxIMAGE_QUALITY_HIGH));
-
-	wxVector<wxBitmap> bmpsTest2;
-	bmpsTest2.push_back(wxBitmap(iconOpen.Scale(16, 16, wxIMAGE_QUALITY_HIGH)));
-	bmpsTest2.push_back(wxBitmap(iconOpen.Scale(20, 20, wxIMAGE_QUALITY_HIGH)));
-	bmpsTest2.push_back(wxBitmap(iconOpen.Scale(24, 24, wxIMAGE_QUALITY_HIGH)));
-	bmpsTest2.push_back(wxBitmap(iconOpen.Scale(28, 28, wxIMAGE_QUALITY_HIGH)));
-	bmpsTest2.push_back(wxBitmap(iconOpen.Scale(32, 32, wxIMAGE_QUALITY_HIGH)));
-
-
 	menuFileOpen = new wxMenuItem(menuFile, wxID_ANY, "&Open...\tCtrl+O", "Open map from a file");
-	//menuFileOpen->SetBitmap(bmptTestIcon2);
-	menuFileOpen->SetBitmap(wxBitmapBundle::FromBitmaps(bmpsTest2));
+	menuFileOpen->SetBitmap(KiwiHighDPI::xpmToBitmapBundle(open_xpm, 16, 16));
 	menuFile->Append(menuFileOpen);
-
-	//test/////////
 
 	menuFile->AppendSubMenu((menuFileOpenRecent = new wxMenu()), "Open &Recent");
 
