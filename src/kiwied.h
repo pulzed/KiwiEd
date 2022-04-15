@@ -50,7 +50,7 @@
 #endif
 
 // thirdparty includes
-#include "mini/ini.h"
+#include "../thirdparty/mini/ini.h"
 
 // classes  and implementations
 #include "const.h"
