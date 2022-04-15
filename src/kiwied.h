@@ -56,6 +56,7 @@
 #include "const.h"
 #include "util.h"
 #include "config.h"
+#include "high_dpi.h"
 
 // dialogs and windows
 #include "dlg_about.h"

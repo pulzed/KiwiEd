@@ -27,20 +27,9 @@ DlgAbout::DlgAbout(wxWindow *parent)
 	wxBoxSizer* outerVSizer = new wxBoxSizer(wxVERTICAL);
 	wxBoxSizer* innerHSizer = new wxBoxSizer(wxHORIZONTAL);
 
-	const wxSize iconSize = FromDIP(wxSize(64, 64));
 	const int borderSize = FromDIP(10);
 
-	wxImage icon(KiwiEd_xpm);
-
-	wxVector<wxBitmap> bmpsAboutIcon;
-	bmpsAboutIcon.push_back(wxBitmap(icon.Scale(64, 64, wxIMAGE_QUALITY_HIGH))); // 100%
-	bmpsAboutIcon.push_back(wxBitmap(icon.Scale(80, 80, wxIMAGE_QUALITY_HIGH))); // 125%
-	bmpsAboutIcon.push_back(wxBitmap(icon.Scale(96, 96, wxIMAGE_QUALITY_HIGH))); // 150%
-	bmpsAboutIcon.push_back(wxBitmap(icon.Scale(112, 112, wxIMAGE_QUALITY_HIGH))); // 175%
-	bmpsAboutIcon.push_back(wxBitmap(icon.Scale(128, 128, wxIMAGE_QUALITY_HIGH))); // 200%
-
-	wxStaticBitmap* bmpLogo = new wxStaticBitmap(this, wxID_ANY, wxBitmapBundle::FromBitmaps(bmpsAboutIcon));
-
+	wxStaticBitmap* bmpLogo = new wxStaticBitmap(this, wxID_ANY, KiwiHighDPI::xpmToBitmapBundle(KiwiEd_xpm, 64, 64));
 
 	innerHSizer->Add(bmpLogo, 0, wxALL, borderSize);
 

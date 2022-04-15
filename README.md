@@ -10,7 +10,7 @@ Version 0.0.2
 
 Work in progress, come back later.
 
-## Credits
+## Thanks
 
 - [wxWidgets](https://www.wxwidgets.org/) - GUI library
 

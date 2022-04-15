@@ -27,6 +27,8 @@ sources = [
 	'../src/dlg_settings.h',
     '../src/frm_kiwi.cpp',
 	'../src/frm_kiwi.h',
+    '../src/high_dpi.cpp',
+    '../src/high_dpi.h',
 	'../src/kiwied.h',
     '../src/util.cpp',
 	'../src/util.h'

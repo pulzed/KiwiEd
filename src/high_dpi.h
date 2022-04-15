@@ -11,25 +11,20 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  util.h
-//  Utility header.
+//  high_dpi.h
+//  High DPI-related helper features.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
 
-#ifndef KIWIED_UTIL_H_
-#define KIWIED_UTIL_H_
+#ifndef KIWIED_HIGH_DPI_H_
+#define KIWIED_HIGH_DPI_H_
 
-#include <string>
-
-namespace KiwiUtil
+namespace KiwiHighDPI
 {
-
-	bool FileExists(const std::string& filename);
-	void WriteDefaultConfigFile(const std::string& filename);
-
+	// create a bitmap bundle which represents various sizes of input image
+	wxBitmapBundle xpmToBitmapBundle(const char* const* data, int baseWidth, int baseHeight, wxImageResizeQuality quality = wxIMAGE_QUALITY_HIGH);
 }
 
-#endif // KIWIED_UTIL_H_
-
+#endif // KIWIED_HIGH_DPI_H_
