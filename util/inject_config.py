@@ -15,7 +15,7 @@ targetFilename = '../src/const.cpp'
 iniFilename = '../dev/config.ini'
 
 # target line number
-lineToUpdate = 26
+lineToUpdate = 27
 
 # target string format
 lineFormat = 'const std::string KIWIED_CFG_INIDATA = "{inidata}";';
