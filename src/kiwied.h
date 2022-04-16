@@ -22,8 +22,8 @@
 #define KIWI_KIWIED_H_
 
 #if defined(DEBUG) || defined(_DEBUG)
-	// implement debug features when building debug
-	#define KIWI_DEBUG_FEATURES
+	#define KIWI_DEBUG_BUILD
+	#define KIWI_DEBUG_FEATURES // implement debug features when building debug
 #endif
 
 // if debug features are required in this build, simply uncomment the following line
@@ -43,10 +43,10 @@
 #include <vector>
 
 #ifdef __linux__
-// linux-specific includes
-#include <unistd.h>
-#include <sys/types.h>
-#include <pwd.h>
+	// linux-specific includes
+	#include <unistd.h>
+	#include <sys/types.h>
+	#include <pwd.h>
 #endif
 
 // thirdparty includes
@@ -63,8 +63,8 @@
 #include "dlg_settings.h"
 
 #ifdef KIWI_DEBUG_FEATURES
-// debug features includes
-#include "frm_log.h"
+	// debug features includes
+	#include "frm_log.h"
 #endif
 
 // main frame components and window
