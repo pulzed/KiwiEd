@@ -18,8 +18,8 @@
 
 #pragma once
 
-#ifndef KIWI_WIN_KIWI_H_
-#define KIWI_WIN_KIWI_H_
+#ifndef KIWIED_FRM_KIWI_H_
+#define KIWIED_FRM_KIWI_H_
 
 #include "kiwied.h"
 
@@ -84,7 +84,12 @@ private:
 
 	void OnMenuAbout(wxCommandEvent& e);
 
-	// component initialization functions (called at construction)
+#ifdef KIWI_DEBUG_FEATURES
+	// debug menu events
+	void OnMenuShowLogWindow(wxCommandEvent& e);
+#endif
+
+	// component initialization functions
 	void InitializeGlobalMenu();
 	void InitializeStatusBar();
 
@@ -92,4 +97,4 @@ public:
 	FrmKiwi();
 };
 
-#endif // KIWI_WIN_KIWI_H_
+#endif // KIWIED_FRM_KIWI_H_

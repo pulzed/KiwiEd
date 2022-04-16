@@ -92,6 +92,16 @@ void FrmKiwi::OnMenuAbout(wxCommandEvent& e)
 	aboutDialog->ShowModal();
 }
 
+#ifdef KIWI_DEBUG_FEATURES
+void FrmKiwi::OnMenuShowLogWindow(wxCommandEvent& e)
+{
+	// open the log window
+	FrmLog* logWindow = new FrmLog();
+	logWindow->SetSize(logWindow->FromDIP(wxSize(400, 200)));
+	logWindow->Show(true);
+}
+#endif
+
 inline void FrmKiwi :: InitializeGlobalMenu()
 {
 	////////////////////////////////////////////////////////////////////////////
@@ -213,6 +223,7 @@ inline void FrmKiwi :: InitializeGlobalMenu()
 	// debug menu
 	menuBar->Append((menuDebug = new wxMenu()), "&DEBUG");
 	menuDebug->Append(menuDebugShowLogWindow = new wxMenuItem(menuDebug, wxID_ANY, "Show &Log Window...", "Show the log window"));
+	Bind(wxEVT_MENU, &FrmKiwi::OnMenuShowLogWindow, this, menuDebugShowLogWindow->GetId());
 #endif
 }
 

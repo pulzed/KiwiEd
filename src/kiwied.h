@@ -62,6 +62,11 @@
 #include "dlg_about.h"
 #include "dlg_settings.h"
 
+#ifdef KIWI_DEBUG_FEATURES
+// debug features includes
+#include "frm_log.h"
+#endif
+
 // main frame components and window
 #include "frm_kiwi.h"
 
