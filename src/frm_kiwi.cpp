@@ -23,6 +23,13 @@
 #include "../res/icons/actions/new.xpm"
 #include "../res/icons/actions/open.xpm"
 
+void FrmKiwi::OnMenuNewMap(wxCommandEvent& e)
+{
+	DlgNewMap* newMapDialog = new DlgNewMap(this);
+	newMapDialog->CenterOnParent();
+	newMapDialog->ShowModal();
+}
+
 void FrmKiwi::OnMenuOpen(wxCommandEvent& e)
 {
 	wxFileDialog* dlgOpenFile = new wxFileDialog(
@@ -78,6 +85,13 @@ void FrmKiwi::OnMenuExit(wxCommandEvent& e)
 	Close(true);
 }
 
+void FrmKiwi::OnMenuNewLayer(wxCommandEvent& e)
+{
+	DlgNewLayer* newLayerDialog = new DlgNewLayer(this);
+	newLayerDialog->CenterOnParent();
+	newLayerDialog->ShowModal();
+}
+
 void FrmKiwi::OnMenuSettings(wxCommandEvent& e)
 {
 	DlgSettings* settingsDialog = new DlgSettings(this);
@@ -98,7 +112,12 @@ void FrmKiwi::OnMenuShowLogWindow(wxCommandEvent& e)
 	// open the log window
 	FrmLog* logWindow = new FrmLog();
 	logWindow->SetSize(logWindow->FromDIP(wxSize(400, 200)));
-	logWindow->Show(true);
+	int window_w, window_h;
+	GetSize(&window_w, &window_h);
+	int window_x, window_y;
+	GetPosition(&window_x, &window_y);
+	//logWindow->SetPosition(
+	//logWindow->Show(true);
 }
 #endif
 
@@ -119,6 +138,7 @@ inline void FrmKiwi :: InitializeGlobalMenu()
 	menuFileNew = new wxMenuItem(menuFile, wxID_ANY, "&New...\tCtrl+N", "Create new map");
 	menuFileNew->SetBitmap(KiwiHighDPI::xpmToBitmapBundle(new_xpm, 16, 16));
 	menuFile->Append(menuFileNew);
+	Bind(wxEVT_MENU, &FrmKiwi::OnMenuNewMap, this, menuFileNew->GetId());
 
 	menuFile->AppendSeparator();
 
@@ -190,7 +210,10 @@ inline void FrmKiwi :: InitializeGlobalMenu()
 	menuLayer = new wxMenu();
 	menuBar->Append(menuLayer, "&Layer");
 
-	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Create New...\tCtrl+Shift+N", "Create a new layer"));
+	menuLayerNew = new wxMenuItem(menuLayer, wxID_ANY, "&Create New...\tCtrl+Shift+N", "Create a new layer");
+	menuLayer->Append(menuLayerNew);
+	Bind(wxEVT_MENU, &FrmKiwi::OnMenuNewLayer, this, menuLayerNew->GetId());
+
 	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Duplicate\tCtrl+Shift+D", "Duplicate current layer"));
 	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Merge...\tCtrl+Shift+M", "Merge this layer with another"));
 	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "Dele&te", "Delete current layer"));

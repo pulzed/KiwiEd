@@ -23,14 +23,18 @@ sources = [
 	'../src/const.h',
 	'../src/dlg_about.cpp',
 	'../src/dlg_about.h',
+	'../src/dlg_newlayer.cpp',
+	'../src/dlg_newlayer.h',
+	'../src/dlg_newmap.cpp',
+	'../src/dlg_newmap.h',
 	'../src/dlg_settings.cpp',
 	'../src/dlg_settings.h',
-    '../src/frm_kiwi.cpp',
+	'../src/frm_kiwi.cpp',
 	'../src/frm_kiwi.h',
-    '../src/high_dpi.cpp',
-    '../src/high_dpi.h',
+	'../src/high_dpi.cpp',
+	'../src/high_dpi.h',
 	'../src/kiwied.h',
-    '../src/util.cpp',
+	'../src/util.cpp',
 	'../src/util.h'
 ]
 

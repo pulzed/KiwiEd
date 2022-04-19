@@ -61,6 +61,8 @@
 // dialogs and windows
 #include "dlg_about.h"
 #include "dlg_settings.h"
+#include "dlg_newlayer.h"
+#include "dlg_newmap.h"
 
 #ifdef KIWI_DEBUG_FEATURES
 	// debug features includes

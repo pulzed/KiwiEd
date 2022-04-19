@@ -57,6 +57,9 @@ private:
 	// (submenu) open recent menu items
 	wxMenuItem* menuFileOpenRecentNoRecentItems;
 
+	// layer menu items
+	wxMenuItem* menuLayerNew;
+
 	// tools menu items
 	wxMenuItem* menuToolsSettings;
 
@@ -74,11 +77,15 @@ private:
 	
 
 	// menu events
+	void OnMenuNewMap(wxCommandEvent& e);
+
 	void OnMenuOpen(wxCommandEvent& e);
 	void OnMenuSave(wxCommandEvent& e);
 	void OnMenuSaveAs(wxCommandEvent& e);
 
 	void OnMenuExit(wxCommandEvent& e);
+
+	void OnMenuNewLayer(wxCommandEvent& e);
 
 	void OnMenuSettings(wxCommandEvent& e);
 
