@@ -20,8 +20,6 @@
 
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
-#include "../res/icons/actions/new.xpm"
-#include "../res/icons/actions/open.xpm"
 
 void FrmKiwi::OnMenuNewMap(wxCommandEvent& e)
 {
@@ -113,11 +111,11 @@ void FrmKiwi::OnMenuShowLogWindow(wxCommandEvent& e)
 	FrmLog* logWindow = new FrmLog();
 	logWindow->SetSize(logWindow->FromDIP(wxSize(400, 200)));
 	int window_w, window_h;
-	GetSize(&window_w, &window_h);
+	this->GetSize(&window_w, &window_h);
 	int window_x, window_y;
-	GetPosition(&window_x, &window_y);
-	//logWindow->SetPosition(
-	//logWindow->Show(true);
+	this->GetPosition(&window_x, &window_y);
+	logWindow->SetPosition(wxPoint(window_x, window_y + window_h - 200));
+	logWindow->Show(true);
 }
 #endif
 
@@ -136,14 +134,14 @@ inline void FrmKiwi :: InitializeGlobalMenu()
 	menuBar->Append((menuFile = new wxMenu()), "&File");
 
 	menuFileNew = new wxMenuItem(menuFile, wxID_ANY, "&New...\tCtrl+N", "Create new map");
-	menuFileNew->SetBitmap(KiwiHighDPI::xpmToBitmapBundle(new_xpm, 16, 16));
+	menuFileNew->SetBitmap(wxBitmapBundle::FromSVG(SVG_ICON_NEW.c_str(), wxSize(16, 16)));
 	menuFile->Append(menuFileNew);
 	Bind(wxEVT_MENU, &FrmKiwi::OnMenuNewMap, this, menuFileNew->GetId());
 
 	menuFile->AppendSeparator();
 
 	menuFileOpen = new wxMenuItem(menuFile, wxID_ANY, "&Open...\tCtrl+O", "Open map from a file");
-	menuFileOpen->SetBitmap(KiwiHighDPI::xpmToBitmapBundle(open_xpm, 16, 16));
+	menuFileOpen->SetBitmap(wxBitmapBundle::FromSVG(SVG_ICON_OPEN.c_str(), wxSize(16, 16)));
 	menuFile->Append(menuFileOpen);
 
 	menuFile->AppendSubMenu((menuFileOpenRecent = new wxMenu()), "Open &Recent");

@@ -1,0 +1,2 @@
+new.svg			https://uxwing.com/blank-file-icon/
+open.svg		https://uxwing.com/folder-desktop-icon/
