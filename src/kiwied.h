@@ -54,6 +54,7 @@
 
 // classes  and implementations
 #include "const.h"
+#include "hardcoded.h"
 #include "util.h"
 #include "config.h"
 #include "high_dpi.h"

@@ -11,13 +11,19 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  const.cpp
+//  hardcoded.h
+//  Hardcoded application data.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "kiwied.h"
-#include "const.h"
+#pragma once
 
-// current KiwiEd version
-// this MUST exist on line 22 because it auto-updates with the "update_versions" util
-const std::string KIWIED_VERSION = "0.0.2";
+#ifndef KIWI_HARDCODE_H_
+#define KIWI_HARDCODE_H_
+
+extern const char* const KIWIED_CFG_INIDATA;
+
+extern const char* const SVG_ICON_NEW;
+extern const char* const SVG_ICON_OPEN;
+
+#endif // KIWI_HARDCODE_H_

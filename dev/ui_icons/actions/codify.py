@@ -1,7 +1,7 @@
 import fileinput
 import sys
 
-outputFormat = 'const std::string {varName} = "{data}";'
+outputFormat = 'const char* const {varName} = "{data}";'
 
 def readTextFile(filename):
 	data = ''

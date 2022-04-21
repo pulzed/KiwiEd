@@ -24,9 +24,5 @@
 #include <string>
 
 extern const std::string KIWIED_VERSION;
-extern const std::string KIWIED_CFG_INIDATA;
-
-extern const std::string SVG_ICON_NEW;
-extern const std::string SVG_ICON_OPEN;
 
 #endif // KIWI_CONST_H_

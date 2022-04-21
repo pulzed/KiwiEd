@@ -15,10 +15,10 @@ targetFilename = '../src/const.cpp'
 iniFilename = '../dev/config.ini'
 
 # target line number
-lineToUpdate = 27
+lineToUpdate = 23
 
 # target string format
-lineFormat = 'const std::string KIWIED_CFG_INIDATA = "{inidata}";';
+lineFormat = 'const char* const KIWIED_CFG_INIDATA = "{inidata}";';
 
 def substituteConstLine(iniData):
 	for i, line in enumerate(fileinput.input(targetFilename, inplace=True)):
