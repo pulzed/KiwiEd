@@ -29,6 +29,8 @@ namespace KiwiUtil
 	bool FileExists(const std::string& filename);
 	void WriteDefaultConfigFile(const std::string& filename);
 
+	void ReplaceAll(std::string& data, std::string searchStr, std::string replaceStr);
+	std::string GetThemeAgnosticSVG(const char* const inputSVG, const bool isDarkTheme = false);
 }
 
 #endif // KIWIED_UTIL_H_

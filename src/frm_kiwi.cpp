@@ -137,14 +137,14 @@ inline void FrmKiwi :: InitializeGlobalMenu()
 	menuBar->Append((menuFile = new wxMenu()), "&File");
 
 	menuFileNew = new wxMenuItem(menuFile, wxID_ANY, "&New...\tCtrl+N", "Create new map");
-	menuFileNew->SetBitmap(wxBitmapBundle::FromSVG((darkMode) ? SVG_ICON_NEW_DARK : SVG_ICON_NEW_LIGHT, wxSize(16, 16)));
+	menuFileNew->SetBitmap(wxBitmapBundle::FromSVG(KiwiUtil::GetThemeAgnosticSVG(SVG_ICON_NEW, darkMode).c_str(), wxSize(16, 16)));
 	menuFile->Append(menuFileNew);
 	Bind(wxEVT_MENU, &FrmKiwi::OnMenuNewMap, this, menuFileNew->GetId());
 
 	menuFile->AppendSeparator();
 
 	menuFileOpen = new wxMenuItem(menuFile, wxID_ANY, "&Open...\tCtrl+O", "Open map from a file");
-	menuFileOpen->SetBitmap(wxBitmapBundle::FromSVG((darkMode) ? SVG_ICON_OPEN_DARK : SVG_ICON_OPEN_LIGHT, wxSize(16, 16)));
+	menuFileOpen->SetBitmap(wxBitmapBundle::FromSVG(KiwiUtil::GetThemeAgnosticSVG(SVG_ICON_OPEN, darkMode).c_str(), wxSize(16, 16)));
 	menuFile->Append(menuFileOpen);
 
 	menuFile->AppendSubMenu((menuFileOpenRecent = new wxMenu()), "Open &Recent");

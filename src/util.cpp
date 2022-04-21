@@ -22,18 +22,37 @@
 
 namespace KiwiUtil
 {
+	bool FileExists(const std::string& filename)
+	{
+		std::ifstream in(filename);
+		return in.good();
+	}
 
-    bool FileExists(const std::string& filename)
-    {
-        std::ifstream in(filename);
-        return in.good();
-    }
+	void WriteDefaultConfigFile(const std::string& filename)
+	{
+		std::ofstream out(filename);
+		out << KIWIED_CFG_INIDATA;
+		out.close();
+ 
+	}
 
-    void WriteDefaultConfigFile(const std::string& filename)
-    {
-        std::ofstream out(filename);
-        out << KIWIED_CFG_INIDATA;
-        out.close();
-    }
+	void ReplaceAll(std::string& data, std::string searchStr, std::string replaceStr)
+	{
+		size_t pos = data.find(searchStr);
+		while (pos != std::string::npos)
+		{
+			data.replace(pos, searchStr.size(), replaceStr);
+			pos = data.find(searchStr, pos + replaceStr.size());
+		}
+	}
 
+	std::string GetThemeAgnosticSVG(const char* const inputSVG, const bool isDarkTheme)
+	{
+		std::string outputSVG = inputSVG;
+		if (isDarkTheme)
+		{
+			ReplaceAll(outputSVG, "fill=\"#000000\"", "fill=\"#FFFFFF\"");
+		}
+		return outputSVG;
+	}
 }

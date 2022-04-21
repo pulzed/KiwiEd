@@ -29,6 +29,11 @@
 // if debug features are required in this build, simply uncomment the following line
 //#define KIWI_DEBUG_FEATURES
 
+// ignore some annoying warnings on VS
+#pragma warning(disable: 4996)
+#pragma warning(disable: 26812)
+#pragma warning(disable: 6011)
+
 // wxWidgets includes
 #include "wx/wxprec.h"
 #ifndef WX_PRECOMP
