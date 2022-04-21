@@ -121,6 +121,9 @@ void FrmKiwi::OnMenuShowLogWindow(wxCommandEvent& e)
 
 inline void FrmKiwi :: InitializeGlobalMenu()
 {
+	// check if we're using dark or light mode
+	bool darkMode = wxSystemSettings::GetAppearance().IsDark();
+
 	////////////////////////////////////////////////////////////////////////////
 	//
 	//  Initialize the menubar
@@ -134,14 +137,14 @@ inline void FrmKiwi :: InitializeGlobalMenu()
 	menuBar->Append((menuFile = new wxMenu()), "&File");
 
 	menuFileNew = new wxMenuItem(menuFile, wxID_ANY, "&New...\tCtrl+N", "Create new map");
-	menuFileNew->SetBitmap(wxBitmapBundle::FromSVG(SVG_ICON_NEW, wxSize(16, 16)));
+	menuFileNew->SetBitmap(wxBitmapBundle::FromSVG((darkMode) ? SVG_ICON_NEW_DARK : SVG_ICON_NEW_LIGHT, wxSize(16, 16)));
 	menuFile->Append(menuFileNew);
 	Bind(wxEVT_MENU, &FrmKiwi::OnMenuNewMap, this, menuFileNew->GetId());
 
 	menuFile->AppendSeparator();
 
 	menuFileOpen = new wxMenuItem(menuFile, wxID_ANY, "&Open...\tCtrl+O", "Open map from a file");
-	menuFileOpen->SetBitmap(wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
+	menuFileOpen->SetBitmap(wxBitmapBundle::FromSVG((darkMode) ? SVG_ICON_OPEN_DARK : SVG_ICON_OPEN_LIGHT, wxSize(16, 16)));
 	menuFile->Append(menuFileOpen);
 
 	menuFile->AppendSubMenu((menuFileOpenRecent = new wxMenu()), "Open &Recent");

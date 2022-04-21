@@ -34,6 +34,7 @@
 #ifndef WX_PRECOMP
 	#include "wx/wx.h"
 #endif
+#include <wx/settings.h>
 #include "wx/treectrl.h"
 #include "wx/gdicmn.h"
 

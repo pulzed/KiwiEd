@@ -23,7 +23,10 @@
 
 extern const char* const KIWIED_CFG_INIDATA;
 
-extern const char* const SVG_ICON_NEW;
-extern const char* const SVG_ICON_OPEN;
+extern const char* const SVG_ICON_NEW_LIGHT;
+extern const char* const SVG_ICON_NEW_DARK;
+
+extern const char* const SVG_ICON_OPEN_LIGHT;
+extern const char* const SVG_ICON_OPEN_DARK;
 
 #endif // KIWI_HARDCODE_H_

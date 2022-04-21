@@ -18,7 +18,7 @@
 #include "kiwied.h"
 #include "app.h"
 
-wxIMPLEMENT_APP(KiwiApp); // implement wx application
+wxDECLARE_APP(KiwiApp);
 
 bool KiwiApp::OnInit()
 {
@@ -32,3 +32,5 @@ bool KiwiApp::OnInit()
 	window->Show(true);
 	return true;
 }
+
+wxIMPLEMENT_APP(KiwiApp); // implement wx application
