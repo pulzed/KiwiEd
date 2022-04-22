@@ -5,4 +5,4 @@
 - Load config at init and setup default config handling
 - Figure out how to manage application config
 - Make update_versions.py util update versions in other files (about label, .rc resource file, README.md)
-- Figure out a good way to make icons scale well for various scaling factors (use SVG)
+- Create an icon set

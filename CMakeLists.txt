@@ -15,6 +15,10 @@ endif()
 file(GLOB source "src/*.cpp" "src/*.hpp" "src/*.h")
 add_executable("${PROJECT_NAME}" WIN32 ${source} "res/KiwiEd.rc")
 
+if (UNIX)
+	add_compile_options(-lX11 -lXi -lXcursor)
+endif()
+
 # wxWidgets
 set(wxBUILD_SHARED OFF CACHE INTERNAL "")
 add_subdirectory("thirdparty/wxWidgets-3.1.6" EXCLUDE_FROM_ALL)

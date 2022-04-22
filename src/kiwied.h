@@ -33,6 +33,10 @@
 #pragma warning(disable: 4996)
 #pragma warning(disable: 26812)
 #pragma warning(disable: 6011)
+#pragma warning(disable: 26812)
+#pragma warning(disable: 26451)
+#pragma warning(disable: 26495)
+#pragma warning(disable: 26439)
 
 // wxWidgets includes
 #include "wx/wxprec.h"
