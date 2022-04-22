@@ -29,9 +29,11 @@ target_link_libraries("${PROJECT_NAME}"
 	wx::core
 )
 
-# windows app
-set_property(TARGET ${PROJECT_NAME} PROPERTY VS_DPI_AWARE "PerMonitor")
-set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT "${PROJECT_NAME}")
+if (MSVC)
+	# windows app
+	set_property(TARGET ${PROJECT_NAME} PROPERTY VS_DPI_AWARE "PerMonitor")
+	set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT "${PROJECT_NAME}")
+endif()
 
 # strip binary for release builds
 if (CMAKE_BUILD_TYPE STREQUAL Release)
