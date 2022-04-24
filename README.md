@@ -2,13 +2,13 @@
 
 ![KiwiEd](/logo.png?raw=true)
 
-2D level editor.
+Simple and juicy, free and open source, cross-platform 2D level editor. Comes with a custom format.
 
 Version 0.0.2
 
 ## Info
 
-Work in progress, come back later.
+⚠ Work in progress, check back later. ⚠
 
 ## Thanks
 
