@@ -1,8 +1,6 @@
 # KiwiEd
 
-![KiwiEd](/logo.png?raw=true)
-
-Simple and juicy, free and open source, cross-platform 2D level editor. Comes with a custom format.
+Juicy free and open source, cross-platform 2D map editor. Comes with a custom format.
 
 Version 0.0.2
 
