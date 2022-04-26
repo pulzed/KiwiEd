@@ -64,7 +64,7 @@ private:
 	wxMenuItem* menuToolsSettings;
 
 	// help menu items
-	wxMenuItem* menuHelpManual;
+	wxMenuItem* menuHelpUserManual;
 	wxMenuItem* menuHelpCheckForUpdates;
 	wxMenuItem* menuHelpAbout;
 

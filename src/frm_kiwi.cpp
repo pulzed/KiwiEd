@@ -235,7 +235,7 @@ inline void FrmKiwi :: InitializeGlobalMenu()
 
 	// help menu
 	menuBar->Append((menuHelp = new wxMenu()), "&Help");
-	menuHelp->Append(menuHelpManual = new wxMenuItem(menuHelp, wxID_ANY, "&Manual\tF1", "Show help contents"));
+	menuHelp->Append(menuHelpUserManual = new wxMenuItem(menuHelp, wxID_ANY, "User &Manual\tF1", "Show help contents"));
 	menuHelp->Append(menuHelpCheckForUpdates = new wxMenuItem(menuHelp, wxID_ANY, "Check for &Updates", "Check online repository for updates"));
 
 	menuHelp->AppendSeparator();
