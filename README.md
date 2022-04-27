@@ -1,6 +1,6 @@
 # KiwiEd
 
-Juicy, free and open source, cross-platform 2D map editor. Comes with a custom format.
+Juicy 2D map editor. Comes with a custom format.
 
 Version 0.0.2
 
