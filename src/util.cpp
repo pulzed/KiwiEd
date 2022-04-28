@@ -55,4 +55,16 @@ namespace KiwiUtil
 		}
 		return outputSVG;
 	}
+
+	wxBitmapBundle XPMToBitmapBundle(const char* const* data, int baseWidth, int baseHeight, wxImageResizeQuality quality)
+	{
+		wxImage image(data);
+		wxVector<wxBitmap> bitmaps;
+		bitmaps.push_back(wxBitmap(image.Scale(baseWidth, baseHeight, quality))); // 100%
+		bitmaps.push_back(wxBitmap(image.Scale(baseWidth * 1.25, baseHeight * 1.25, quality))); // 125%
+		bitmaps.push_back(wxBitmap(image.Scale(baseWidth * 1.5, baseHeight * 1.5, quality))); // 150%
+		bitmaps.push_back(wxBitmap(image.Scale(baseWidth * 1.75, baseHeight * 1.75, quality))); // 175%
+		bitmaps.push_back(wxBitmap(image.Scale(baseWidth * 2, baseHeight * 2, quality))); // 200%
+		return wxBitmapBundle::FromBitmaps(bitmaps);
+	}
 }

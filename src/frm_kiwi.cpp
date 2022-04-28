@@ -20,7 +20,10 @@
 
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
+#include "util.h"
+#include "wx/bmpbndl.h"
 
+/*
 void FrmKiwi::OnMenuNewMap(wxCommandEvent& e)
 {
 	DlgNewMap* newMapDialog = new DlgNewMap(this);
@@ -262,6 +265,55 @@ inline void FrmKiwi::InitializeStatusBar()
 	// (TODO custom status bar with embedded controls)
 	this->CreateStatusBar(2);
 }
+*/
+
+void FrmKiwi::OnMenuAbout(wxCommandEvent& e)
+{
+	DlgAbout* aboutDialog = new DlgAbout(this);
+	aboutDialog->CenterOnParent();
+	aboutDialog->ShowModal();
+}
+
+inline void FrmKiwi :: InitializeGlobalMenu()
+{
+	// check if we're using dark or light mode
+	bool darkMode = wxSystemSettings::GetAppearance().IsDark();
+
+	////////////////////////////////////////////////////////////////////////////
+	//
+	//  Initialize the menubar
+	//
+	////////////////////////////////////////////////////////////////////////////
+
+	menuBar.root = new wxMenuBar();
+	SetMenuBar(menuBar.root);
+
+	//
+	// File menu
+	//
+	auto& menuFile = menuBar.menuFile;
+	menuBar.root->Append((menuFile.root = new wxMenu()), "&File");
+
+	{
+		auto& menuNew = menuFile.members.menuNew;
+		menuNew = new wxMenuItem(menuFile.root, wxID_ANY, "&New...\tCtrl+N", "Create new map.");
+		menuNew->SetBitmap(wxBitmapBundle::FromSVG(KiwiUtil::GetThemeAgnosticSVG(SVG_ICON_NEW, darkMode).c_str(), wxSize(16, 16)));
+		menuFile.root->Append(menuNew);
+	}
+
+	//
+	// Help menu
+	//
+	auto& menuHelp = menuBar.menuHelp;
+	menuBar.root->Append((menuHelp.root = new wxMenu()), "&Help");
+	
+	{
+		auto& menuAbout = menuHelp.members.menuAbout;
+		menuAbout = new wxMenuItem(menuHelp.root, wxID_ANY, "&About", "Shows the about dialog.");
+		menuHelp.root->Append(menuAbout);
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuAbout, this, menuAbout->GetId());
+	}
+}
 
 FrmKiwi::FrmKiwi()
 : wxFrame(NULL, wxID_ANY, "KiwiEd")
@@ -273,5 +325,5 @@ FrmKiwi::FrmKiwi()
 
 	// initialize components
 	InitializeGlobalMenu();
-	InitializeStatusBar();
+	///InitializeStatusBar();
 }

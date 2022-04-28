@@ -18,8 +18,8 @@
 
 #pragma once
 
-#ifndef KIWIED_FRM_LOG_H_
-#define KIWIED_FRM_LOG_H_
+#ifndef KIWI_FRM_LOG_H_
+#define KIWI_FRM_LOG_H_
 
 #include "kiwied.h"
 
@@ -40,4 +40,4 @@ public:
 	FrmLog();
 };
 
-#endif // KIWIED_FRM_LOG_H_
+#endif // KIWI_FRM_LOG_H_

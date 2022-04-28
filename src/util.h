@@ -18,8 +18,8 @@
 
 #pragma once
 
-#ifndef KIWIED_UTIL_H_
-#define KIWIED_UTIL_H_
+#ifndef KIWI_UTIL_H_
+#define KIWI_UTIL_H_
 
 #include <string>
 
@@ -31,7 +31,8 @@ namespace KiwiUtil
 
 	void ReplaceAll(std::string& data, std::string searchStr, std::string replaceStr);
 	std::string GetThemeAgnosticSVG(const char* const inputSVG, const bool isDarkTheme = false);
+	wxBitmapBundle XPMToBitmapBundle(const char* const* data, int baseWidth, int baseHeight, wxImageResizeQuality quality = wxIMAGE_QUALITY_HIGH);
 }
 
-#endif // KIWIED_UTIL_H_
+#endif // KIWI_UTIL_H_
 

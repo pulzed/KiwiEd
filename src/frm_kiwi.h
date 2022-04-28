@@ -18,14 +18,43 @@
 
 #pragma once
 
-#ifndef KIWIED_FRM_KIWI_H_
-#define KIWIED_FRM_KIWI_H_
+#ifndef KIWI_FRM_KIWI_H_
+#define KIWI_FRM_KIWI_H_
 
 #include "kiwied.h"
 
 class FrmKiwi : public wxFrame
 {
 private:
+	// menubar structure
+	struct MENUBAR
+	{
+		wxMenuBar* root;
+		struct MENU_FILE
+		{
+			wxMenu* root;
+			struct MEMBERS
+			{
+				wxMenuItem* menuNew;
+			} members;
+		} menuFile;
+
+		struct MENU_HELP
+		{
+			wxMenu* root;
+			struct MEMBERS
+			{
+				wxMenuItem* menuAbout;
+			} members;
+		} menuHelp;
+	} menuBar;
+
+	// menubar events
+	void OnMenuAbout(wxCommandEvent& e);
+
+	// initialization
+	void InitializeGlobalMenu();
+/*
 	// top level menubar
 	wxMenuBar* menuBar;
 
@@ -99,9 +128,10 @@ private:
 	// component initialization functions
 	void InitializeGlobalMenu();
 	void InitializeStatusBar();
+	*/
 
 public:
 	FrmKiwi();
 };
 
-#endif // KIWIED_FRM_KIWI_H_
+#endif // KIWI_FRM_KIWI_H_

@@ -29,7 +29,7 @@ DlgAbout::DlgAbout(wxWindow *parent)
 
 	const int borderSize = FromDIP(10);
 
-	wxStaticBitmap* bmpLogo = new wxStaticBitmap(this, wxID_ANY, KiwiHighDPI::xpmToBitmapBundle(KiwiEd_xpm, 64, 64));
+	wxStaticBitmap* bmpLogo = new wxStaticBitmap(this, wxID_ANY, KiwiUtil::XPMToBitmapBundle(KiwiEd_xpm, 64, 64));
 
 	innerHSizer->Add(bmpLogo, 0, wxALL, borderSize);
 
