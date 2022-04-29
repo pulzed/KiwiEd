@@ -271,8 +271,9 @@ inline void FrmKiwi::InitializeToolBar()
 	//
 	////////////////////////////////////////////////////////////////////////////	
 
-	wxToolBar* toolbar = CreateToolBar();
-	
+	//wxToolBar* toolbar = CreateToolBar(wxTB_NODIVIDER | wxTB_FLAT | wxTB_VERTICAL | wxTB_LEFT);
+	wxToolBar* toolbar = CreateToolBar(wxTB_NODIVIDER | wxTB_FLAT);
+	//toolbar->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOW));
 	toolbar->SetToolBitmapSize(wxSize(16, 16));
 	toolbar->AddTool(0, "test button 1", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 1");
 	toolbar->AddTool(1, "test button 2", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 2");
@@ -287,6 +288,12 @@ inline void FrmKiwi::InitializeToolBar()
 	toolbar->AddSeparator();
 	toolbar->AddTool(8, "test button 9", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 9");
 	toolbar->AddTool(9, "test button 10", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 10");
+	toolbar->AddSeparator();
+	toolbar->AddTool(10, "test button 11", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 11");
+	toolbar->AddTool(11, "test button 12", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 12");
+	toolbar->AddTool(12, "test button 13", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 13");
+	toolbar->AddTool(13, "test button 14", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 14");
+	toolbar->AddTool(14, "test button 15", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 15");
 
 	toolbar->Realize();
 }
@@ -310,35 +317,35 @@ inline void FrmKiwi::InitializeInterface()
 	//
 	////////////////////////////////////////////////////////////////////////////	
 
-    wxPanel* panel = new wxPanel(this, wxID_ANY);
+	wxPanel* panel = new wxPanel(this, wxID_ANY);
 
-    wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY);
+	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY);
 
-    wxTextCtrl* textCtrl1 = new wxTextCtrl(ntbDocumentView, wxID_ANY, "contents", wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE);
+	wxTextCtrl* textCtrl1 = new wxTextCtrl(ntbDocumentView, wxID_ANY, "contents", wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE);
 	wxPanel* panel1 = new wxPanel(ntbDocumentView, wxID_ANY);
 	wxPanel* panel2 = new wxPanel(ntbDocumentView, wxID_ANY);
 
-    ntbDocumentView->AddPage(panel1, "somemap");
+	ntbDocumentView->AddPage(panel1, "somemap");
 	ntbDocumentView->AddPage(panel2, "anothermap");
-    ntbDocumentView->AddPage(textCtrl1, "map3");
+	ntbDocumentView->AddPage(textCtrl1, "map3");
 
-    wxBoxSizer* panelSizer = new wxBoxSizer(wxHORIZONTAL);
-    panelSizer->Add(ntbDocumentView, 1, wxEXPAND);
-    panel->SetSizer(panelSizer);
+	wxBoxSizer* panelSizer = new wxBoxSizer(wxHORIZONTAL);
+	panelSizer->Add(ntbDocumentView, 1, wxEXPAND);
+	panel->SetSizer(panelSizer);
 
-    wxBoxSizer* topSizer = new wxBoxSizer(wxHORIZONTAL);
-    topSizer->SetMinSize(250, 200);
-    topSizer->Add(panel, 1, wxEXPAND);
-    SetSizerAndFit(topSizer);
+	wxBoxSizer* topSizer = new wxBoxSizer(wxHORIZONTAL);
+	topSizer->SetMinSize(250, 200);
+	topSizer->Add(panel, 1, wxEXPAND);
+	SetSizerAndFit(topSizer);
 }
 
 FrmKiwi::FrmKiwi()
 : wxFrame(NULL, wxID_ANY, "KiwiEd")
 {
 	// frame setup
-	SetMinSize(FromDIP(wxSize(300, 200))); // set minimum frame size
+	SetMinSize(FromDIP(wxSize(200, 200))); // set minimum frame size
 	SetIcon(wxIcon(KiwiEd_xpm)); // set window icon
-	SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_APPWORKSPACE));
+	//SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_APPWORKSPACE));
 
 	// initialize components
 	InitializeGlobalMenu();
