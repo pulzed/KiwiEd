@@ -20,77 +20,10 @@
 
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
-#include "util.h"
-#include "wx/bmpbndl.h"
-
-/*
-void FrmKiwi::OnMenuNewMap(wxCommandEvent& e)
-{
-	DlgNewMap* newMapDialog = new DlgNewMap(this);
-	newMapDialog->CenterOnParent();
-	newMapDialog->ShowModal();
-}
-
-void FrmKiwi::OnMenuOpen(wxCommandEvent& e)
-{
-	wxFileDialog* dlgOpenFile = new wxFileDialog(
-		this,
-		"Open file",
-		wxEmptyString,
-		wxEmptyString, 
-		"Kiwi map files (*.kiw)|*.kiw|All files (*.*)|*.*",
-		wxFD_OPEN,
-		wxDefaultPosition
-	);
-
-	if (dlgOpenFile->ShowModal() == wxID_OK)
-	{
-		///dlgOpenFile->GetPath();
-		///dlgOpenFile->GetFilename());
-	}
-
-	// Clean up after ourselves
-	dlgOpenFile->Destroy();
-}
-
-void FrmKiwi::OnMenuSave(wxCommandEvent& e)
-{
-}
-
-void FrmKiwi::OnMenuSaveAs(wxCommandEvent& e)
-{
-	wxFileDialog *dlgSaveFile = new wxFileDialog(
-		this,
-		"Save file",
-		wxEmptyString,
-		wxEmptyString,
-		"Kiwi map files (*.kiw)|*.kiw|All files (*.*)|*.*",
-		wxFD_SAVE | wxFD_OVERWRITE_PROMPT,
-		wxDefaultPosition
-	);
-
-	// Creates a Save Dialog with 4 file types
-	if (dlgSaveFile->ShowModal() == wxID_OK) // If the user clicked "OK"
-	{
-		///dlgSaveFile->GetPath();
-		///dlgSaveFile->GetFilename());
-	}
-
-	// Clean up after ourselves
-	dlgSaveFile->Destroy();
-}
 
 void FrmKiwi::OnMenuExit(wxCommandEvent& e)
 {
-	// close window and exit application
 	Close(true);
-}
-
-void FrmKiwi::OnMenuNewLayer(wxCommandEvent& e)
-{
-	DlgNewLayer* newLayerDialog = new DlgNewLayer(this);
-	newLayerDialog->CenterOnParent();
-	newLayerDialog->ShowModal();
 }
 
 void FrmKiwi::OnMenuSettings(wxCommandEvent& e)
@@ -107,176 +40,9 @@ void FrmKiwi::OnMenuAbout(wxCommandEvent& e)
 	aboutDialog->ShowModal();
 }
 
-#ifdef KIWI_DEBUG_FEATURES
-void FrmKiwi::OnMenuShowLogWindow(wxCommandEvent& e)
+inline void FrmKiwi::InitializeGlobalMenu()
 {
-	// open the log window
-	FrmLog* logWindow = new FrmLog();
-	logWindow->SetSize(logWindow->FromDIP(wxSize(400, 200)));
-	int window_w, window_h;
-	this->GetSize(&window_w, &window_h);
-	int window_x, window_y;
-	this->GetPosition(&window_x, &window_y);
-	logWindow->SetPosition(wxPoint(window_x, window_y + window_h - 200));
-	logWindow->Show(true);
-}
-#endif
-
-inline void FrmKiwi :: InitializeGlobalMenu()
-{
-	// check if we're using dark or light mode
-	bool darkMode = wxSystemSettings::GetAppearance().IsDark();
-
-	////////////////////////////////////////////////////////////////////////////
-	//
-	//  Initialize the menubar
-	//
-	////////////////////////////////////////////////////////////////////////////
-
-	menuBar = new wxMenuBar();
-	SetMenuBar(menuBar);
-
-	// file menu
-	menuBar->Append((menuFile = new wxMenu()), "&File");
-
-	menuFileNew = new wxMenuItem(menuFile, wxID_ANY, "&New...\tCtrl+N", "Create new map");
-	menuFileNew->SetBitmap(wxBitmapBundle::FromSVG(KiwiUtil::GetThemeAgnosticSVG(SVG_ICON_NEW, darkMode).c_str(), wxSize(16, 16)));
-	menuFile->Append(menuFileNew);
-	Bind(wxEVT_MENU, &FrmKiwi::OnMenuNewMap, this, menuFileNew->GetId());
-
-	menuFile->AppendSeparator();
-
-	menuFileOpen = new wxMenuItem(menuFile, wxID_ANY, "&Open...\tCtrl+O", "Open map from a file");
-	menuFileOpen->SetBitmap(wxBitmapBundle::FromSVG(KiwiUtil::GetThemeAgnosticSVG(SVG_ICON_OPEN, darkMode).c_str(), wxSize(16, 16)));
-	menuFile->Append(menuFileOpen);
-
-	menuFile->AppendSubMenu((menuFileOpenRecent = new wxMenu()), "Open &Recent");
-
-	menuFile->AppendSeparator();
-
-	menuFile->Append(menuFileSave = new wxMenuItem(menuFile, wxID_ANY, "&Save\tCtrl+S", "Save current map"));
-	Bind(wxEVT_MENU, &FrmKiwi::OnMenuSave, this, menuFileSave->GetId());
-
-	menuFile->Append(menuFileSaveAs = new wxMenuItem(menuFile, wxID_ANY, "Save &As...\tCtrl+Shift+S", "Save current map as"));
-	Bind(wxEVT_MENU, &FrmKiwi::OnMenuSaveAs, this, menuFileSaveAs->GetId());
-
-	menuFile->AppendSeparator();
-
-	menuFile->Append(menuFileSaveTemplate = new wxMenuItem(menuFile, wxID_ANY, "Save &Template...", "Save current map as a template"));
-
-	menuFile->AppendSeparator();
-
-	menuFile->Append(menuFileExport = new wxMenuItem(menuFile, wxID_ANY, "&Export\tCtrl+E", "Export current map"));
-	menuFile->Append(menuFileExportAs = new wxMenuItem(menuFile, wxID_ANY, "Ex&port As...\tCtrl+Shift+E", "Export current map as"));
-
-	menuFile->AppendSeparator();
-
-	menuFile->Append(menuFileClose = new wxMenuItem(menuFile, wxID_ANY, "&Close\tCtrl+F4", "Close current map"));
-	menuFile->Append(menuFileCloseAll = new wxMenuItem(menuFile, wxID_ANY, "&Close All\tCtrl+Shift+F4", "Close all open"));
-
-	menuFile->AppendSeparator();
-
-	menuFile->Append(menuFileExit = new wxMenuItem(menuFile, wxID_ANY, "E&xit\tAlt+F4", "Exit program"));
-	Bind(wxEVT_MENU, &FrmKiwi::OnMenuExit, this, menuFileExit->GetId());
-
-	// (submenu) open recent file submenu
-	menuFileOpenRecent->Append(menuFileOpenRecentNoRecentItems = new wxMenuItem(menuFile, wxID_ANY, "(no recent items)"));
-	menuFileOpenRecentNoRecentItems->Enable(false);
-
-	// edit menu
-	menuEdit = new wxMenu();
-	menuBar->Append(menuEdit, "&Edit");
-
-	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "&Undo\tCtrl+Z", "Undo last action"));
-	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "&Redo\tCtrl+Y", "Redo last action"));
-
-	menuEdit->AppendSeparator();
-
-	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "Cu&t\tCtrl+X", "Cut selection"));
-	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "&Copy\tCtrl+C", "Copy selection"));
-	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "&Paste\tCtrl+V", "Paste from clipboard"));
-	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "&Delete\tDel", "Delete selection"));
-
-	menuEdit->AppendSeparator();
-
-	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "Select &All\tCtrl+A", "Select everything in view"));
-	menuEdit->Append(new wxMenuItem(menuEdit, wxID_ANY, "Select &None\tEsc", "Cancel selection"));
-
-	// view menu
-	menuView = new wxMenu();
-	menuBar->Append(menuView, "&View");
-
-	// map menu
-	menuMap = new wxMenu();
-	menuBar->Append(menuMap, "&Map");
-
-	// layer menu
-	menuLayer = new wxMenu();
-	menuBar->Append(menuLayer, "&Layer");
-
-	menuLayerNew = new wxMenuItem(menuLayer, wxID_ANY, "&Create New...\tCtrl+Shift+N", "Create a new layer");
-	menuLayer->Append(menuLayerNew);
-	Bind(wxEVT_MENU, &FrmKiwi::OnMenuNewLayer, this, menuLayerNew->GetId());
-
-	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Duplicate\tCtrl+Shift+D", "Duplicate current layer"));
-	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Merge...\tCtrl+Shift+M", "Merge this layer with another"));
-	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "Dele&te", "Delete current layer"));
-
-	menuLayer->AppendSeparator();
-
-	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Raise\tCtrl+PgUp", "Raises layer to one level above current"));
-	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Lower\tCtrl+PgDn", "Lowers layer to one level below current"));
-
-	menuLayer->AppendSeparator();
-
-	menuLayer->Append(new wxMenuItem(menuLayer, wxID_ANY, "&Properties...\tF7", "Display layer properties"));
-
-	// tools menu
-	menuBar->Append((menuTools = new wxMenu()), "&Tools");
-	menuTools->Append(menuToolsSettings = new wxMenuItem(menuTools, wxID_ANY, "&Settings\tF8", "Show settings dialog"));
-	Bind(wxEVT_MENU, &FrmKiwi::OnMenuSettings, this, menuToolsSettings->GetId());
-
-	// help menu
-	menuBar->Append((menuHelp = new wxMenu()), "&Help");
-	menuHelp->Append(menuHelpUserManual = new wxMenuItem(menuHelp, wxID_ANY, "User &Manual\tF1", "Show help contents"));
-	menuHelp->Append(menuHelpCheckForUpdates = new wxMenuItem(menuHelp, wxID_ANY, "Check for &Updates", "Check online repository for updates"));
-
-	menuHelp->AppendSeparator();
-
-	menuHelp->Append(menuHelpAbout = new wxMenuItem(menuHelp, wxID_ANY, "&About", "Show about dialog"));
-	Bind(wxEVT_MENU, &FrmKiwi::OnMenuAbout, this, menuHelpAbout->GetId());
-
-#ifdef KIWI_DEBUG_FEATURES
-	// debug menu
-	menuBar->Append((menuDebug = new wxMenu()), "&DEBUG");
-	menuDebug->Append(menuDebugShowLogWindow = new wxMenuItem(menuDebug, wxID_ANY, "Show &Log Window...", "Show the log window"));
-	Bind(wxEVT_MENU, &FrmKiwi::OnMenuShowLogWindow, this, menuDebugShowLogWindow->GetId());
-#endif
-}
-
-inline void FrmKiwi::InitializeStatusBar()
-{
-	////////////////////////////////////////////////////////////////////////////
-	//
-	//  Initialize the statusbar
-	//
-	////////////////////////////////////////////////////////////////////////////	
-
-	// (TODO custom status bar with embedded controls)
-	this->CreateStatusBar(2);
-}
-*/
-
-void FrmKiwi::OnMenuAbout(wxCommandEvent& e)
-{
-	DlgAbout* aboutDialog = new DlgAbout(this);
-	aboutDialog->CenterOnParent();
-	aboutDialog->ShowModal();
-}
-
-inline void FrmKiwi :: InitializeGlobalMenu()
-{
-	// check if we're using dark or light mode
+	// check for dark mode
 	bool darkMode = wxSystemSettings::GetAppearance().IsDark();
 
 	////////////////////////////////////////////////////////////////////////////
@@ -293,12 +59,185 @@ inline void FrmKiwi :: InitializeGlobalMenu()
 	//
 	auto& menuFile = menuBar.menuFile;
 	menuBar.root->Append((menuFile.root = new wxMenu()), "&File");
-
 	{
 		auto& menuNew = menuFile.members.menuNew;
-		menuNew = new wxMenuItem(menuFile.root, wxID_ANY, "&New...\tCtrl+N", "Create new map.");
-		menuNew->SetBitmap(wxBitmapBundle::FromSVG(KiwiUtil::GetThemeAgnosticSVG(SVG_ICON_NEW, darkMode).c_str(), wxSize(16, 16)));
+		menuNew = new wxMenuItem(menuFile.root, wxID_ANY, "&New...\tCtrl+N", "Create a new map");
+		///menuNew->SetBitmap(wxBitmapBundle::FromSVG(KiwiUtil::GetThemeAgnosticSVG(SVG_ICON_NEW, darkMode).c_str(), wxSize(16, 16)));
 		menuFile.root->Append(menuNew);
+
+		menuFile.root->AppendSeparator();
+
+		auto& menuOpen = menuFile.members.menuOpen;
+		menuOpen = new wxMenuItem(menuFile.root, wxID_ANY, "&Open...\tCtrl+O", "Open an existing map");
+		menuFile.root->Append(menuOpen);
+
+		auto& menuOpenRecent = menuFile.members.menuOpenRecent;
+		menuFile.root->AppendSubMenu((menuOpenRecent.root = new wxMenu()), "Open &Recent");
+		{
+			auto& menuNoRecentItems = menuOpenRecent.members.menuNoRecentItems;
+			menuNoRecentItems = new wxMenuItem(menuOpenRecent.root, wxID_ANY, "(no recent items)");
+			menuOpenRecent.root->Append(menuNoRecentItems);
+			menuNoRecentItems->Enable(false);
+
+		}
+
+		menuFile.root->AppendSeparator();
+
+		auto& menuSave = menuFile.members.menuSave;
+		menuSave = new wxMenuItem(menuFile.root, wxID_ANY, "&Save\tCtrl+S", "Save map");
+		menuFile.root->Append(menuSave);
+
+		auto& menuSaveAs = menuFile.members.menuSaveAs;
+		menuSaveAs = new wxMenuItem(menuFile.root, wxID_ANY, "Save &As...\tCtrl+Shift+S", "Save map as");
+		menuFile.root->Append(menuSaveAs);
+
+		menuFile.root->AppendSeparator();
+
+		auto& menuSaveTemplate = menuFile.members.menuSaveTemplate;
+		menuSaveTemplate = new wxMenuItem(menuFile.root, wxID_ANY, "Save &Template", "Save map as template");
+		menuFile.root->Append(menuSaveTemplate);
+
+		menuFile.root->AppendSeparator();
+
+		auto& menuExport = menuFile.members.menuExport;
+		menuExport = new wxMenuItem(menuFile.root, wxID_ANY, "&Export\tCtrl+E", "Export map");
+		menuFile.root->Append(menuExport);
+
+		auto& menuExportAs = menuFile.members.menuExportAs;
+		menuExportAs = new wxMenuItem(menuFile.root, wxID_ANY, "Ex&port As...\tCtrl+Shift+E", "Export map as");
+		menuFile.root->Append(menuExportAs);
+
+		menuFile.root->AppendSeparator();
+
+		auto& menuClose = menuFile.members.menuClose;
+		menuClose = new wxMenuItem(menuFile.root, wxID_ANY, "&Close\tCtrl+F4", "Close map");
+		menuFile.root->Append(menuClose);
+
+		auto& menuCloseAll = menuFile.members.menuCloseAll;
+		menuCloseAll = new wxMenuItem(menuFile.root, wxID_ANY, "Close A&ll\tCtrl+Shift+F4", "Close all open");
+		menuFile.root->Append(menuCloseAll);
+
+		menuFile.root->AppendSeparator();
+
+		auto& menuExit = menuFile.members.menuExit;
+		menuExit = new wxMenuItem(menuFile.root, wxID_ANY, "E&xit\tAlt+F4", "Exit editor");
+		menuFile.root->Append(menuExit);
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuExit, this, menuExit->GetId());
+	}
+
+	//
+	// Edit menu
+	//
+	auto& menuEdit = menuBar.menuEdit;
+	menuBar.root->Append((menuEdit.root = new wxMenu()), "&Edit");
+	{
+		auto& menuUndo = menuEdit.members.menuUndo;
+		menuUndo = new wxMenuItem(menuEdit.root, wxID_ANY, "&Undo\tCtrl+Z", "Undo last action");
+		menuEdit.root->Append(menuUndo);
+
+		auto& menuRedo = menuEdit.members.menuRedo;
+		menuRedo = new wxMenuItem(menuEdit.root, wxID_ANY, "&Redo\tCtrl+Y", "Redo previous undo");
+		menuEdit.root->Append(menuRedo);
+
+		menuEdit.root->AppendSeparator();
+
+		auto& menuCut = menuEdit.members.menuCut;
+		menuCut = new wxMenuItem(menuEdit.root, wxID_ANY, "Cu&t\tCtrl+X", "Cut selection");
+		menuEdit.root->Append(menuCut);
+
+		auto& menuCopy = menuEdit.members.menuCopy;
+		menuCopy = new wxMenuItem(menuEdit.root, wxID_ANY, "&Copy\tCtrl+C", "Copy selection");
+		menuEdit.root->Append(menuCopy);
+
+		auto& menuPaste = menuEdit.members.menuPaste;
+		menuPaste = new wxMenuItem(menuEdit.root, wxID_ANY, "&Paste\tCtrl+V", "Paste from clipboard");
+		menuEdit.root->Append(menuPaste);
+
+		auto& menuDelete = menuEdit.members.menuDelete;
+		menuDelete = new wxMenuItem(menuEdit.root, wxID_ANY, "&Delete\tDel", "Delete selection");
+		menuEdit.root->Append(menuDelete);
+
+		menuEdit.root->AppendSeparator();
+
+		auto& menuSelectView = menuEdit.members.menuSelectView;
+		menuSelectView = new wxMenuItem(menuEdit.root, wxID_ANY, "Select &View\tCtrl+A", "Select everything in view");
+		menuEdit.root->Append(menuSelectView);
+
+		auto& menuSelectAll = menuEdit.members.menuSelectAll;
+		menuSelectAll = new wxMenuItem(menuEdit.root, wxID_ANY, "Select &All\tCtrl+Shift+A", "Select everything on map");
+		menuEdit.root->Append(menuSelectAll);
+
+		auto& menuSelectNone = menuEdit.members.menuSelectNone;
+		menuSelectNone = new wxMenuItem(menuEdit.root, wxID_ANY, "Select &None\tEsc", "Cancel selection");
+		menuEdit.root->Append(menuSelectNone);
+	}
+
+	//
+	// View menu
+	//
+	auto& menuView = menuBar.menuView;
+	menuBar.root->Append((menuView.root = new wxMenu()), "&View");
+
+	//
+	// Map menu
+	//
+	auto& menuMap = menuBar.menuMap;
+	menuBar.root->Append((menuMap.root = new wxMenu()), "&Map");
+	{
+		auto& menuProperties = menuMap.members.menuProperties;
+		menuProperties = new wxMenuItem(menuMap.root, wxID_ANY, "&Properties\tF6", "Show map properties");
+		menuMap.root->Append(menuProperties);
+	}
+
+	//
+	// Layer menu
+	//
+	auto& menuLayer = menuBar.menuLayer;
+	menuBar.root->Append((menuLayer.root = new wxMenu()), "&Layer");
+	{
+		auto& menuCreateNew = menuLayer.members.menuCreateNew;
+		menuCreateNew = new wxMenuItem(menuLayer.root, wxID_ANY, "&Create New...\tCtrl+Shift+N", "Create a new layer");
+		menuLayer.root->Append(menuCreateNew);
+
+		auto& menuDuplicate = menuLayer.members.menuDuplicate;
+		menuDuplicate = new wxMenuItem(menuLayer.root, wxID_ANY, "&Duplicate\tCtrl+Shift+D", "Duplicate this layer");
+		menuLayer.root->Append(menuDuplicate);
+
+		auto& menuMerge = menuLayer.members.menuMerge;
+		menuMerge = new wxMenuItem(menuLayer.root, wxID_ANY, "&Merge...\tCtrl+Shift+M", "Merge this layer with another");
+		menuLayer.root->Append(menuMerge);
+
+		auto& menuDelete = menuLayer.members.menuDelete;
+		menuDelete = new wxMenuItem(menuLayer.root, wxID_ANY, "Dele&te", "Delete this layer");
+		menuLayer.root->Append(menuDelete);
+
+		menuLayer.root->AppendSeparator();
+
+		auto& menuRaise = menuLayer.members.menuRaise;
+		menuRaise = new wxMenuItem(menuLayer.root, wxID_ANY, "&Raise\tCtrl+PgUp", "Raise this layer to one level above current");
+		menuLayer.root->Append(menuRaise);
+
+		auto& menuLower = menuLayer.members.menuLower;
+		menuLower = new wxMenuItem(menuLayer.root, wxID_ANY, "&Lower\tCtrl+PgDn", "Raise this layer to one level below current");
+		menuLayer.root->Append(menuLower);
+
+		menuLayer.root->AppendSeparator();
+
+		auto& menuProperties = menuLayer.members.menuProperties;
+		menuProperties = new wxMenuItem(menuLayer.root, wxID_ANY, "&Properties\tF7", "Show layer properties");
+		menuLayer.root->Append(menuProperties);
+	}
+
+	//
+	// Tools menu
+	//
+	auto& menuTools = menuBar.menuTools;
+	menuBar.root->Append((menuTools.root = new wxMenu()), "&Tools");
+	{
+		auto& menuSettings = menuTools.members.menuSettings;
+		menuSettings = new wxMenuItem(menuTools.root, wxID_ANY, "&Settings\tF8", "Show the settings dialog");
+		menuTools.root->Append(menuSettings);
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuSettings, this, menuSettings->GetId());
 	}
 
 	//
@@ -306,13 +245,45 @@ inline void FrmKiwi :: InitializeGlobalMenu()
 	//
 	auto& menuHelp = menuBar.menuHelp;
 	menuBar.root->Append((menuHelp.root = new wxMenu()), "&Help");
-	
 	{
+		auto& menuUserManual = menuHelp.members.menuUserManual;
+		menuUserManual = new wxMenuItem(menuHelp.root, wxID_ANY, "User &Manual\tF1", "Open user manual");
+		menuHelp.root->Append(menuUserManual);
+
+		auto& menuCheckForUpdates = menuHelp.members.menuCheckForUpdates;
+		menuCheckForUpdates = new wxMenuItem(menuHelp.root, wxID_ANY, "Check for &Updates", "Check online repository for updates");
+		menuHelp.root->Append(menuCheckForUpdates);
+
+		menuHelp.root->AppendSeparator();
+
 		auto& menuAbout = menuHelp.members.menuAbout;
-		menuAbout = new wxMenuItem(menuHelp.root, wxID_ANY, "&About", "Shows the about dialog.");
+		menuAbout = new wxMenuItem(menuHelp.root, wxID_ANY, "&About", "Show the about dialog");
 		menuHelp.root->Append(menuAbout);
 		Bind(wxEVT_MENU, &FrmKiwi::OnMenuAbout, this, menuAbout->GetId());
 	}
+}
+
+inline void FrmKiwi::InitializeToolBar()
+{
+	////////////////////////////////////////////////////////////////////////////
+	//
+	//  Initialize the toolbar
+	//
+	////////////////////////////////////////////////////////////////////////////	
+
+	//wxToolBar* toolbar = CreateToolBar();
+    //toolbar->Realize();
+}
+
+inline void FrmKiwi::InitializeStatusBar()
+{
+	////////////////////////////////////////////////////////////////////////////
+	//
+	//  Initialize the statusbar
+	//
+	////////////////////////////////////////////////////////////////////////////	
+
+	this->CreateStatusBar(1);
 }
 
 FrmKiwi::FrmKiwi()
@@ -325,5 +296,6 @@ FrmKiwi::FrmKiwi()
 
 	// initialize components
 	InitializeGlobalMenu();
-	///InitializeStatusBar();
+	InitializeToolBar();
+	InitializeStatusBar();
 }

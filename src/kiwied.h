@@ -46,6 +46,7 @@
 #include <wx/settings.h>
 #include "wx/treectrl.h"
 #include "wx/gdicmn.h"
+#include "wx/bmpbndl.h"
 
 // STL includes
 #include <string>

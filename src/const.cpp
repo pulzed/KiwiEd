@@ -19,5 +19,5 @@
 #include "const.h"
 
 // current KiwiEd version
-// this MUST exist on line 22 because it auto-updates with the "update_versions" util
+// this MUST exist on line 23 because it auto-updates with the "update_versions" util
 const std::string KIWIED_VERSION = "0.0.2";

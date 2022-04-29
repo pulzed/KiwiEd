@@ -27,33 +27,115 @@ class FrmKiwi : public wxFrame
 {
 private:
 	// menubar structure
-	struct MENUBAR
+	struct MenuBar
 	{
 		wxMenuBar* root;
-		struct MENU_FILE
+		struct MenuFile
 		{
 			wxMenu* root;
-			struct MEMBERS
+			struct Members
 			{
 				wxMenuItem* menuNew;
+				wxMenuItem* menuOpen;
+				
+				struct MenuOpenRecent
+				{
+					wxMenu* root;
+					struct MEMBERS
+					{
+						wxMenuItem* menuNoRecentItems;
+						wxMenuItem* menuRecent[10];
+					} members;
+				} menuOpenRecent;
+
+				wxMenuItem* menuSave;
+				wxMenuItem* menuSaveAs;
+				wxMenuItem* menuSaveTemplate;
+				wxMenuItem* menuExport;
+				wxMenuItem* menuExportAs;
+				wxMenuItem* menuClose;
+				wxMenuItem* menuCloseAll;
+				wxMenuItem* menuExit;
+
 			} members;
 		} menuFile;
 
-		struct MENU_HELP
+		struct MenuEdit
 		{
 			wxMenu* root;
-			struct MEMBERS
+			struct Members
 			{
+				wxMenuItem* menuUndo;
+				wxMenuItem* menuRedo;
+				wxMenuItem* menuCut;
+				wxMenuItem* menuCopy;
+				wxMenuItem* menuPaste;
+				wxMenuItem* menuDelete;
+				wxMenuItem* menuSelectView;
+				wxMenuItem* menuSelectAll;
+				wxMenuItem* menuSelectNone;
+			} members;
+		} menuEdit;
+
+		struct MenuView
+		{
+			wxMenu* root;
+		} menuView;
+
+		struct MenuMap
+		{
+			wxMenu* root;
+			struct Members
+			{
+				wxMenuItem* menuProperties;
+			} members;
+		} menuMap;
+
+		struct MenuLayer
+		{
+			wxMenu* root;
+			struct Members
+			{
+				wxMenuItem* menuCreateNew;
+				wxMenuItem* menuDuplicate;
+				wxMenuItem* menuMerge;
+				wxMenuItem* menuDelete;
+				wxMenuItem* menuRaise;
+				wxMenuItem* menuLower;
+				wxMenuItem* menuProperties;
+			} members;
+		} menuLayer;
+
+		struct MenuTools
+		{
+			wxMenu* root;
+			struct Members
+			{
+				wxMenuItem* menuSettings;
+			} members;
+		} menuTools;
+
+		struct MenuHelp
+		{
+			wxMenu* root;
+			struct Members
+			{
+				wxMenuItem* menuUserManual;
+				wxMenuItem* menuCheckForUpdates;
 				wxMenuItem* menuAbout;
 			} members;
 		} menuHelp;
 	} menuBar;
 
 	// menubar events
+	void OnMenuExit(wxCommandEvent& e);
+	void OnMenuSettings(wxCommandEvent& e);
 	void OnMenuAbout(wxCommandEvent& e);
 
 	// initialization
 	void InitializeGlobalMenu();
+	void InitializeToolBar();
+	void InitializeStatusBar();
 /*
 	// top level menubar
 	wxMenuBar* menuBar;
