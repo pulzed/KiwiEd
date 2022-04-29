@@ -272,19 +272,21 @@ inline void FrmKiwi::InitializeToolBar()
 	////////////////////////////////////////////////////////////////////////////	
 
 	wxToolBar* toolbar = CreateToolBar();
-	toolbar->AddTool(0, "test button 1", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 1");
-	toolbar->AddTool(1, "test button 2", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 2");
+	
+	toolbar->SetToolBitmapSize(wxSize(16, 16));
+	toolbar->AddTool(0, "test button 1", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxDefaultSize), "Test Tooltip 1");
+	toolbar->AddTool(1, "test button 2", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxDefaultSize), "Test Tooltip 2");
 	toolbar->AddSeparator();
-	toolbar->AddTool(2, "test button 3", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 3");
-	toolbar->AddTool(3, "test button 4", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 4");
-	toolbar->AddTool(4, "test button 5", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 5");
+	toolbar->AddTool(2, "test button 3", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxDefaultSize), "Test Tooltip 3");
+	toolbar->AddTool(3, "test button 4", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxDefaultSize), "Test Tooltip 4");
+	toolbar->AddTool(4, "test button 5", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxDefaultSize), "Test Tooltip 5");
     toolbar->AddSeparator();
-	toolbar->AddTool(5, "test button 6", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 6");
-	toolbar->AddTool(6, "test button 7", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 7");
-	toolbar->AddTool(7, "test button 8", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 8");
+	toolbar->AddTool(5, "test button 6", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxDefaultSize), "Test Tooltip 6");
+	toolbar->AddTool(6, "test button 7", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxDefaultSize), "Test Tooltip 7");
+	toolbar->AddTool(7, "test button 8", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxDefaultSize), "Test Tooltip 8");
 	toolbar->AddSeparator();
-	toolbar->AddTool(8, "test button 9", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 9");
-	toolbar->AddTool(9, "test button 10", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 10");
+	toolbar->AddTool(8, "test button 9", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxDefaultSize), "Test Tooltip 9");
+	toolbar->AddTool(9, "test button 10", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxDefaultSize), "Test Tooltip 10");
 
 	toolbar->Realize();
 }
