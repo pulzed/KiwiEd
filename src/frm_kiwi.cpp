@@ -319,7 +319,9 @@ inline void FrmKiwi::InitializeInterface()
 
 	wxPanel* panel = new wxPanel(this, wxID_ANY);
 
-	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY);
+	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_BOTTOM | wxAUI_NB_CLOSE_ON_ACTIVE_TAB);
+	ntbDocumentView->SetTabCtrlHeight(FromDIP(32));
+	//ntbDocumentView->SetUniformBitmapSize(FromDIP(wxSize(32, 32)));
 
 	wxTextCtrl* textCtrl1 = new wxTextCtrl(ntbDocumentView, wxID_ANY, "contents", wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE);
 	wxPanel* panel1 = new wxPanel(ntbDocumentView, wxID_ANY);
