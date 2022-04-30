@@ -87,7 +87,7 @@ private:
 			wxMenu* root;
 			struct Members
 			{
-				wxMenuItem* menuProperties;
+				wxMenuItem* menuMapProperties;
 			} members;
 		} menuMap;
 
@@ -102,7 +102,7 @@ private:
 				wxMenuItem* menuDelete;
 				wxMenuItem* menuRaise;
 				wxMenuItem* menuLower;
-				wxMenuItem* menuProperties;
+				wxMenuItem* menuLayerProperties;
 			} members;
 		} menuLayer;
 
@@ -136,81 +136,7 @@ private:
 	void InitializeGlobalMenu();
 	void InitializeToolBar();
 	void InitializeStatusBar();
-/*
-	// top level menubar
-	wxMenuBar* menuBar;
-
-	// top level menubar menus
-	wxMenu* menuFile;
-	wxMenu* menuEdit;
-	wxMenu* menuView;
-	wxMenu* menuMap;
-	wxMenu* menuLayer;
-	wxMenu* menuTools;
-	wxMenu* menuHelp;
-#ifdef KIWI_DEBUG_FEATURES
-	wxMenu* menuDebug;
-#endif
-
-	// file menu items
-	wxMenuItem* menuFileNew;
-	wxMenuItem* menuFileOpen;
-	wxMenu* menuFileOpenRecent;
-	wxMenuItem* menuFileSave;
-	wxMenuItem* menuFileSaveAs;
-	wxMenuItem* menuFileSaveTemplate;
-	wxMenuItem* menuFileExport;
-	wxMenuItem* menuFileExportAs;
-	wxMenuItem* menuFileClose;
-	wxMenuItem* menuFileCloseAll;
-	wxMenuItem* menuFileExit;
-
-	// (submenu) open recent menu items
-	wxMenuItem* menuFileOpenRecentNoRecentItems;
-
-	// layer menu items
-	wxMenuItem* menuLayerNew;
-
-	// tools menu items
-	wxMenuItem* menuToolsSettings;
-
-	// help menu items
-	wxMenuItem* menuHelpUserManual;
-	wxMenuItem* menuHelpCheckForUpdates;
-	wxMenuItem* menuHelpAbout;
-
-#ifdef KIWI_DEBUG_FEATURES
-	// debug menu items
-	wxMenuItem* menuDebugShowLogWindow;
-#endif
-
-	// main window components
-	
-
-	// menu events
-	void OnMenuNewMap(wxCommandEvent& e);
-
-	void OnMenuOpen(wxCommandEvent& e);
-	void OnMenuSave(wxCommandEvent& e);
-	void OnMenuSaveAs(wxCommandEvent& e);
-
-	void OnMenuExit(wxCommandEvent& e);
-
-	void OnMenuNewLayer(wxCommandEvent& e);
-
-	void OnMenuSettings(wxCommandEvent& e);
-
-	void OnMenuAbout(wxCommandEvent& e);
-
-#ifdef KIWI_DEBUG_FEATURES
-	// debug menu events
-	void OnMenuShowLogWindow(wxCommandEvent& e);
-#endif
-
-	// component initialization functions
-	void InitializeGlobalMenu();
-	void InitializeStatusBar();
-	*/
+	void InitializeInterface();
 
 public:
 	FrmKiwi();

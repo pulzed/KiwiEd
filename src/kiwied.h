@@ -43,10 +43,12 @@
 #ifndef WX_PRECOMP
 	#include "wx/wx.h"
 #endif
-#include <wx/settings.h>
+#include "wx/settings.h"
+#include "wx/bmpbndl.h"
 #include "wx/treectrl.h"
 #include "wx/gdicmn.h"
-#include "wx/bmpbndl.h"
+#include "wx/textctrl.h"
+#include "wx/aui/aui.h"
 
 // STL includes
 #include <string>

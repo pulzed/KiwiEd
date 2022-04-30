@@ -37,6 +37,7 @@ target_link_libraries("${PROJECT_NAME}"
 	PUBLIC 
 	wx::base
 	wx::core
+	wx::aui
 )
 
 if (MSVC)

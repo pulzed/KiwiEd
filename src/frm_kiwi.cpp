@@ -184,9 +184,9 @@ inline void FrmKiwi::InitializeGlobalMenu()
 	auto& menuMap = menuBar.menuMap;
 	menuBar.root->Append((menuMap.root = new wxMenu()), "&Map");
 	{
-		auto& menuProperties = menuMap.members.menuProperties;
-		menuProperties = new wxMenuItem(menuMap.root, wxID_ANY, "&Properties\tF6", "Show map properties");
-		menuMap.root->Append(menuProperties);
+		auto& menuMapProperties = menuMap.members.menuMapProperties;
+		menuMapProperties = new wxMenuItem(menuMap.root, wxID_ANY, "Map &Properties\tF6", "Show map properties");
+		menuMap.root->Append(menuMapProperties);
 	}
 
 	//
@@ -223,9 +223,9 @@ inline void FrmKiwi::InitializeGlobalMenu()
 
 		menuLayer.root->AppendSeparator();
 
-		auto& menuProperties = menuLayer.members.menuProperties;
-		menuProperties = new wxMenuItem(menuLayer.root, wxID_ANY, "&Properties\tF7", "Show layer properties");
-		menuLayer.root->Append(menuProperties);
+		auto& menuLayerProperties = menuLayer.members.menuLayerProperties;
+		menuLayerProperties = new wxMenuItem(menuLayer.root, wxID_ANY, "Layer &Properties\tF7", "Show layer properties");
+		menuLayer.root->Append(menuLayerProperties);
 	}
 
 	//
@@ -271,8 +271,22 @@ inline void FrmKiwi::InitializeToolBar()
 	//
 	////////////////////////////////////////////////////////////////////////////	
 
-	//wxToolBar* toolbar = CreateToolBar();
-    //toolbar->Realize();
+	wxToolBar* toolbar = CreateToolBar();
+	toolbar->AddTool(0, "test button 1", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 1");
+	toolbar->AddTool(1, "test button 2", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 2");
+	toolbar->AddSeparator();
+	toolbar->AddTool(2, "test button 3", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 3");
+	toolbar->AddTool(3, "test button 4", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 4");
+	toolbar->AddTool(4, "test button 5", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 5");
+    toolbar->AddSeparator();
+	toolbar->AddTool(5, "test button 6", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 6");
+	toolbar->AddTool(6, "test button 7", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 7");
+	toolbar->AddTool(7, "test button 8", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 8");
+	toolbar->AddSeparator();
+	toolbar->AddTool(8, "test button 9", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 9");
+	toolbar->AddTool(9, "test button 10", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 10");
+
+	toolbar->Realize();
 }
 
 inline void FrmKiwi::InitializeStatusBar()
@@ -284,6 +298,36 @@ inline void FrmKiwi::InitializeStatusBar()
 	////////////////////////////////////////////////////////////////////////////	
 
 	this->CreateStatusBar(1);
+}
+
+inline void FrmKiwi::InitializeInterface()
+{
+	////////////////////////////////////////////////////////////////////////////
+	//
+	//  Initialize editor interface
+	//
+	////////////////////////////////////////////////////////////////////////////	
+
+    wxPanel* panel = new wxPanel(this, wxID_ANY);
+
+    wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY);
+
+    wxTextCtrl* textCtrl1 = new wxTextCtrl(ntbDocumentView, wxID_ANY, "contents", wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE);
+	wxPanel* panel1 = new wxPanel(ntbDocumentView, wxID_ANY);
+	wxPanel* panel2 = new wxPanel(ntbDocumentView, wxID_ANY);
+
+    ntbDocumentView->AddPage(panel1, "somemap");
+	ntbDocumentView->AddPage(panel2, "anothermap");
+    ntbDocumentView->AddPage(textCtrl1, "map3");
+
+    wxBoxSizer* panelSizer = new wxBoxSizer(wxHORIZONTAL);
+    panelSizer->Add(ntbDocumentView, 1, wxEXPAND);
+    panel->SetSizer(panelSizer);
+
+    wxBoxSizer* topSizer = new wxBoxSizer(wxHORIZONTAL);
+    topSizer->SetMinSize(250, 200);
+    topSizer->Add(panel, 1, wxEXPAND);
+    SetSizerAndFit(topSizer);
 }
 
 FrmKiwi::FrmKiwi()
@@ -298,4 +342,5 @@ FrmKiwi::FrmKiwi()
 	InitializeGlobalMenu();
 	InitializeToolBar();
 	InitializeStatusBar();
+	InitializeInterface();
 }
