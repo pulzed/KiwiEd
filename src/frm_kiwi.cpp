@@ -319,7 +319,7 @@ inline void FrmKiwi::InitializeInterface()
 
 	wxPanel* panel = new wxPanel(this, wxID_ANY);
 
-	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_BOTTOM | wxAUI_NB_CLOSE_ON_ACTIVE_TAB);
+	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_BOTTOM | wxAUI_NB_CLOSE_BUTTON);
 	ntbDocumentView->SetTabCtrlHeight(FromDIP(32));
 	//ntbDocumentView->SetUniformBitmapSize(FromDIP(wxSize(32, 32)));
 
@@ -338,6 +338,7 @@ inline void FrmKiwi::InitializeInterface()
 	wxBoxSizer* topSizer = new wxBoxSizer(wxHORIZONTAL);
 	topSizer->SetMinSize(250, 200);
 	topSizer->Add(panel, 1, wxEXPAND);
+
 	SetSizerAndFit(topSizer);
 }
 
