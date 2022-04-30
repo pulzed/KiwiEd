@@ -294,8 +294,6 @@ inline void FrmKiwi::InitializeToolBar()
 	toolbar->AddTool(12, "test button 13", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 13");
 	toolbar->AddTool(13, "test button 14", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 14");
 	toolbar->AddTool(14, "test button 15", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 15");
-	toolbar->AddStretchableSpace();
-	toolbar->AddTool(15, "test button 16", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 16");
 
 	toolbar->Realize();
 }
@@ -321,17 +319,19 @@ inline void FrmKiwi::InitializeInterface()
 
 	wxPanel* panel = new wxPanel(this, wxID_ANY);
 
-	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_BOTTOM | wxAUI_NB_TAB_MOVE);
-	ntbDocumentView->SetTabCtrlHeight(FromDIP(32));
+	//wxNotebook* ntbDocumentView = new wxNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize);
+	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_TAB_MOVE | wxAUI_NB_CLOSE_ON_ACTIVE_TAB);
+	//wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_BOTTOM | wxAUI_NB_TAB_MOVE | wxAUI_NB_CLOSE_ON_ACTIVE_TAB);
+	//ntbDocumentView->SetTabCtrlHeight(FromDIP(32));
 	//ntbDocumentView->SetUniformBitmapSize(FromDIP(wxSize(32, 32)));
 
 	wxTextCtrl* textCtrl1 = new wxTextCtrl(ntbDocumentView, wxID_ANY, "contents", wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE);
 	wxPanel* panel1 = new wxPanel(ntbDocumentView, wxID_ANY);
 	wxPanel* panel2 = new wxPanel(ntbDocumentView, wxID_ANY);
 
-	ntbDocumentView->AddPage(panel1, "somemap");
-	ntbDocumentView->AddPage(panel2, "anothermap");
-	ntbDocumentView->AddPage(textCtrl1, "map3");
+	ntbDocumentView->AddPage(panel1, "document1.ext");
+	ntbDocumentView->AddPage(panel2, "document2.ext");
+	ntbDocumentView->AddPage(textCtrl1, "document3.ext");
 
 	wxBoxSizer* panelSizer = new wxBoxSizer(wxHORIZONTAL);
 	panelSizer->Add(ntbDocumentView, 1, wxEXPAND);
