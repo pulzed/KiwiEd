@@ -294,6 +294,8 @@ inline void FrmKiwi::InitializeToolBar()
 	toolbar->AddTool(12, "test button 13", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 13");
 	toolbar->AddTool(13, "test button 14", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 14");
 	toolbar->AddTool(14, "test button 15", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 15");
+	toolbar->AddStretchableSpace();
+	toolbar->AddTool(15, "test button 16", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 16");
 
 	toolbar->Realize();
 }
@@ -319,7 +321,7 @@ inline void FrmKiwi::InitializeInterface()
 
 	wxPanel* panel = new wxPanel(this, wxID_ANY);
 
-	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_BOTTOM | wxAUI_NB_CLOSE_BUTTON);
+	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_BOTTOM | wxAUI_NB_TAB_MOVE);
 	ntbDocumentView->SetTabCtrlHeight(FromDIP(32));
 	//ntbDocumentView->SetUniformBitmapSize(FromDIP(wxSize(32, 32)));
 
