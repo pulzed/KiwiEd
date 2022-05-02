@@ -271,6 +271,25 @@ inline void FrmKiwi::InitializeToolBar()
 	//
 	////////////////////////////////////////////////////////////////////////////	
 
+
+/*
+	wxAuiToolBar* toolbar = new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW);
+
+    toolbar->AddTool(1, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
+    toolbar->AddSeparator();
+    toolbar->AddTool(2, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
+    toolbar->AddTool(3, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
+    toolbar->AddTool(4, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
+    toolbar->AddTool(5, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
+    ///toolbar->SetCustomOverflowItems(prepend_items, append_items);
+    toolbar->Realize();
+
+	auiManager.AddPane(toolbar, wxAuiPaneInfo().
+				Name("tb1").Caption("Big Toolbar").
+				ToolbarPane().Top());
+*/
+
+
 	//wxToolBar* toolbar = CreateToolBar(wxTB_NODIVIDER | wxTB_FLAT | wxTB_VERTICAL | wxTB_LEFT);
 	wxToolBar* toolbar = CreateToolBar(wxTB_NODIVIDER | wxTB_FLAT);
 	//toolbar->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOW));
@@ -315,12 +334,12 @@ inline void FrmKiwi::InitializeInterface()
 	//
 	//  Initialize editor interface
 	//
-	////////////////////////////////////////////////////////////////////////////	
+	////////////////////////////////////////////////////////////////////////////
 
 	wxPanel* panel = new wxPanel(this, wxID_ANY);
 
 	//wxNotebook* ntbDocumentView = new wxNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize);
-	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_TAB_MOVE | wxAUI_NB_CLOSE_ON_ACTIVE_TAB);
+	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_TAB_MOVE | wxAUI_NB_CLOSE_ON_ALL_TABS);
 	//wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_BOTTOM | wxAUI_NB_TAB_MOVE | wxAUI_NB_CLOSE_ON_ACTIVE_TAB);
 	//ntbDocumentView->SetTabCtrlHeight(FromDIP(32));
 	//ntbDocumentView->SetUniformBitmapSize(FromDIP(wxSize(32, 32)));
@@ -347,6 +366,9 @@ inline void FrmKiwi::InitializeInterface()
 FrmKiwi::FrmKiwi()
 : wxFrame(NULL, wxID_ANY, "KiwiEd")
 {
+	// Make this an AUI managed window
+	////auiManager.SetManagedWindow(this);
+
 	// frame setup
 	SetMinSize(FromDIP(wxSize(200, 200))); // set minimum frame size
 	SetIcon(wxIcon(KiwiEd_xpm)); // set window icon

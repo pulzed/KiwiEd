@@ -127,6 +127,9 @@ private:
 		} menuHelp;
 	} menuBar;
 
+	// layout
+	///wxAuiManager auiManager;
+
 	// menubar events
 	void OnMenuExit(wxCommandEvent& e);
 	void OnMenuSettings(wxCommandEvent& e);
