@@ -11,8 +11,8 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  hardcoded.h
-//  Hardcoded application data.
+//  svg_data.h
+//  Hardcoded SVG data.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -20,8 +20,6 @@
 
 #ifndef KIWI_HARDCODED_H_
 #define KIWI_HARDCODED_H_
-
-extern const char* const KIWIED_CFG_INIDATA;
 
 extern const char* const SVG_ICON_NEW;
 extern const char* const SVG_ICON_OPEN;

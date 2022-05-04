@@ -21,6 +21,8 @@
 #ifndef KIWI_CONFIG_H_
 #define KIWI_CONFIG_H_
 
+extern const char* const KIWIED_CFG_INIDATA;
+
 class KiwiConfig
 {
 private:

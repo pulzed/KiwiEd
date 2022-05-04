@@ -9,7 +9,7 @@ import fileinput
 import sys
 
 # target sourcefile filename
-targetFilename = '../src/hardcoded.cpp'
+targetFilename = '../src/config.cpp'
 
 # ini data source filename
 iniFilename = '../dev/config.ini'

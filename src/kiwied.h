@@ -67,7 +67,7 @@
 
 // classes  and implementations
 #include "const.h"
-#include "hardcoded.h"
+#include "svg_data.h"
 #include "util.h"
 #include "config.h"
 
