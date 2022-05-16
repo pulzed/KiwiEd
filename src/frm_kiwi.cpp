@@ -21,23 +21,30 @@
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
 
-void FrmKiwi::OnMenuExit(wxCommandEvent& e)
+void FrmKiwi::OnMenuFileNew(wxCommandEvent& e)
+{
+	DlgNewMap* dlgNewMap = new DlgNewMap(this);
+	dlgNewMap->CenterOnParent();
+	dlgNewMap->ShowModal();
+}
+
+void FrmKiwi::OnMenuFileExit(wxCommandEvent& e)
 {
 	Close(true);
 }
 
-void FrmKiwi::OnMenuSettings(wxCommandEvent& e)
+void FrmKiwi::OnMenuToolsSettings(wxCommandEvent& e)
 {
-	DlgSettings* settingsDialog = new DlgSettings(this);
-	settingsDialog->CenterOnParent();
-	settingsDialog->ShowModal();
+	DlgSettings* dlgSettings = new DlgSettings(this);
+	dlgSettings->CenterOnParent();
+	dlgSettings->ShowModal();
 }
 
-void FrmKiwi::OnMenuAbout(wxCommandEvent& e)
+void FrmKiwi::OnMenuHelpAbout(wxCommandEvent& e)
 {
-	DlgAbout* aboutDialog = new DlgAbout(this);
-	aboutDialog->CenterOnParent();
-	aboutDialog->ShowModal();
+	DlgAbout* dlgAbout = new DlgAbout(this);
+	dlgAbout->CenterOnParent();
+	dlgAbout->ShowModal();
 }
 
 inline void FrmKiwi::InitializeGlobalMenu()
@@ -63,7 +70,9 @@ inline void FrmKiwi::InitializeGlobalMenu()
 		auto& menuNew = menuFile.members.menuNew;
 		menuNew = new wxMenuItem(menuFile.root, wxID_ANY, "&New...\tCtrl+N", "Create a new map");
 		///menuNew->SetBitmap(wxBitmapBundle::FromSVG(KiwiUtil::GetThemeAgnosticSVG(SVG_ICON_NEW, darkMode).c_str(), wxSize(16, 16)));
+		menuNew->SetBitmap(wxBitmapBundle::FromSVG(SVG_ICON_NEW, wxSize(16, 16)));
 		menuFile.root->Append(menuNew);
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuFileNew, this, menuNew->GetId());
 
 		menuFile.root->AppendSeparator();
 
@@ -122,7 +131,7 @@ inline void FrmKiwi::InitializeGlobalMenu()
 		auto& menuExit = menuFile.members.menuExit;
 		menuExit = new wxMenuItem(menuFile.root, wxID_ANY, "E&xit\tAlt+F4", "Exit editor");
 		menuFile.root->Append(menuExit);
-		Bind(wxEVT_MENU, &FrmKiwi::OnMenuExit, this, menuExit->GetId());
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuFileExit, this, menuExit->GetId());
 	}
 
 	//
@@ -237,7 +246,7 @@ inline void FrmKiwi::InitializeGlobalMenu()
 		auto& menuSettings = menuTools.members.menuSettings;
 		menuSettings = new wxMenuItem(menuTools.root, wxID_ANY, "&Settings\tF8", "Show the settings dialog");
 		menuTools.root->Append(menuSettings);
-		Bind(wxEVT_MENU, &FrmKiwi::OnMenuSettings, this, menuSettings->GetId());
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuToolsSettings, this, menuSettings->GetId());
 	}
 
 	//
@@ -259,7 +268,7 @@ inline void FrmKiwi::InitializeGlobalMenu()
 		auto& menuAbout = menuHelp.members.menuAbout;
 		menuAbout = new wxMenuItem(menuHelp.root, wxID_ANY, "&About", "Show the about dialog");
 		menuHelp.root->Append(menuAbout);
-		Bind(wxEVT_MENU, &FrmKiwi::OnMenuAbout, this, menuAbout->GetId());
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuHelpAbout, this, menuAbout->GetId());
 	}
 }
 
@@ -272,10 +281,10 @@ inline void FrmKiwi::InitializeToolBar()
 	////////////////////////////////////////////////////////////////////////////	
 
 
-/*
+
 	wxAuiToolBar* toolbar = new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW);
 
-    toolbar->AddTool(1, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
+    toolbar->AddTool(1, "Test", wxBitmapBundle::FromSVG(SVG_ICON_NEW, wxSize(16, 16)));
     toolbar->AddSeparator();
     toolbar->AddTool(2, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
     toolbar->AddTool(3, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
@@ -287,9 +296,11 @@ inline void FrmKiwi::InitializeToolBar()
 	auiManager.AddPane(toolbar, wxAuiPaneInfo().
 				Name("tb1").Caption("Big Toolbar").
 				ToolbarPane().Top());
-*/
 
 
+
+
+/*
 	//wxToolBar* toolbar = CreateToolBar(wxTB_NODIVIDER | wxTB_FLAT | wxTB_VERTICAL | wxTB_LEFT);
 	wxToolBar* toolbar = CreateToolBar(wxTB_NODIVIDER | wxTB_FLAT);
 	//toolbar->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOW));
@@ -315,6 +326,7 @@ inline void FrmKiwi::InitializeToolBar()
 	toolbar->AddTool(14, "test button 15", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 15");
 
 	toolbar->Realize();
+*/
 }
 
 inline void FrmKiwi::InitializeStatusBar()
@@ -325,7 +337,7 @@ inline void FrmKiwi::InitializeStatusBar()
 	//
 	////////////////////////////////////////////////////////////////////////////	
 
-	this->CreateStatusBar(1);
+	this->CreateStatusBar(1, wxSTB_SIZEGRIP);
 }
 
 inline void FrmKiwi::InitializeInterface()
@@ -336,6 +348,7 @@ inline void FrmKiwi::InitializeInterface()
 	//
 	////////////////////////////////////////////////////////////////////////////
 
+/*
 	wxPanel* panel = new wxPanel(this, wxID_ANY);
 
 	//wxNotebook* ntbDocumentView = new wxNotebook(panel, wxID_ANY, wxDefaultPosition, wxDefaultSize);
@@ -361,22 +374,26 @@ inline void FrmKiwi::InitializeInterface()
 	topSizer->Add(panel, 1, wxEXPAND);
 
 	SetSizerAndFit(topSizer);
+	*/
+	
 }
 
 FrmKiwi::FrmKiwi()
 : wxFrame(NULL, wxID_ANY, "KiwiEd")
 {
-	// Make this an AUI managed window
-	////auiManager.SetManagedWindow(this);
-
 	// frame setup
 	SetMinSize(FromDIP(wxSize(200, 200))); // set minimum frame size
 	SetIcon(wxIcon(KiwiEd_xpm)); // set window icon
 	//SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_APPWORKSPACE));
+
+	// Make this an AUI managed window
+	auiManager.SetManagedWindow(this);
 
 	// initialize components
 	InitializeGlobalMenu();
 	InitializeToolBar();
 	InitializeStatusBar();
 	InitializeInterface();
+
+	auiManager.Update();
 }

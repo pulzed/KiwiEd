@@ -127,13 +127,13 @@ private:
 		} menuHelp;
 	} menuBar;
 
-	// layout
-	///wxAuiManager auiManager;
+	wxAuiManager auiManager;
 
 	// menubar events
-	void OnMenuExit(wxCommandEvent& e);
-	void OnMenuSettings(wxCommandEvent& e);
-	void OnMenuAbout(wxCommandEvent& e);
+	void OnMenuFileNew(wxCommandEvent& e);
+	void OnMenuFileExit(wxCommandEvent& e);
+	void OnMenuToolsSettings(wxCommandEvent& e);
+	void OnMenuHelpAbout(wxCommandEvent& e);
 
 	// initialization
 	void InitializeGlobalMenu();
