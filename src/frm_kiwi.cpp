@@ -280,9 +280,7 @@ inline void FrmKiwi::InitializeToolBar()
 	//
 	////////////////////////////////////////////////////////////////////////////	
 
-
-
-	wxAuiToolBar* toolbar = new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW);
+	wxAuiToolBar* toolbar = new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW | wxAUI_TB_HORIZONTAL);
 
     toolbar->AddTool(1, "Test", wxBitmapBundle::FromSVG(SVG_ICON_NEW, wxSize(16, 16)));
     toolbar->AddSeparator();
@@ -297,36 +295,6 @@ inline void FrmKiwi::InitializeToolBar()
 				Name("tb1").Caption("Big Toolbar").
 				ToolbarPane().Top());
 
-
-
-
-/*
-	//wxToolBar* toolbar = CreateToolBar(wxTB_NODIVIDER | wxTB_FLAT | wxTB_VERTICAL | wxTB_LEFT);
-	wxToolBar* toolbar = CreateToolBar(wxTB_NODIVIDER | wxTB_FLAT);
-	//toolbar->SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_WINDOW));
-	toolbar->SetToolBitmapSize(wxSize(16, 16));
-	toolbar->AddTool(0, "test button 1", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 1");
-	toolbar->AddTool(1, "test button 2", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 2");
-	toolbar->AddSeparator();
-	toolbar->AddTool(2, "test button 3", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 3");
-	toolbar->AddTool(3, "test button 4", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 4");
-	toolbar->AddTool(4, "test button 5", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 5");
-    toolbar->AddSeparator();
-	toolbar->AddTool(5, "test button 6", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 6");
-	toolbar->AddTool(6, "test button 7", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 7");
-	toolbar->AddTool(7, "test button 8", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 8");
-	toolbar->AddSeparator();
-	toolbar->AddTool(8, "test button 9", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 9");
-	toolbar->AddTool(9, "test button 10", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 10");
-	toolbar->AddSeparator();
-	toolbar->AddTool(10, "test button 11", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 11");
-	toolbar->AddTool(11, "test button 12", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 12");
-	toolbar->AddTool(12, "test button 13", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 13");
-	toolbar->AddTool(13, "test button 14", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 14");
-	toolbar->AddTool(14, "test button 15", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)), "Test Tooltip 15");
-
-	toolbar->Realize();
-*/
 }
 
 inline void FrmKiwi::InitializeStatusBar()
@@ -375,6 +343,22 @@ inline void FrmKiwi::InitializeInterface()
 
 	SetSizerAndFit(topSizer);
 	*/
+
+	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_TAB_MOVE | wxAUI_NB_CLOSE_ON_ALL_TABS);
+
+		
+
+	wxTextCtrl* textCtrl1 = new wxTextCtrl(ntbDocumentView, wxID_ANY, "contents", wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE);
+	wxPanel* panel1 = new wxPanel(ntbDocumentView, wxID_ANY);
+	wxPanel* panel2 = new wxPanel(ntbDocumentView, wxID_ANY);
+
+	ntbDocumentView->AddPage(panel1, "document1.ext");
+	ntbDocumentView->AddPage(panel2, "document2.ext");
+	ntbDocumentView->AddPage(textCtrl1, "document3.ext");
+
+	auiManager.AddPane(ntbDocumentView, wxAuiPaneInfo().
+		Name("sds").Caption("Big Todszolbar").Float()  //.Dockable(false)
+		.CenterPane().Top());
 	
 }
 
@@ -392,8 +376,9 @@ FrmKiwi::FrmKiwi()
 	// initialize components
 	InitializeGlobalMenu();
 	InitializeToolBar();
-	InitializeStatusBar();
 	InitializeInterface();
+	InitializeStatusBar();
 
+	
 	auiManager.Update();
 }

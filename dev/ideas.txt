@@ -1,0 +1,17 @@
+= Project file format: =
+
+File extension: .kiwi
+
+Format?
+  - Option 1: binary
+  - Option 2: xml
+  - Option 3: json
+
+Ideas:
+  - Contains tilesets and other graphics data (like object graphics) in the binary itself
+
+    GOOD because it makes project files portable and self-contained
+    BAD because you have to update tiles with file references anywa since a WIP map would
+	change tiles a lot; this may not be an issue with live-update, though and would still
+	make some sense
+	BAD increased filesize

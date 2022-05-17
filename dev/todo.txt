@@ -1,4 +1,4 @@
-* Prepare workflow for designing and adding icons
+* Start adding icons
 * Create layout for settings dialog
 * Start adding main window components
 * Start adding dialogs and windows
