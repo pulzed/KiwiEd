@@ -358,7 +358,9 @@ inline void FrmKiwi::InitializeInterface()
 
 	auiManager.AddPane(ntbDocumentView, wxAuiPaneInfo().
 		Name("sds").Caption("Big Todszolbar").Float()  //.Dockable(false)
-		.CenterPane().Top());
+		//.CenterPane().Top());
+		.CenterPane()
+		.Top());
 	
 }
 
