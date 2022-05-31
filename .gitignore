@@ -3,8 +3,11 @@
 *.swp
 *.swo
 *.vim
-# visual strudio ignored files
+# visual strudio ignored files and folders
+.vs
 res/KiwiEd.aps
+# vscode ignored folders
+.vscode
 # ignored folders
 .cache
 /build/

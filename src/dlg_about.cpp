@@ -38,9 +38,17 @@ DlgAbout::DlgAbout(wxWindow *parent)
 		CreateTextSizer(
 			"KiwiEd\n"
 			"2D map editor\n\n"
-			"v" + KIWIED_VERSION +
-#ifdef KIWI_DEBUG_BUILD
-			" (debug build)" +
+			"v" + KIWIED_VERSION + " "
+#if defined(KIWI_SYSTEM_WINDOWS)
+			"Windows"
+#elif defined(KIWI_SYSTEM_LINUX)
+			"Linux"
+#elif defined(KIWI_SYSTEM_MACOS)
+			"MacOS"
+#endif
+			" build"
+#if defined(KIWI_DEBUG_BUILD)
+			" (debug)" +
 #endif
 			"\n\n"
 			"Copyright (c) 2022 Danijel Durakovic\n"

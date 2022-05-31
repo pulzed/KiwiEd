@@ -21,6 +21,14 @@
 #ifndef KIWI_KIWIED_H_
 #define KIWI_KIWIED_H_
 
+#if defined(_WIN32) || defined(__CYGWIN__)
+	#define KIWI_SYSTEM_WINDOWS
+#elif defined(__linux__)
+	#define KIWI_SYSTEM_LINUX
+#elif defined(__APPLE__)
+	#define KIWI_SYSTEM_MACOS
+#endif
+
 #if defined(DEBUG) || defined(_DEBUG)
 	#define KIWI_DEBUG_BUILD
 	#define KIWI_DEBUG_FEATURES // implement debug features when building debug
