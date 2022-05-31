@@ -15,7 +15,7 @@ def readTextFile(filename):
 
 if __name__ == '__main__':
 	if len(sys.argv) < 3:
-		sys.stdout.write('Usage: {util} [variable name] [input file]'.format(util = sys.argv[0]))
+		sys.stdout.write('Usage: {util} [variable name] [input file]\n'.format(util = sys.argv[0]))
 		sys.exit(0)
 
 	inputFilename = sys.argv[2]

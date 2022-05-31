@@ -11,26 +11,18 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  app.cpp
+//  map.h
+//  Map base class.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "kiwied.h"
-#include "app.h"
+#pragma once
 
-wxDECLARE_APP(Kiwi::App);
+#ifndef KIWI_MAP_H_
+#define KIWI_MAP_H_
 
-bool Kiwi::App::OnInit()
+class Map
 {
-	// load configuration
-	config.Load();
+};
 
-	// display main window
-	FrmKiwi* window = new FrmKiwi();
-	window->SetSize(window->FromDIP(wxSize(800, 600)));
-	window->CenterOnScreen();
-	window->Show(true);
-	return true;
-}
-
-wxIMPLEMENT_APP(Kiwi::App); // implement wx application
+#endif // KIWI_MAP_H_

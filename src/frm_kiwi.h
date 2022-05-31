@@ -125,6 +125,18 @@ private:
 				wxMenuItem* menuAbout;
 			} members;
 		} menuHelp;
+
+#ifdef KIWI_DEBUG_BUILD
+		struct MenuDebug
+		{
+			wxMenu* root;
+			struct Members
+			{
+				wxMenuItem* menuLogWindow;
+			} members;
+		} menuDebug;
+#endif
+
 	} menuBar;
 
 	wxAuiManager auiManager;

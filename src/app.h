@@ -21,7 +21,10 @@
 #ifndef KIWI_APP_H_
 #define KIWI_APP_H_
 
-class KiwiApp : public wxApp
+namespace Kiwi
+{
+
+class App : public wxApp
 {
 private:
 	KiwiConfig config;
@@ -29,6 +32,8 @@ private:
 public:
 	virtual bool OnInit();
 };
+
+}
 
 #endif // KIWI_APP_H_
 

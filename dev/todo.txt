@@ -1,3 +1,4 @@
+* Put all code into a Kiwi namespace
 * Start adding icons
 * Create layout for settings dialog
 * Start adding main window components

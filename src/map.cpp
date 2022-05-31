@@ -11,26 +11,6 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  app.cpp
+//  map.cpp
 //
 ////////////////////////////////////////////////////////////////////////////////
-
-#include "kiwied.h"
-#include "app.h"
-
-wxDECLARE_APP(Kiwi::App);
-
-bool Kiwi::App::OnInit()
-{
-	// load configuration
-	config.Load();
-
-	// display main window
-	FrmKiwi* window = new FrmKiwi();
-	window->SetSize(window->FromDIP(wxSize(800, 600)));
-	window->CenterOnScreen();
-	window->Show(true);
-	return true;
-}
-
-wxIMPLEMENT_APP(Kiwi::App); // implement wx application

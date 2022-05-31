@@ -256,7 +256,7 @@ inline void FrmKiwi::InitializeGlobalMenu()
 	menuBar.root->Append((menuHelp.root = new wxMenu()), "&Help");
 	{
 		auto& menuUserManual = menuHelp.members.menuUserManual;
-		menuUserManual = new wxMenuItem(menuHelp.root, wxID_ANY, "User &Manual\tF1", "Open user manual");
+		menuUserManual = new wxMenuItem(menuHelp.root, wxID_ANY, "User &Manual\tF1", "Open online help");
 		menuHelp.root->Append(menuUserManual);
 
 		auto& menuCheckForUpdates = menuHelp.members.menuCheckForUpdates;
@@ -270,6 +270,19 @@ inline void FrmKiwi::InitializeGlobalMenu()
 		menuHelp.root->Append(menuAbout);
 		Bind(wxEVT_MENU, &FrmKiwi::OnMenuHelpAbout, this, menuAbout->GetId());
 	}
+
+#ifdef KIWI_DEBUG_BUILD
+	//
+	// Debug menu
+	//
+	auto& menuDebug = menuBar.menuDebug;
+	menuBar.root->Append((menuDebug.root = new wxMenu()), "&Debug");
+	{
+		auto& menuLogWindow = menuDebug.members.menuLogWindow;
+		menuLogWindow = new wxMenuItem(menuDebug.root, wxID_ANY, "&Log Window\tCtrl+Shift+L", "Open log window");
+		menuDebug.root->Append(menuLogWindow);
+	}
+#endif
 }
 
 inline void FrmKiwi::InitializeToolBar()
@@ -280,7 +293,7 @@ inline void FrmKiwi::InitializeToolBar()
 	//
 	////////////////////////////////////////////////////////////////////////////	
 
-	wxAuiToolBar* toolbar = new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW | wxAUI_TB_HORIZONTAL);
+	wxAuiToolBar* toolbar = new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW);
 
     toolbar->AddTool(1, "Test", wxBitmapBundle::FromSVG(SVG_ICON_NEW, wxSize(16, 16)));
     toolbar->AddSeparator();
@@ -344,6 +357,10 @@ inline void FrmKiwi::InitializeInterface()
 	SetSizerAndFit(topSizer);
 	*/
 
+
+
+
+/*
 	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_TAB_MOVE | wxAUI_NB_CLOSE_ON_ALL_TABS);
 
 		
@@ -361,6 +378,7 @@ inline void FrmKiwi::InitializeInterface()
 		//.CenterPane().Top());
 		.CenterPane()
 		.Top());
+	*/
 	
 }
 
