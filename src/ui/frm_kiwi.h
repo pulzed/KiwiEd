@@ -129,7 +129,7 @@ private:
 			} members;
 		} menuHelp;
 
-#ifdef KIWI_DEBUG_BUILD
+#ifdef KIWI_DEBUG_FEATURES
 		struct MenuDebug
 		{
 			wxMenu* root;
@@ -149,6 +149,10 @@ private:
 	void OnMenuFileExit(wxCommandEvent& e);
 	void OnMenuToolsSettings(wxCommandEvent& e);
 	void OnMenuHelpAbout(wxCommandEvent& e);
+
+#ifdef KIWI_DEBUG_FEATURES
+	void OnMenuLogWindow(wxCommandEvent& e);
+#endif
 
 	// initialization
 	void InitializeGlobalMenu();

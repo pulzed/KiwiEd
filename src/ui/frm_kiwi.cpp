@@ -50,6 +50,14 @@ void FrmKiwi::OnMenuHelpAbout(wxCommandEvent& e)
 	dlgAbout->ShowModal();
 }
 
+#ifdef KIWI_DEBUG_FEATURES
+void FrmKiwi::OnMenuLogWindow(wxCommandEvent& e)
+{
+	FrmLog* frmLog = new FrmLog();
+	frmLog->Show();
+}
+#endif
+
 inline void FrmKiwi::InitializeGlobalMenu()
 {
 	// check for dark mode
@@ -274,7 +282,7 @@ inline void FrmKiwi::InitializeGlobalMenu()
 		Bind(wxEVT_MENU, &FrmKiwi::OnMenuHelpAbout, this, menuAbout->GetId());
 	}
 
-#ifdef KIWI_DEBUG_BUILD
+#ifdef KIWI_DEBUG_FEATURES
 	//
 	// Debug menu
 	//
@@ -284,6 +292,7 @@ inline void FrmKiwi::InitializeGlobalMenu()
 		auto& menuLogWindow = menuDebug.members.menuLogWindow;
 		menuLogWindow = new wxMenuItem(menuDebug.root, wxID_ANY, "&Log Window\tCtrl+Shift+L", "Open log window");
 		menuDebug.root->Append(menuLogWindow);
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuLogWindow, this, menuLogWindow->GetId());
 	}
 #endif
 }

@@ -22,7 +22,7 @@ if(MSVC)
 endif()
 
 
-file(GLOB source "src/*.cpp" "src/*.h" "src/ui/*.cpp" "src/ui/*.h" "src/res/*.h")
+file(GLOB source "src/*.cpp" "src/*.h" "src/ui/*.cpp" "src/ui/*.h")
 add_executable("${PROJECT_NAME}" WIN32 ${source} "res/KiwiEd.rc")
 
 if (UNIX)
