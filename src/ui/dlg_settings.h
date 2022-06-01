@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-//   _____             _____    __
+//   _____             _____    __ 
 //  |  |  |__ _ _ _ __|   __|__|  |  2D map editor
 //  |    -,  | | | |  |   __|  _  |  version 0.0.2
 //  |__|__|__|_____|__|_____|_____|  https://github.com/pulzed/KiwiEd
@@ -11,14 +11,22 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  dlg_newmap.cpp
+//  dlg_settings.h
+//  The settings dialog.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "kiwied.h"
-#include "dlg_newlayer.h"
+#pragma once
 
-DlgNewLayer::DlgNewLayer(wxWindow* parent)
-: wxDialog(parent, wxID_ANY, "New Layer", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE)
+#ifndef KIWI_DLG_SETTINGS_H_
+#define KIWI_DLG_SETTINGS_H_
+
+#include "../kiwied.h"
+
+class DlgSettings : public wxDialog
 {
-}
+public:
+	DlgSettings(wxWindow *parent);
+};
+
+#endif // KIWI_DLG_SETTINGS_H_

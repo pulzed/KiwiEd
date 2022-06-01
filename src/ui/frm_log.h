@@ -21,7 +21,7 @@
 #ifndef KIWI_FRM_LOG_H_
 #define KIWI_FRM_LOG_H_
 
-#include "kiwied.h"
+#include "../kiwied.h"
 
 class FrmLog : public wxFrame
 {

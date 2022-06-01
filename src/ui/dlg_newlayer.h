@@ -11,22 +11,22 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  dlg_newmap.h
-//  New map dialog.
+//  dlg_newlayer.h
+//  New layer dialog.
 //
 ////////////////////////////////////////////////////////////////////////////////
 
 #pragma once
 
-#ifndef KIWI_DLG_NEWMAP_H_
-#define KIWI_DLG_NEWMAP_H_
+#ifndef KIWI_DLG_NEWLAYER_H_
+#define KIWI_DLG_NEWLAYER_H_
 
-#include "kiwied.h"
+#include "../kiwied.h"
 
-class DlgNewMap : public wxDialog
+class DlgNewLayer : public wxDialog
 {
 public:
-	DlgNewMap(wxWindow* parent);
+	DlgNewLayer(wxWindow* parent);
 };
 
-#endif // KIWI_DLG_NEWMAP_H_
+#endif // KIWI_DLG_NEWLAYER_H_

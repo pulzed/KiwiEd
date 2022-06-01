@@ -75,23 +75,23 @@
 
 // classes  and implementations
 #include "const.h"
-#include "svg_data.h"
+#include "res/svg_data.h"
 #include "util.h"
 #include "config.h"
 
 // dialogs and windows
-#include "dlg_about.h"
-#include "dlg_settings.h"
-#include "dlg_newlayer.h"
-#include "dlg_newmap.h"
+#include "ui/dlg_about.h"
+#include "ui/dlg_settings.h"
+#include "ui/dlg_newlayer.h"
+#include "ui/dlg_newmap.h"
 
 #ifdef KIWI_DEBUG_FEATURES
 	// debug features includes
-	#include "frm_log.h"
+	#include "ui/frm_log.h"
 #endif
 
 // main frame components and window
-#include "frm_kiwi.h"
+#include "ui/frm_kiwi.h"
 
 // application entry point
 #include "app.h"

@@ -15,7 +15,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "kiwied.h"
+#include "../kiwied.h"
 #include "dlg_settings.h"
 
 DlgSettings::DlgSettings(wxWindow *parent)

@@ -15,7 +15,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "kiwied.h"
+#include "../kiwied.h"
 #include "frm_log.h"
 
 inline void FrmLog::InitializeGlobalMenu()

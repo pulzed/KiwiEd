@@ -21,7 +21,7 @@
 #ifndef KIWI_FRM_KIWI_H_
 #define KIWI_FRM_KIWI_H_
 
-#include "kiwied.h"
+#include "../kiwied.h"
 
 class FrmKiwi : public wxFrame
 {

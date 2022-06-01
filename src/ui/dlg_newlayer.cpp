@@ -1,5 +1,5 @@
 ////////////////////////////////////////////////////////////////////////////////
-//   _____             _____    __ 
+//   _____             _____    __
 //  |  |  |__ _ _ _ __|   __|__|  |  2D map editor
 //  |    -,  | | | |  |   __|  _  |  version 0.0.2
 //  |__|__|__|_____|__|_____|_____|  https://github.com/pulzed/KiwiEd
@@ -11,17 +11,14 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 //
-//  svg_data.h
-//  Hardcoded SVG data.
+//  dlg_newmap.cpp
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#pragma once
+#include "../kiwied.h"
+#include "dlg_newlayer.h"
 
-#ifndef KIWI_HARDCODED_H_
-#define KIWI_HARDCODED_H_
-
-extern const char* const SVG_ICON_NEW;
-extern const char* const SVG_ICON_OPEN;
-
-#endif // KIWI_HARDCODED_H_
+DlgNewLayer::DlgNewLayer(wxWindow* parent)
+: wxDialog(parent, wxID_ANY, "New Layer", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE)
+{
+}

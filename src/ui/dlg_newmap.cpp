@@ -15,7 +15,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#include "kiwied.h"
+#include "../kiwied.h"
 #include "dlg_newmap.h"
 
 DlgNewMap::DlgNewMap(wxWindow* parent)

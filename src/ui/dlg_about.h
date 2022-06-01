@@ -21,7 +21,7 @@
 #ifndef KIWI_DLG_ABOUT_H_
 #define KIWI_DLG_ABOUT_H_
 
-#include "kiwied.h"
+#include "../kiwied.h"
 
 class DlgAbout : public wxDialog
 {
