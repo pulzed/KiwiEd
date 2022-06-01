@@ -19,7 +19,7 @@
 #include "dlg_about.h"
 
 // -- xpm resources --
-#include "../res/KiwiEd.xpm"
+#include "../res/xpm/KiwiEd.xpm"
 
 namespace Kiwi
 {

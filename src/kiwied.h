@@ -73,9 +73,12 @@
 // thirdparty includes
 #include "../thirdparty/mINI/ini.h"
 
+// data headers
+#include "res/config_data.h"
+#include "res/svg_data.h"
+
 // classes  and implementations
 #include "const.h"
-#include "res/svg_data.h"
 #include "util.h"
 #include "config.h"
 

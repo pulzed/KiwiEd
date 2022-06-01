@@ -24,8 +24,6 @@
 namespace Kiwi
 {
 
-extern const char* const KIWIED_CFG_INIDATA;
-
 class KiwiConfig
 {
 private:
