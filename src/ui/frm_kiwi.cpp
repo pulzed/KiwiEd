@@ -21,6 +21,9 @@
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
 
+namespace Kiwi
+{
+
 void FrmKiwi::OnMenuFileNew(wxCommandEvent& e)
 {
 	DlgNewMap* dlgNewMap = new DlgNewMap(this);
@@ -69,7 +72,7 @@ inline void FrmKiwi::InitializeGlobalMenu()
 	{
 		auto& menuNew = menuFile.members.menuNew;
 		menuNew = new wxMenuItem(menuFile.root, wxID_ANY, "&New...\tCtrl+N", "Create a new map");
-		///menuNew->SetBitmap(wxBitmapBundle::FromSVG(KiwiUtil::GetThemeAgnosticSVG(SVG_ICON_NEW, darkMode).c_str(), wxSize(16, 16)));
+		///menuNew->SetBitmap(wxBitmapBundle::FromSVG(Util::GetThemeAgnosticSVG(SVG_ICON_NEW, darkMode).c_str(), wxSize(16, 16)));
 		menuNew->SetBitmap(wxBitmapBundle::FromSVG(SVG_ICON_NEW, wxSize(16, 16)));
 		menuFile.root->Append(menuNew);
 		Bind(wxEVT_MENU, &FrmKiwi::OnMenuFileNew, this, menuNew->GetId());
@@ -401,4 +404,6 @@ FrmKiwi::FrmKiwi()
 
 	
 	auiManager.Update();
+}
+
 }

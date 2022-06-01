@@ -23,6 +23,9 @@
 
 #include "../kiwied.h"
 
+namespace Kiwi
+{
+
 class FrmKiwi : public wxFrame
 {
 private:
@@ -156,5 +159,7 @@ private:
 public:
 	FrmKiwi();
 };
+
+}
 
 #endif // KIWI_FRM_KIWI_H_

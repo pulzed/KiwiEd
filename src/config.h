@@ -21,6 +21,9 @@
 #ifndef KIWI_CONFIG_H_
 #define KIWI_CONFIG_H_
 
+namespace Kiwi
+{
+
 extern const char* const KIWIED_CFG_INIDATA;
 
 class KiwiConfig
@@ -40,5 +43,7 @@ public:
 	// Attempt to write configuration file. Returns write success.
 	bool Write();
 };
+
+}
 
 #endif // KIWI_CONFIG_H_

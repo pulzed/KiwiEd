@@ -23,10 +23,15 @@
 
 #include "../kiwied.h"
 
+namespace Kiwi
+{
+
 class DlgNewLayer : public wxDialog
 {
 public:
 	DlgNewLayer(wxWindow* parent);
 };
+
+}
 
 #endif // KIWI_DLG_NEWLAYER_H_

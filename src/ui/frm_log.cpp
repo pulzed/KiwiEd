@@ -18,6 +18,9 @@
 #include "../kiwied.h"
 #include "frm_log.h"
 
+namespace Kiwi
+{
+
 inline void FrmLog::InitializeGlobalMenu()
 {
 	////////////////////////////////////////////////////////////////////////////
@@ -52,4 +55,6 @@ FrmLog::FrmLog()
 
 	// initialize components
 	InitializeGlobalMenu();
+}
+
 }

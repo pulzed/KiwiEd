@@ -21,8 +21,13 @@
 #ifndef KIWI_MAP_H_
 #define KIWI_MAP_H_
 
+namespace Kiwi
+{
+
 class Map
 {
 };
+
+}
 
 #endif // KIWI_MAP_H_

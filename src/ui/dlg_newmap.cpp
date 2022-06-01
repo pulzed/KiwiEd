@@ -18,6 +18,9 @@
 #include "../kiwied.h"
 #include "dlg_newmap.h"
 
+namespace Kiwi
+{
+
 DlgNewMap::DlgNewMap(wxWindow* parent)
 : wxDialog(parent, wxID_ANY, "New Map", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER)
 {
@@ -89,4 +92,6 @@ DlgNewMap::DlgNewMap(wxWindow* parent)
 
 
 	SetSizerAndFit(sizerTop);
+}
+
 }

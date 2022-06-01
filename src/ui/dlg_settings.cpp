@@ -18,6 +18,9 @@
 #include "../kiwied.h"
 #include "dlg_settings.h"
 
+namespace Kiwi
+{
+
 DlgSettings::DlgSettings(wxWindow *parent)
 : wxDialog(parent, wxID_ANY, "Settings", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE | wxRESIZE_BORDER)
 {
@@ -68,4 +71,6 @@ DlgSettings::DlgSettings(wxWindow *parent)
 	outerVSizer->Add(sizerButtons, 0, wxBOTTOM | wxRIGHT | wxALIGN_RIGHT, borderSize);
 
 	SetSizerAndFit(outerVSizer);
+}
+
 }

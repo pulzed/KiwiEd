@@ -23,7 +23,10 @@
 
 #include <string>
 
-namespace KiwiUtil
+namespace Kiwi
+{
+
+namespace Util
 {
 
 	bool FileExists(const std::string& filename);
@@ -32,6 +35,8 @@ namespace KiwiUtil
 	void ReplaceAll(std::string& data, std::string searchStr, std::string replaceStr);
 	std::string GetThemeAgnosticSVG(const char* const inputSVG, const bool isDarkTheme = false);
 	wxBitmapBundle XPMToBitmapBundle(const char* const* data, int baseWidth, int baseHeight, wxImageResizeQuality quality = wxIMAGE_QUALITY_HIGH);
+}
+
 }
 
 #endif // KIWI_UTIL_H_

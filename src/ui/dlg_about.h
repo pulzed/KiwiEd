@@ -23,10 +23,15 @@
 
 #include "../kiwied.h"
 
+namespace Kiwi
+{
+
 class DlgAbout : public wxDialog
 {
 public:
 	DlgAbout(wxWindow *parent);
 };
+
+}
 
 #endif // KIWI_DLG_ABOUT_H_

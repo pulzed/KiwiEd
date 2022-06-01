@@ -18,7 +18,12 @@
 #include "../kiwied.h"
 #include "dlg_newlayer.h"
 
+namespace Kiwi
+{
+
 DlgNewLayer::DlgNewLayer(wxWindow* parent)
 : wxDialog(parent, wxID_ANY, "New Layer", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE)
 {
+}
+
 }

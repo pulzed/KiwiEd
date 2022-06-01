@@ -23,6 +23,11 @@
 
 #include <string>
 
+namespace Kiwi
+{
+
 extern const std::string KIWIED_VERSION;
+
+}
 
 #endif // KIWI_CONST_H_

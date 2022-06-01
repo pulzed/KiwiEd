@@ -23,6 +23,9 @@
 
 #include "../kiwied.h"
 
+namespace Kiwi
+{
+
 class FrmLog : public wxFrame
 {
 private:
@@ -39,5 +42,7 @@ private:
 public:
 	FrmLog();
 };
+
+}
 
 #endif // KIWI_FRM_LOG_H_

@@ -20,7 +20,10 @@
 #include "kiwied.h"
 #include "util.h"
 
-namespace KiwiUtil
+namespace Kiwi
+{
+
+namespace Util
 {
 	bool FileExists(const std::string& filename)
 	{
@@ -67,4 +70,6 @@ namespace KiwiUtil
 		bitmaps.push_back(wxBitmap(image.Scale(baseWidth * 2, baseHeight * 2, quality))); // 200%
 		return wxBitmapBundle::FromBitmaps(bitmaps);
 	}
+}
+
 }

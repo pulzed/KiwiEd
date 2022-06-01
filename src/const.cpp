@@ -18,6 +18,11 @@
 #include "kiwied.h"
 #include "const.h"
 
+namespace Kiwi
+{
+
 // current KiwiEd version
 // this MUST exist on line 23 because it gets auto-updated via "update_versions" util
 const std::string KIWIED_VERSION = "0.0.2";
+
+}

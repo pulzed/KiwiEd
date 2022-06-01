@@ -21,6 +21,9 @@
 // -- xpm resources --
 #include "../res/KiwiEd.xpm"
 
+namespace Kiwi
+{
+
 DlgAbout::DlgAbout(wxWindow *parent)
 : wxDialog(parent, wxID_ANY, "About", wxDefaultPosition, wxDefaultSize, wxDEFAULT_DIALOG_STYLE)
 {
@@ -29,7 +32,7 @@ DlgAbout::DlgAbout(wxWindow *parent)
 
 	const int borderSize = FromDIP(10);
 
-	wxStaticBitmap* bmpLogo = new wxStaticBitmap(this, wxID_ANY, KiwiUtil::XPMToBitmapBundle(KiwiEd_xpm, 64, 64));
+	wxStaticBitmap* bmpLogo = new wxStaticBitmap(this, wxID_ANY, Util::XPMToBitmapBundle(KiwiEd_xpm, 64, 64));
 
 	innerHSizer->Add(bmpLogo, 0, wxALL, borderSize);
 
@@ -65,4 +68,6 @@ DlgAbout::DlgAbout(wxWindow *parent)
 	outerVSizer->Add(new wxButton(this, wxID_OK, "Okay", wxDefaultPosition, FromDIP(wxSize(110,30))), 0, wxTOP | wxRIGHT | wxBOTTOM | wxALIGN_RIGHT, borderSize);
 
 	SetSizerAndFit(outerVSizer);
+}
+
 }
