@@ -1,5 +1,4 @@
-* Reorganize utils
-* Put all code into a Kiwi namespace
+* Fix/update versioning util
 * Start adding icons
 * Create layout for settings dialog
 * Start adding main window components

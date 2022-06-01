@@ -9,13 +9,13 @@ import fileinput
 import sys
 
 # target sourcefile filename
-targetFilename = '../src/config.cpp'
+targetFilename = '../src/res/config_data.cpp'
 
 # ini data source filename
 iniFilename = '../dev/config.ini'
 
 # target line number
-lineToUpdate = 23
+lineToUpdate = 25
 
 # target string format
 lineFormat = 'const char* const KIWIED_CFG_INIDATA = "{inidata}";';
