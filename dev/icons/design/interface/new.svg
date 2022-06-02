@@ -56,9 +56,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      showgrid="false"
-     inkscape:zoom="0.70214845"
-     inkscape:cx="178.02503"
-     inkscape:cy="-85.452015"
+     inkscape:zoom="1.4042969"
+     inkscape:cx="119.63282"
+     inkscape:cy="74.058413"
      inkscape:window-width="1920"
      inkscape:window-height="1147"
      inkscape:window-x="-8"
@@ -78,12 +78,15 @@
        orientation="-0.70710678,-0.70710678"
        id="guide3678" />
   </sodipodi:namedview>
-  <path
-     id="rect11186"
-     style="fill:#98ff5d;fill-opacity:0.454546;stroke:#108500;stroke-width:2.91036;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
-     d="M 14.227532,3.0824769 V 62.271307 H 56.119778 V 14.816943 L 44.385312,3.0824769 Z" />
-  <path
-     style="fill:#108500;fill-opacity:1;stroke:none;stroke-width:0.285778px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="M 43.850396,1.9823417 57.391519,15.523466 H 43.909545 Z"
-     id="path11691" />
+  <g
+     id="g20024">
+    <path
+       id="rect11186"
+       style="fill:#c1ffab;fill-opacity:1;stroke:#108500;stroke-width:2.91036;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 14.227532,3.0824769 V 62.271307 H 56.119778 V 14.816943 L 44.385312,3.0824769 Z" />
+    <path
+       style="fill:#108500;fill-opacity:1;stroke:none;stroke-width:0.285778px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 43.850396,1.9823417 57.391519,15.523466 H 43.909545 Z"
+       id="path11691" />
+  </g>
 </svg>

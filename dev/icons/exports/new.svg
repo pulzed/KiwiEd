@@ -41,12 +41,15 @@
        y2="233.36703"
        gradientTransform="scale(0.26457812)" />
   </defs>
-  <path
-     id="rect11186"
-     style="fill:#98ff5d;fill-opacity:0.454546;stroke:#108500;stroke-width:2.91036;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
-     d="M 14.227532,3.0824769 V 62.271307 H 56.119778 V 14.816943 L 44.385312,3.0824769 Z" />
-  <path
-     style="fill:#108500;fill-opacity:1;stroke:none;stroke-width:0.285778px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     d="M 43.850396,1.9823417 57.391519,15.523466 H 43.909545 Z"
-     id="path11691" />
+  <g
+     id="g20024">
+    <path
+       id="rect11186"
+       style="fill:#c1ffab;fill-opacity:1;stroke:#108500;stroke-width:2.91036;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 14.227532,3.0824769 V 62.271307 H 56.119778 V 14.816943 L 44.385312,3.0824769 Z" />
+    <path
+       style="fill:#108500;fill-opacity:1;stroke:none;stroke-width:0.285778px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 43.850396,1.9823417 57.391519,15.523466 H 43.909545 Z"
+       id="path11691" />
+  </g>
 </svg>
