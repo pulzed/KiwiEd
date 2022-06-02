@@ -23,7 +23,8 @@ namespace Kiwi
 
 void FrmLog::OnMenuAlwaysOnTop(wxCommandEvent& e)
 {
-	SetWindowStyleFlag(GetWindowStyleFlag() | wxSTAY_ON_TOP);
+	// toggle style flag
+	SetWindowStyleFlag(GetWindowStyleFlag() & ~wxSTAY_ON_TOP);
 }
 
 inline void FrmLog::InitializeGlobalMenu()
@@ -63,6 +64,7 @@ inline void FrmLog::InitializeGlobalMenu()
 		menuAlwaysOnTop->SetCheckable(true);
 		menuView.root->Append(menuAlwaysOnTop);
 		menuAlwaysOnTop->Check();
+		Bind(wxEVT_MENU, &FrmLog::OnMenuAlwaysOnTop, this, menuAlwaysOnTop->GetId());
 	}
 
 }
@@ -74,7 +76,7 @@ FrmLog::FrmLog()
 	SetMinSize(FromDIP(wxSize(100, 100))); // set minimum frame size
 	//SetIcon(wxIcon(KiwiEd_xpm)); // set window icon
 	SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_3DFACE));
-	SetWindowStyle(wxSTAY_ON_TOP);
+	SetWindowStyleFlag(GetWindowStyleFlag() | wxSTAY_ON_TOP);
 
 	// initialize components
 	InitializeGlobalMenu();
