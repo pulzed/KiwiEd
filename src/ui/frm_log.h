@@ -29,12 +29,34 @@ namespace Kiwi
 class FrmLog : public wxFrame
 {
 private:
-	// top level menubar
-	wxMenuBar* menuBar;
+	// menubar structure
+	struct MenuBar
+	{
+		wxMenuBar* root;
 
-	// top level menubar menus
-	wxMenu* menuLog;
-	wxMenu* menuView;
+		struct MenuLog
+		{
+			wxMenu* root;
+			struct Members
+			{
+				wxMenuItem* menuClear;
+				wxMenuItem* menuSaveAs;
+			} members;
+		} menuLog;
+
+		struct MenuView
+		{
+			wxMenu* root;
+			struct Members
+			{
+				wxMenuItem* menuAlwaysOnTop;
+			} members;
+		} menuView;
+
+	} menuBar;
+
+	// menubar events
+	void OnMenuAlwaysOnTop(wxCommandEvent& e);
 
 	// component initialization functions
 	void InitializeGlobalMenu();

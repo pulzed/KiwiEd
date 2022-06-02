@@ -21,6 +21,11 @@
 namespace Kiwi
 {
 
+void FrmLog::OnMenuAlwaysOnTop(wxCommandEvent& e)
+{
+	SetWindowStyleFlag(GetWindowStyleFlag() | wxSTAY_ON_TOP);
+}
+
 inline void FrmLog::InitializeGlobalMenu()
 {
 	////////////////////////////////////////////////////////////////////////////
@@ -29,29 +34,47 @@ inline void FrmLog::InitializeGlobalMenu()
 	//
 	////////////////////////////////////////////////////////////////////////////
 
-	menuBar = new wxMenuBar();
-	SetMenuBar(menuBar);
+	menuBar.root = new wxMenuBar();
+	SetMenuBar(menuBar.root);
 
-	// log menu
-	menuBar->Append((menuLog = new wxMenu()), "&Log");
-	
-	menuLog->Append(new wxMenuItem(menuLog, wxID_ANY, "&Clear", "Clear log."));
-	menuLog->Append(new wxMenuItem(menuLog, wxID_ANY, "&Save\tCtrl+S", "Save log to a file."));
+	//
+	// Log menu
+	//
+	auto& menuLog = menuBar.menuLog;
+	menuBar.root->Append((menuLog.root = new wxMenu()), "&Log");
+	{
+		auto& menuClear = menuLog.members.menuClear;
+		menuClear = new wxMenuItem(menuLog.root, wxID_ANY, "C&lear\tCtrl+L", "Clear log");
+		menuLog.root->Append(menuClear);
 
-	// view menu
-	menuBar->Append((menuView = new wxMenu()), "&View");
+		auto& menuSaveAs = menuLog.members.menuSaveAs;
+		menuSaveAs = new wxMenuItem(menuLog.root, wxID_ANY, "Save &As\tCtrl+Shift+S", "Save log to file");
+		menuLog.root->Append(menuSaveAs);
+	}
 
-	menuView->Append(new wxMenuItem(menuView, wxID_ANY, "Always on &Top\tCtrl+T", "Makes this window always on top."));
+	//
+	// View menu
+	//
+	auto& menuView = menuBar.menuView;
+	menuBar.root->Append((menuView.root = new wxMenu()), "&View");
+	{
+		auto& menuAlwaysOnTop = menuView.members.menuAlwaysOnTop;
+		menuAlwaysOnTop = new wxMenuItem(menuView.root, wxID_ANY, "Always on &Top", "Set log window always on top");
+		menuAlwaysOnTop->SetCheckable(true);
+		menuView.root->Append(menuAlwaysOnTop);
+		menuAlwaysOnTop->Check();
+	}
 
 }
 
 FrmLog::FrmLog()
-: wxFrame(NULL, wxID_ANY, "Debug log")
+: wxFrame(NULL, wxID_ANY, "Debug Log")
 {
 	// frame setup
 	SetMinSize(FromDIP(wxSize(100, 100))); // set minimum frame size
 	//SetIcon(wxIcon(KiwiEd_xpm)); // set window icon
 	SetBackgroundColour(wxSystemSettings::GetColour(wxSYS_COLOUR_3DFACE));
+	SetWindowStyle(wxSTAY_ON_TOP);
 
 	// initialize components
 	InitializeGlobalMenu();

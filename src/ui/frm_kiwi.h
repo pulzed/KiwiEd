@@ -36,6 +36,7 @@ private:
 		struct MenuFile
 		{
 			wxMenu* root;
+
 			struct Members
 			{
 				wxMenuItem* menuNew;
@@ -83,6 +84,10 @@ private:
 		struct MenuView
 		{
 			wxMenu* root;
+			struct Members
+			{
+				wxMenuItem* menuShowGrid;
+			} members;
 		} menuView;
 
 		struct MenuMap
@@ -149,7 +154,6 @@ private:
 	void OnMenuFileExit(wxCommandEvent& e);
 	void OnMenuToolsSettings(wxCommandEvent& e);
 	void OnMenuHelpAbout(wxCommandEvent& e);
-
 #ifdef KIWI_DEBUG_FEATURES
 	void OnMenuLogWindow(wxCommandEvent& e);
 #endif
