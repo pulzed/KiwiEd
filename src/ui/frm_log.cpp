@@ -23,8 +23,7 @@ namespace Kiwi
 
 void FrmLog::OnMenuAlwaysOnTop(wxCommandEvent& e)
 {
-	// toggle style flag
-	SetWindowStyleFlag(GetWindowStyleFlag() & ~wxSTAY_ON_TOP);
+	SetWindowStyleFlag(GetWindowStyleFlag() ^ wxSTAY_ON_TOP); // toggle
 }
 
 inline void FrmLog::InitializeGlobalMenu()
