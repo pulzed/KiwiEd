@@ -1,7 +1,7 @@
 import fileinput
 import sys
 
-outputFormat = 'const char* const {varName} = "{data}";'
+outputFormat = 'static const char* {varName} = "{data}";'
 
 def readTextFile(filename):
 	data = ''
@@ -10,7 +10,8 @@ def readTextFile(filename):
 			.replace('<!-- Created with Inkscape (http://www.inkscape.org/) -->\n', '')
 			.replace('\\', '\\\\')
 			.replace('"', '\\"')
-			.replace('\n', '\\n'))
+#			.replace('\n', '\\n'))
+			.replace('\n', ''))
 	return data
 
 if __name__ == '__main__':

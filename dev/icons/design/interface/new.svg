@@ -8,7 +8,7 @@
    viewBox="0 0 67.732 67.732"
    id="svg2"
    sodipodi:docname="new.svg"
-   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -16,18 +16,6 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
      id="defs6">
-    <linearGradient
-       inkscape:collect="always"
-       id="linearGradient1559">
-      <stop
-         style="stop-color:#dcdcdc;stop-opacity:1"
-         offset="0"
-         id="stop1555" />
-      <stop
-         style="stop-color:#ffffff;stop-opacity:1"
-         offset="1"
-         id="stop1557" />
-    </linearGradient>
     <linearGradient
        inkscape:collect="always"
        id="linearGradient2225">
@@ -58,16 +46,6 @@
        x2="204.73471"
        y2="233.36703"
        gradientTransform="scale(0.26457812)" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient1559"
-       id="linearGradient1267"
-       x1="31.987028"
-       y1="64.719521"
-       x2="31.987028"
-       y2="2.4923584"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.89897322,0,0,0.86502087,1.5149667,0.16073135)" />
   </defs>
   <sodipodi:namedview
      id="namedview4"
@@ -79,17 +57,18 @@
      inkscape:pagecheckerboard="0"
      showgrid="false"
      inkscape:zoom="0.70214845"
-     inkscape:cx="-17.090403"
-     inkscape:cy="115.36022"
+     inkscape:cx="178.02503"
+     inkscape:cy="-85.452015"
      inkscape:window-width="1920"
-     inkscape:window-height="1043"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-height="1147"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2"
-     inkscape:snap-global="true"
+     inkscape:snap-global="false"
      showguides="false"
-     inkscape:guide-bbox="true">
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="false">
     <sodipodi:guide
        position="61.120702,39.878486"
        orientation="-0.70710678,-0.70710678"
@@ -100,27 +79,11 @@
        id="guide3678" />
   </sodipodi:namedview>
   <path
-     id="rect938"
-     style="fill:url(#linearGradient1267);fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.63319;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 12.897884,1.8920693 V 56.781578 h 14.883135 c -0.992632,-3.064172 -1.158595,-6.399251 -0.351928,-9.523301 1.750096,-7.278466 8.724823,-12.768196 16.145635,-13.125813 2.160371,-0.12503 4.33533,0.162961 6.394342,0.817619 V 17.457323 L 35.249179,1.8920693 Z" />
-  <g
-     id="g60481"
-     transform="matrix(0.89491943,0,0,0.89491943,1.3743846,-0.57850493)">
-    <ellipse
-       style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:#000000;stroke-width:1.85205;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="path9055"
-       cx="48.279842"
-       cy="58.160725"
-       rx="15.530087"
-       ry="15.170424" />
-    <g
-       aria-label="+"
-       id="text24897"
-       style="font-weight:bold;font-size:31.7494px;line-height:1.25;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264578"
-       transform="translate(1.1084089,-0.56447236)">
-      <path
-         d="m 48.870025,57.058355 h 6.000632 v 3.397183 H 48.870025 V 66.42442 H 45.472842 V 60.455538 H 39.47221 v -3.397183 h 6.000632 v -6.032381 h 3.397183 z"
-         id="path54925" />
-    </g>
-  </g>
+     id="rect11186"
+     style="fill:#98ff5d;fill-opacity:0.454546;stroke:#108500;stroke-width:2.91036;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+     d="M 14.227532,3.0824769 V 62.271307 H 56.119778 V 14.816943 L 44.385312,3.0824769 Z" />
+  <path
+     style="fill:#108500;fill-opacity:1;stroke:none;stroke-width:0.285778px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 43.850396,1.9823417 57.391519,15.523466 H 43.909545 Z"
+     id="path11691" />
 </svg>

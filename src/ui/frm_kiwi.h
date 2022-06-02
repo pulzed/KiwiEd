@@ -130,17 +130,6 @@ private:
 			} members;
 		} menuTools;
 
-		struct MenuHelp
-		{
-			wxMenu* root;
-			struct Members
-			{
-				wxMenuItem* menuUserManual;
-				wxMenuItem* menuCheckForUpdates;
-				wxMenuItem* menuAbout;
-			} members;
-		} menuHelp;
-
 #ifdef KIWI_DEBUG_FEATURES
 		struct MenuDebug
 		{
@@ -152,6 +141,17 @@ private:
 		} menuDebug;
 #endif
 
+		struct MenuHelp
+		{
+			wxMenu* root;
+			struct Members
+			{
+				wxMenuItem* menuUserManual;
+				wxMenuItem* menuCheckForUpdates;
+				wxMenuItem* menuAbout;
+			} members;
+		} menuHelp;
+
 	} menuBar;
 
 	wxAuiManager auiManager;
@@ -159,13 +159,14 @@ private:
 	// menubar events
 	void OnMenuFileNew(wxCommandEvent& e);
 	void OnMenuFileExit(wxCommandEvent& e);
+	void OnMenuLayerNewLayer(wxCommandEvent& e);
 	void OnMenuToolsSettings(wxCommandEvent& e);
-	void OnMenuUserManual(wxCommandEvent& e);
-	void OnMenuCheckForUpdates(wxCommandEvent& e);
-	void OnMenuHelpAbout(wxCommandEvent& e);
 #ifdef KIWI_DEBUG_FEATURES
-	void OnMenuLogWindow(wxCommandEvent& e);
+	void OnMenuDebugLogWindow(wxCommandEvent& e);
 #endif
+	void OnMenuHelpUserManual(wxCommandEvent& e);
+	void OnMenuHelpCheckForUpdates(wxCommandEvent& e);
+	void OnMenuHelpAbout(wxCommandEvent& e);
 
 	// initialization
 	void InitializeGlobalMenu();

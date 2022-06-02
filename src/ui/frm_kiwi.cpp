@@ -36,6 +36,13 @@ void FrmKiwi::OnMenuFileExit(wxCommandEvent& e)
 	Close(true);
 }
 
+void FrmKiwi::OnMenuLayerNewLayer(wxCommandEvent& e)
+{
+	DlgNewLayer* dlgNewLayer = new DlgNewLayer(this);
+	dlgNewLayer->CenterOnParent();
+	dlgNewLayer->ShowModal();
+}
+
 void FrmKiwi::OnMenuToolsSettings(wxCommandEvent& e)
 {
 	DlgSettings* dlgSettings = new DlgSettings(this);
@@ -43,12 +50,12 @@ void FrmKiwi::OnMenuToolsSettings(wxCommandEvent& e)
 	dlgSettings->ShowModal();
 }
 
-void FrmKiwi::OnMenuUserManual(wxCommandEvent& e)
+void FrmKiwi::OnMenuHelpUserManual(wxCommandEvent& e)
 {
 	wxLaunchDefaultBrowser(URL_GITHUB_MANUAL);
 }
 
-void FrmKiwi::OnMenuCheckForUpdates(wxCommandEvent& e)
+void FrmKiwi::OnMenuHelpCheckForUpdates(wxCommandEvent& e)
 {
 	wxLaunchDefaultBrowser(URL_GITHUB_RELEASES);
 }
@@ -61,7 +68,7 @@ void FrmKiwi::OnMenuHelpAbout(wxCommandEvent& e)
 }
 
 #ifdef KIWI_DEBUG_FEATURES
-void FrmKiwi::OnMenuLogWindow(wxCommandEvent& e)
+void FrmKiwi::OnMenuDebugLogWindow(wxCommandEvent& e)
 {
 	//if (frmLog != nullptr)
 	//{
@@ -251,6 +258,7 @@ inline void FrmKiwi::InitializeGlobalMenu()
 		auto& menuCreateNew = menuLayer.members.menuCreateNew;
 		menuCreateNew = new wxMenuItem(menuLayer.root, wxID_ANY, "&Create New...\tCtrl+Shift+N", "Create a new layer");
 		menuLayer.root->Append(menuCreateNew);
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuLayerNewLayer, this, menuCreateNew->GetId());
 
 		auto& menuDuplicate = menuLayer.members.menuDuplicate;
 		menuDuplicate = new wxMenuItem(menuLayer.root, wxID_ANY, "&Duplicate\tCtrl+Shift+D", "Duplicate this layer");
@@ -293,30 +301,6 @@ inline void FrmKiwi::InitializeGlobalMenu()
 		Bind(wxEVT_MENU, &FrmKiwi::OnMenuToolsSettings, this, menuSettings->GetId());
 	}
 
-	//
-	// Help menu
-	//
-	auto& menuHelp = menuBar.menuHelp;
-	menuBar.root->Append((menuHelp.root = new wxMenu()), "&Help");
-	{
-		auto& menuUserManual = menuHelp.members.menuUserManual;
-		menuUserManual = new wxMenuItem(menuHelp.root, wxID_ANY, "User &Manual\tF1", "Open online help");
-		menuHelp.root->Append(menuUserManual);
-		Bind(wxEVT_MENU, &FrmKiwi::OnMenuUserManual, this, menuUserManual->GetId());
-
-		auto& menuCheckForUpdates = menuHelp.members.menuCheckForUpdates;
-		menuCheckForUpdates = new wxMenuItem(menuHelp.root, wxID_ANY, "Check for &Updates", "Check online repository for updates");
-		menuHelp.root->Append(menuCheckForUpdates);
-		Bind(wxEVT_MENU, &FrmKiwi::OnMenuCheckForUpdates, this, menuCheckForUpdates->GetId());
-
-		menuHelp.root->AppendSeparator();
-
-		auto& menuAbout = menuHelp.members.menuAbout;
-		menuAbout = new wxMenuItem(menuHelp.root, wxID_ANY, "&About", "Show the about dialog");
-		menuHelp.root->Append(menuAbout);
-		Bind(wxEVT_MENU, &FrmKiwi::OnMenuHelpAbout, this, menuAbout->GetId());
-	}
-
 #ifdef KIWI_DEBUG_FEATURES
 	//
 	// Debug menu
@@ -327,9 +311,33 @@ inline void FrmKiwi::InitializeGlobalMenu()
 		auto& menuLogWindow = menuDebug.members.menuLogWindow;
 		menuLogWindow = new wxMenuItem(menuDebug.root, wxID_ANY, "&Log Window\tCtrl+Shift+L", "Open log window");
 		menuDebug.root->Append(menuLogWindow);
-		Bind(wxEVT_MENU, &FrmKiwi::OnMenuLogWindow, this, menuLogWindow->GetId());
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuDebugLogWindow, this, menuLogWindow->GetId());
 	}
 #endif
+
+	//
+	// Help menu
+	//
+	auto& menuHelp = menuBar.menuHelp;
+	menuBar.root->Append((menuHelp.root = new wxMenu()), "&Help");
+	{
+		auto& menuUserManual = menuHelp.members.menuUserManual;
+		menuUserManual = new wxMenuItem(menuHelp.root, wxID_ANY, "User &Manual\tF1", "Open online help");
+		menuHelp.root->Append(menuUserManual);
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuHelpUserManual, this, menuUserManual->GetId());
+
+		auto& menuCheckForUpdates = menuHelp.members.menuCheckForUpdates;
+		menuCheckForUpdates = new wxMenuItem(menuHelp.root, wxID_ANY, "Check for &Updates", "Check online repository for updates");
+		menuHelp.root->Append(menuCheckForUpdates);
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuHelpCheckForUpdates, this, menuCheckForUpdates->GetId());
+
+		menuHelp.root->AppendSeparator();
+
+		auto& menuAbout = menuHelp.members.menuAbout;
+		menuAbout = new wxMenuItem(menuHelp.root, wxID_ANY, "&About", "Show the about dialog");
+		menuHelp.root->Append(menuAbout);
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuHelpAbout, this, menuAbout->GetId());
+	}
 }
 
 inline void FrmKiwi::InitializeToolBar()

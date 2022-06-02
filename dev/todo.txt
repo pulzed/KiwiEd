@@ -1,8 +1,8 @@
+* {optimization} Change XPMToBitmapBundle into something that just optimizes for active scale?
 * Fix/update versioning util
 * Start adding icons
 * Create layout for settings dialog
 * Start adding main window components
 * Start adding dialogs and windows
 * Load config at init and setup default config handling
-* Figure out how to manage application config
 * Make update_versions.py util update versions in other files (about label, .rc resource file, README.md)
