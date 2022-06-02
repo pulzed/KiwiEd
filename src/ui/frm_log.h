@@ -44,25 +44,14 @@ private:
 			} members;
 		} menuLog;
 
-		struct MenuView
-		{
-			wxMenu* root;
-			struct Members
-			{
-				wxMenuItem* menuAlwaysOnTop;
-			} members;
-		} menuView;
-
 	} menuBar;
-
-	// menubar events
-	void OnMenuAlwaysOnTop(wxCommandEvent& e);
 
 	// component initialization functions
 	void InitializeGlobalMenu();
+	void InitializeStatusBar();
 
 public:
-	FrmLog();
+	FrmLog(wxWindow* parent);
 };
 
 }

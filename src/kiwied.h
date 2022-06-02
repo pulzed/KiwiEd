@@ -34,7 +34,7 @@
 	#define KIWI_DEBUG_FEATURES // implement debug features when building debug
 #endif
 
-// if debug features are required in this build, simply uncomment the following line
+// if debug features are required in this build, uncomment the following line
 //#define KIWI_DEBUG_FEATURES
 
 // ignore some annoying warnings on VS
@@ -98,5 +98,8 @@
 
 // application entry point
 #include "app.h"
+
+// ~~~ VLD ~~~ uncomment to enable leak detection
+//#include "vld.h"
 
 #endif // KIWI_KIWIED_H_

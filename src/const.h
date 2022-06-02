@@ -28,6 +28,9 @@ namespace Kiwi
 
 extern const std::string KIWIED_VERSION;
 
+extern const std::string URL_GITHUB_MANUAL;
+extern const std::string URL_GITHUB_RELEASES;
+
 }
 
 #endif // KIWI_CONST_H_

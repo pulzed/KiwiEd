@@ -52,6 +52,8 @@ DlgAbout::DlgAbout(wxWindow *parent)
 			" build"
 #if defined(KIWI_DEBUG_BUILD)
 			" (debug)" +
+#else
+			" (release)" +
 #endif
 			"\n\n"
 			"Copyright (c) 2022 Danijel Durakovic\n"

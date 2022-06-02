@@ -29,6 +29,12 @@ namespace Kiwi
 class FrmKiwi : public wxFrame
 {
 private:
+	// state variables
+	wxApp* owner = nullptr;
+#ifdef KIWI_DEBUG_FEATURES
+	FrmLog* frmLog = nullptr;
+#endif
+
 	// menubar structure
 	struct MenuBar
 	{
@@ -54,6 +60,7 @@ private:
 
 				wxMenuItem* menuSave;
 				wxMenuItem* menuSaveAs;
+				wxMenuItem* menuSaveAll;
 				wxMenuItem* menuSaveTemplate;
 				wxMenuItem* menuExport;
 				wxMenuItem* menuExportAs;
@@ -153,6 +160,8 @@ private:
 	void OnMenuFileNew(wxCommandEvent& e);
 	void OnMenuFileExit(wxCommandEvent& e);
 	void OnMenuToolsSettings(wxCommandEvent& e);
+	void OnMenuUserManual(wxCommandEvent& e);
+	void OnMenuCheckForUpdates(wxCommandEvent& e);
 	void OnMenuHelpAbout(wxCommandEvent& e);
 #ifdef KIWI_DEBUG_FEATURES
 	void OnMenuLogWindow(wxCommandEvent& e);
@@ -165,7 +174,7 @@ private:
 	void InitializeInterface();
 
 public:
-	FrmKiwi();
+	FrmKiwi(wxApp* owner);
 };
 
 }

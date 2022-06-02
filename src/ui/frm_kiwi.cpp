@@ -43,6 +43,16 @@ void FrmKiwi::OnMenuToolsSettings(wxCommandEvent& e)
 	dlgSettings->ShowModal();
 }
 
+void FrmKiwi::OnMenuUserManual(wxCommandEvent& e)
+{
+	wxLaunchDefaultBrowser(URL_GITHUB_MANUAL);
+}
+
+void FrmKiwi::OnMenuCheckForUpdates(wxCommandEvent& e)
+{
+	wxLaunchDefaultBrowser(URL_GITHUB_RELEASES);
+}
+
 void FrmKiwi::OnMenuHelpAbout(wxCommandEvent& e)
 {
 	DlgAbout* dlgAbout = new DlgAbout(this);
@@ -53,7 +63,19 @@ void FrmKiwi::OnMenuHelpAbout(wxCommandEvent& e)
 #ifdef KIWI_DEBUG_FEATURES
 void FrmKiwi::OnMenuLogWindow(wxCommandEvent& e)
 {
-	FrmLog* frmLog = new FrmLog();
+	//if (frmLog != nullptr)
+	//{
+	//	return;
+	//}
+	frmLog = new FrmLog(this);
+	int w = 400, h = 200;
+	int window_w, window_h;
+	int window_x, window_y;
+	int offset = FromDIP(10);
+	this->GetSize(&window_w, &window_h);
+	this->GetPosition(&window_x, &window_y);
+	frmLog->SetSize(FromDIP(wxSize(w, h)));
+	frmLog->SetPosition(wxPoint(window_x + offset, window_y + window_h - h - offset));
 	frmLog->Show();
 }
 #endif
@@ -110,6 +132,10 @@ inline void FrmKiwi::InitializeGlobalMenu()
 		auto& menuSaveAs = menuFile.members.menuSaveAs;
 		menuSaveAs = new wxMenuItem(menuFile.root, wxID_ANY, "Save &As...\tCtrl+Shift+S", "Save map as");
 		menuFile.root->Append(menuSaveAs);
+
+		auto& menuSaveAll = menuFile.members.menuSaveAll;
+		menuSaveAll = new wxMenuItem(menuFile.root, wxID_ANY, "Sa&ve All\tCtrl+Shift+Alt+S", "Save all maps");
+		menuFile.root->Append(menuSaveAll);
 
 		menuFile.root->AppendSeparator();
 
@@ -276,10 +302,12 @@ inline void FrmKiwi::InitializeGlobalMenu()
 		auto& menuUserManual = menuHelp.members.menuUserManual;
 		menuUserManual = new wxMenuItem(menuHelp.root, wxID_ANY, "User &Manual\tF1", "Open online help");
 		menuHelp.root->Append(menuUserManual);
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuUserManual, this, menuUserManual->GetId());
 
 		auto& menuCheckForUpdates = menuHelp.members.menuCheckForUpdates;
 		menuCheckForUpdates = new wxMenuItem(menuHelp.root, wxID_ANY, "Check for &Updates", "Check online repository for updates");
 		menuHelp.root->Append(menuCheckForUpdates);
+		Bind(wxEVT_MENU, &FrmKiwi::OnMenuCheckForUpdates, this, menuCheckForUpdates->GetId());
 
 		menuHelp.root->AppendSeparator();
 
@@ -312,20 +340,32 @@ inline void FrmKiwi::InitializeToolBar()
 	//
 	////////////////////////////////////////////////////////////////////////////	
 
-	wxAuiToolBar* toolbar = new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_TB_DEFAULT_STYLE | wxAUI_TB_OVERFLOW);
+	wxAuiToolBar* toolbar1 = new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_TB_GRIPPER);
+	
+	toolbar1->AddTool(1, "New map", wxBitmapBundle::FromSVG(SVG_ICON_NEW, wxSize(16, 16)));
+	toolbar1->AddTool(2, "Open map", wxBitmapBundle::FromSVG(SVG_ICON_NEW, wxSize(16, 16)));
+	toolbar1->AddTool(3, "Save map", wxBitmapBundle::FromSVG(SVG_ICON_NEW, wxSize(16, 16)));
+	toolbar1->AddTool(4, "Save all", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
+	toolbar1->AddSeparator();
+	toolbar1->AddTool(5, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
+	toolbar1->Realize();
 
-    toolbar->AddTool(1, "Test", wxBitmapBundle::FromSVG(SVG_ICON_NEW, wxSize(16, 16)));
-    toolbar->AddSeparator();
-    toolbar->AddTool(2, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
-    toolbar->AddTool(3, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
-    toolbar->AddTool(4, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
-    toolbar->AddTool(5, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
-    ///toolbar->SetCustomOverflowItems(prepend_items, append_items);
-    toolbar->Realize();
+	toolbar1->EnableTool(2, false);
+	toolbar1->EnableTool(3, false);
+	toolbar1->EnableTool(5, false);
 
-	auiManager.AddPane(toolbar, wxAuiPaneInfo().
-				Name("tb1").Caption("Big Toolbar").
-				ToolbarPane().Top());
+	auiManager.AddPane(toolbar1, wxAuiPaneInfo().Name("tb1").Caption("File Toolbar").ToolbarPane().Top());
+
+	wxAuiToolBar* toolbar2 = new wxAuiToolBar(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_TB_GRIPPER);
+
+	toolbar2->AddTool(1, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
+	toolbar2->AddTool(2, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
+	toolbar2->AddTool(3, "Test", wxBitmapBundle::FromSVG(SVG_ICON_OPEN, wxSize(16, 16)));
+	toolbar2->Realize();
+
+	toolbar2->EnableTool(1, false);
+
+	auiManager.AddPane(toolbar2, wxAuiPaneInfo().Name("tb2").Caption("Test").ToolbarPane().Top());
 
 }
 
@@ -335,7 +375,7 @@ inline void FrmKiwi::InitializeStatusBar()
 	//
 	//  Initialize the statusbar
 	//
-	////////////////////////////////////////////////////////////////////////////	
+	////////////////////////////////////////////////////////////////////////////
 
 	this->CreateStatusBar(1, wxSTB_SIZEGRIP);
 }
@@ -401,8 +441,8 @@ inline void FrmKiwi::InitializeInterface()
 	
 }
 
-FrmKiwi::FrmKiwi()
-: wxFrame(NULL, wxID_ANY, "KiwiEd")
+FrmKiwi::FrmKiwi(wxApp* owner)
+: wxFrame(NULL, wxID_ANY, "KiwiEd"), owner(owner)
 {
 	// frame setup
 	SetMinSize(FromDIP(wxSize(200, 200))); // set minimum frame size
@@ -417,7 +457,6 @@ FrmKiwi::FrmKiwi()
 	InitializeToolBar();
 	InitializeInterface();
 	InitializeStatusBar();
-
 	
 	auiManager.Update();
 }

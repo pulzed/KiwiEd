@@ -25,4 +25,7 @@ namespace Kiwi
 // this MUST exist on line 26 because it gets auto-updated via "update_versions" util
 const std::string KIWIED_VERSION = "0.0.2";
 
+const std::string URL_GITHUB_MANUAL = "https://github.com/pulzed/KiwiEd/manual/README.md";
+const std::string URL_GITHUB_RELEASES = "https://github.com/pulzed/KiwiEd/releases";
+
 }
