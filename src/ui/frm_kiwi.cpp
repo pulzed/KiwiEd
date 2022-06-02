@@ -200,8 +200,6 @@ inline void FrmKiwi::InitializeGlobalMenu()
 	{
 		auto& menuShowGrid = menuView.members.menuShowGrid;
 		menuShowGrid = new wxMenuItem(menuView.root, wxID_ANY, "Show &Grid\tCtrl+G", "Toggles grid on and off");
-		//TODO test on win
-		menuShowGrid->SetBitmap(wxBitmapBundle::FromSVG(SVG_ICON_NEW, wxSize(16, 16)));
 		menuShowGrid->SetCheckable(true);
 		menuView.root->Append(menuShowGrid);
 		menuShowGrid->Check(true);
