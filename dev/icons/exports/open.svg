@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256"
+   height="256"
+   version="1.1"
+   viewBox="0 0 67.732 67.732"
+   id="svg2"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs6">
+    <marker
+       style="overflow:visible;"
+       id="Arrow2Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto">
+      <path
+         transform="scale(1.1) rotate(180) translate(1,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="stroke:context-stroke;fill-rule:evenodd;fill:context-stroke;stroke-width:0.62500000;stroke-linejoin:round;"
+         id="path6926" />
+    </marker>
+    <marker
+       style="overflow:visible;"
+       id="Arrow1Lend"
+       refX="0.0"
+       refY="0.0"
+       orient="auto">
+      <path
+         transform="scale(0.8) rotate(180) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt;"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path6908" />
+    </marker>
+    <linearGradient
+       id="linearGradient2225">
+      <stop
+         style="stop-color:#008282;stop-opacity:1"
+         offset="0"
+         id="stop2221" />
+      <stop
+         style="stop-color:#008080;stop-opacity:1"
+         offset="1"
+         id="stop2223" />
+    </linearGradient>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath6650">
+      <path
+         id="path6652"
+         style="fill:url(#linearGradient6654);fill-opacity:1;stroke-width:0.264578"
+         d="m 54.377657,15.15583 v 42.341063 c 0,2.484794 -2.00039,4.485184 -4.485184,4.485184 H 18.591339 c -2.484792,0 -4.485185,-2.00039 -4.485185,-4.485184 V 11.023319 c 0,-2.4847924 2.000393,-4.4851845 4.485185,-4.4851845 v 0 h 27.274097" />
+    </clipPath>
+    <linearGradient
+       xlink:href="#linearGradient2225"
+       id="linearGradient6654"
+       gradientUnits="userSpaceOnUse"
+       x1="54.184044"
+       y1="25.2593"
+       x2="204.73471"
+       y2="233.36703"
+       gradientTransform="scale(0.26457812)" />
+  </defs>
+  <g
+     id="g12300">
+    <path
+       id="rect4738"
+       style="fill:#c1ffab;stroke:#108500;stroke-width:2.95548;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:markers fill stroke"
+       d="M 6.7734474,15.352236 V 52.891837 H 50.36797 l 0.03531,-0.06744 5.51651,-10.2494 V 15.352236 Z" />
+    <g
+       id="g12159"
+       transform="translate(-5.1141987,-0.13262341)">
+      <rect
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#767676;stroke-width:3.24873;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         id="rect7363"
+         width="28.181772"
+         height="29.653952"
+         x="23.567982"
+         y="6.1489034"
+         ry="2.1031177" />
+      <rect
+         style="opacity:1;fill:#a4a4a4;fill-opacity:1;stroke:none;stroke-width:2.07333;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         id="rect9510"
+         width="15.920316"
+         height="2.6376855"
+         x="29.698709"
+         y="10.835213"
+         ry="0.5861522" />
+      <rect
+         style="opacity:1;fill:#a4a4a4;fill-opacity:1;stroke:none;stroke-width:2.07333;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         id="rect9512"
+         width="15.920316"
+         height="2.6376855"
+         x="29.698709"
+         y="17.145887"
+         ry="0.5861522" />
+      <rect
+         style="opacity:1;fill:#a4a4a4;fill-opacity:1;stroke:none;stroke-width:1.5046;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+         id="rect9514"
+         width="8.3840714"
+         height="2.6376855"
+         x="29.698709"
+         y="23.45656"
+         ry="0.5861522" />
+    </g>
+    <path
+       style="fill:#c1ffab;fill-opacity:1;stroke:#108500;stroke-width:2.93246;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 6.7734474,52.891838 20.062764,28.410902 h 45.555122 l -13.25117,24.410665 -45.5932686,0.07027 v 0"
+       id="path4853" />
+  </g>
+</svg>
