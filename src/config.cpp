@@ -21,7 +21,7 @@
 namespace Kiwi
 {
 
-std::string KiwiConfig::GetConfigurationFilename()
+std::string Config::GetConfigurationFilename()
 {
 #ifdef __linux__
 	const char* home;
@@ -34,11 +34,11 @@ std::string KiwiConfig::GetConfigurationFilename()
 #endif
 }
 
-KiwiConfig::KiwiConfig()
+Config::Config()
 {
 }
 
-void KiwiConfig::Load()
+void Config::Load()
 {
 	std::string configFilename = GetConfigurationFilename();
 	// if there is no config file, create one
@@ -50,7 +50,7 @@ void KiwiConfig::Load()
 	iniFile.read(iniCfg);
 }
 
-bool KiwiConfig::Write()
+bool Config::Write()
 {
 	return false;
 }

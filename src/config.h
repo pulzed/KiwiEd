@@ -24,7 +24,7 @@
 namespace Kiwi
 {
 
-class KiwiConfig
+class Config
 {
 private:
 	// configuration INI structurs
@@ -33,7 +33,7 @@ private:
 	std::string GetConfigurationFilename();
 
 public:
-	KiwiConfig();
+	Config();
 
 	// Load configuration. Load default if file not found.
 	void Load();

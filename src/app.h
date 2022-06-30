@@ -27,7 +27,7 @@ namespace Kiwi
 class App : public wxApp
 {
 private:
-	KiwiConfig config;
+	Config config;
 
 public:
 	virtual bool OnInit();
