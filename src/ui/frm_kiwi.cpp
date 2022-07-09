@@ -427,7 +427,7 @@ inline void FrmKiwi::InitializeInterface()
 
 
 
-/*
+
 	wxAuiNotebook* ntbDocumentView = new wxAuiNotebook(this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxAUI_NB_TAB_MOVE | wxAUI_NB_CLOSE_ON_ALL_TABS);
 
 		
@@ -445,7 +445,7 @@ inline void FrmKiwi::InitializeInterface()
 		//.CenterPane().Top());
 		.CenterPane()
 		.Top());
-	*/
+	
 	
 }
 

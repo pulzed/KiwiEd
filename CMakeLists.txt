@@ -31,7 +31,7 @@ endif()
 
 # wxWidgets
 set(wxBUILD_SHARED OFF CACHE INTERNAL "")
-add_subdirectory("thirdparty/wxWidgets-3.1.7" EXCLUDE_FROM_ALL)
+add_subdirectory("thirdparty/wxWidgets-3.2.0" EXCLUDE_FROM_ALL)
 
 target_link_libraries("${PROJECT_NAME}"
 	PUBLIC 
